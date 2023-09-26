@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{655AF1B1-EC04-2305-EFB3-A02A7C95C595}|">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="70281cb9-e3b3-4cbb-ab9a-0a65c36770d0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Course Library/Scripts/GameSettings.cs">
+    <Files>
+      <File FileName="Assets/Course Library/Scripts/GameManager.cs" />
+      <File FileName="Assets/Course Library/Scripts/GameSettings.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Hurry! The Passenger" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Course Library" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="GameSettings.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
