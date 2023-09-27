@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     public static float sensitivity; // sensitivity of turnning the character
     public float jumpForce; // force apply to the player when they jump
     public float gravityModifier; // set to 9.8
-    public bool isOnGround = true; // prevent double jump
 
     // Animation
     private Animator playerAnim;
@@ -74,6 +73,9 @@ public class PlayerController : MonoBehaviour
         // Analyse player inputs
         bool isMoving = movement.x != 0 || movement.y != 0;
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
+
+        // Test if the player is on the ground (within 0.01 tolerance)
+        bool isOnGround = Physics.Raycast(transform.position + Vector3.up * 0.01f, Vector3.down, 0.02f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
 
         // Set up walking or idel animation
         if (isMoving)
@@ -137,21 +139,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // apply force to the rigid body reference
-            isOnGround = false;
             playerAnim.SetTrigger("Jump_trig"); // play jump animation
             dirtParticle.Stop();
             soundEffect.PlayOneShot(jumpSound, 1.0f); // play jump sound
-        }
-    }
-
-    // Avoid double jumpting
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Know if player is on the ground (avoid double jumping)
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isOnGround = true;
-            dirtParticle.Stop();
         }
     }
 
