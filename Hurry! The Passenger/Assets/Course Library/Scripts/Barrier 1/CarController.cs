@@ -65,7 +65,7 @@ public class CarController : MonoBehaviour
     // When the car collide with the player, the game fails
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player") && gameManager.gameState != -1)
+        if (other.gameObject.CompareTag("Player") && gameManager.gameState != GameState.Over)
         {
             gameManager.explosionParticle.Play();
             gameManager.GameOver();

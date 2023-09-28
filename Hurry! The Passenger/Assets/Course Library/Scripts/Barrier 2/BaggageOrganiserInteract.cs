@@ -39,9 +39,9 @@ public class BaggageOrganiserInteract : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 // if the player has not finished organising their baggage
-                if (gameManager.gameState == 0 && !gameManager.tasks[1])
+                if (gameManager.gameState == GameState.Running && !gameManager.tasks[1])
                 {
-                    gameManager.gameState = 4;
+                    gameManager.gameState = GameState.LeavingMainScene;
                     Cursor.visible = true;
                     // go into baggage organisation view
                     gameManager.playerCamera.enabled = false; // !!! Test
@@ -83,7 +83,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
         confirm.gameObject.SetActive(false);
         exit.gameObject.SetActive(false);
         interact.gameObject.SetActive(true);
-        gameManager.gameState = 0;
+        gameManager.gameState = GameState.Running;
         Cursor.visible = false;
         gameManager.playerCamera.enabled = true;
         gameManager.baggageCamera.enabled = false;

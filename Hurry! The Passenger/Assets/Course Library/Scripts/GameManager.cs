@@ -5,15 +5,6 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum GameState
-{
-    GameOver, // game is finished or failed. The player cannot the character
-    GameProgressing, // the player can control the character. The remaining time is decreasing
-    GamePause, // the player cannot control the character. The remaining time stops decreasing
-    LeavingMainScene // the player cannot control the character. The camera is shooting another scene
-                     // i.e. the game organising view. The remaining time is decreasing.
-}
-
 public class GameManager : MonoBehaviour
 {
     // Manage tasks the player has finished
@@ -22,11 +13,10 @@ public class GameManager : MonoBehaviour
 
     // Internal Variables
     // -1 Over, 0 Playing, 1 Pause by the system, 2 Pause by Esc, 3 Pause by [I], 4 Organise baggage
-    public int gameState;
+    public GameState gameState;
     public float timeRemainMinute;
     public int timeRemain;
     public float gravity;
-    // public GameState gameState;
 
 
     // UI
@@ -82,9 +72,10 @@ public class GameManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        // gameState = 1;
+    void Start() {
+
+        gameState = GameState.Paused;
+
         // Get the reference to the player
         player = GameObject.Find("Player");
 
@@ -122,26 +113,32 @@ public class GameManager : MonoBehaviour
         // Press I to open task menu
         if (Input.GetKeyDown(KeyCode.T))
         {
-            if (gameState == 0)
+            if (gameState == GameState.Running)
             {
-                gameState = 3;
+                gameState = GameState.Paused;
                 taskMenu.SetActive(true);
                 Cursor.visible = true;
+            }
+            else if (gameState == GameState.Paused && taskMenu.activeSelf == true)
+            {
+                gameState = GameState.Running;
+                taskMenu.SetActive(false);
+                Cursor.visible = false;
             }
         }
 
         // Press P to open pause menu
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (gameState == 0)
+            if (gameState == GameState.Running)
             {
-                gameState = 1;
+                gameState = GameState.Paused;
                 pauseMenu.SetActive(true);
                 Cursor.visible = true;
             }
-            else if (gameState == 1 && pauseMenu.activeSelf == true)
+            else if (gameState == GameState.Paused && pauseMenu.activeSelf == true)
             {
-                gameState = 0;
+                gameState = GameState.Running;
                 pauseMenu.SetActive(false);
                 Cursor.visible = false;
             }
@@ -149,25 +146,31 @@ public class GameManager : MonoBehaviour
         // Press G to open guide menu
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if (gameState == 0)
+            if (gameState == GameState.Running)
             {
-                gameState = 1;
+                gameState = GameState.Paused;
                 guideMenu.SetActive(true);
                 Cursor.visible = true;
+            }
+            else if (gameState == GameState.Paused && guideMenu.activeSelf == true)
+            {
+                gameState = GameState.Running;
+                guideMenu.SetActive(false);
+                Cursor.visible = false;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
-            if (gameState == 0)
+            if (gameState == GameState.Running)
             {
-                gameState = 2; // Puase by BackQuote
+                gameState = GameState.Paused; // Puase by BackQuote
                 inputCommand.gameObject.SetActive(true);
                 Cursor.visible = true;
             }
-            else if (gameState == 2)
+            else if (gameState == GameState.Paused && inputCommand.gameObject == true)
             {
-                gameState = 0;
+                gameState = GameState.Running;
                 inputCommand.gameObject.SetActive(false);
                 Cursor.visible = false;
             }
@@ -177,7 +180,7 @@ public class GameManager : MonoBehaviour
     // Close a task menu / tutorial menu / pause menu
     public void CloseMenu()
     {
-        gameState = 0;
+        gameState = GameState.Running;
         taskMenu.SetActive(false);
         guideMenu.SetActive(false);
         pauseMenu.SetActive(false);
@@ -199,7 +202,7 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitForLoading()
     {
         yield return new WaitForSeconds(0.2f);
-        gameState = 0;
+        gameState = GameState.Running;
     }
 
     // Count Down Time Remain 
@@ -214,7 +217,7 @@ public class GameManager : MonoBehaviour
             }
             timeRemainText.text = displayTime(timeRemain);
             yield return new WaitForSeconds(1);
-            if (gameState == 0 || gameState == 4){
+            if (gameState == GameState.Running || gameState == GameState.LeavingMainScene){
                 timeRemain--;
             }
         }
@@ -223,7 +226,7 @@ public class GameManager : MonoBehaviour
     // What to do when the player fails
     public void GameOver()
     {
-        gameState = -1;
+        gameState = GameState.Over;
         largeText.text = "Game Over";
         largeText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
@@ -235,7 +238,7 @@ public class GameManager : MonoBehaviour
     // What to do when the player wins
     public void GameFinished()
     {
-        gameState = -1;
+        gameState = GameState.Over;
         largeText.text = "Game Finished";
         largeText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
