@@ -5,7 +5,14 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
+public enum GameState
+{
+    GameOver, // game is finished or failed. The player cannot the character
+    GameProgressing, // the player can control the character. The remaining time is decreasing
+    GamePause, // the player cannot control the character. The remaining time stops decreasing
+    LeavingMainScene // the player cannot control the character. The camera is shooting another scene
+                     // i.e. the game organising view. The remaining time is decreasing.
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +26,7 @@ public class GameManager : MonoBehaviour
     public float timeRemainMinute;
     public int timeRemain;
     public float gravity;
+    // public GameState gameState;
 
 
     // UI
@@ -26,7 +34,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeRemainText;
     public Button restartButton;
     public Button titleScreenButton;
-    public GameObject notes;
+
+
+    public GameObject taskMenu;
+    public GameObject guideMenu;
+    public GameObject pauseMenu;
+
+
     public TextMeshProUGUI noteText; // show guides when player press I
     public Slider staminaGauge;
 
@@ -70,12 +84,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // gameState = 1;
         // Get the reference to the player
         player = GameObject.Find("Player");
 
         // make the mouse inavtive for 0.2 seconds to wait for the game to be fully loaded
-        StartCoroutine(WaitForLoading());
-        Cursor.visible = false;
+        // StartCoroutine(WaitForLoading());
+        // Cursor.visible = false;
         Time.timeScale = 1;
         timeRemain = (int) (timeRemainMinute * 60); // convert minute to second
         timeRemainText.text = displayTime(timeRemain); // display time remain
@@ -104,42 +119,44 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Player press I to pause the game and see notes
-        if (Input.GetKeyDown(KeyCode.I))
+        // Press I to open task menu
+        if (Input.GetKeyDown(KeyCode.T))
         {
             if (gameState == 0)
             {
-                gameState = 3; // Puase by I
-                notes.SetActive(true);
+                gameState = 3;
+                taskMenu.SetActive(true);
                 Cursor.visible = true;
-            } else if (gameState == 3)
-            {
-                gameState = 0;
-                notes.SetActive(false);
-                Cursor.visible = false;
             }
         }
 
-        // Player press Esc to pause the game
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // Press P to open pause menu
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (gameState == 0)
             {
-                gameState = 2; // Puase by Esc
-                titleScreenButton.gameObject.SetActive(true);
-                restartButton.gameObject.SetActive(true);
+                gameState = 1;
+                pauseMenu.SetActive(true);
                 Cursor.visible = true;
             }
-            else if (gameState == 2)
+            else if (gameState == 1 && pauseMenu.activeSelf == true)
             {
                 gameState = 0;
-                titleScreenButton.gameObject.SetActive(false);
-                restartButton.gameObject.SetActive(false);
+                pauseMenu.SetActive(false);
                 Cursor.visible = false;
             }
         }
+        // Press G to open guide menu
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            if (gameState == 0)
+            {
+                gameState = 1;
+                guideMenu.SetActive(true);
+                Cursor.visible = true;
+            }
+        }
 
-        // Player press BackQuote to pause the game
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             if (gameState == 0)
@@ -156,6 +173,17 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    // Close a task menu / tutorial menu / pause menu
+    public void CloseMenu()
+    {
+        gameState = 0;
+        taskMenu.SetActive(false);
+        guideMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        Cursor.visible = false;
+    }
+
 
 
     // Show someting on the canvas temporarily
