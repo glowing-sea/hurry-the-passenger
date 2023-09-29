@@ -3189,6 +3189,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!1 &166494920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,6 +3584,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &177001498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5123,6 +5125,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &273721340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5319,6 +5322,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!1 &296397927
 GameObject:
   m_ObjectHideFlags: 0
@@ -6255,6 +6259,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!1 &347439179
 GameObject:
   m_ObjectHideFlags: 0
@@ -8468,6 +8473,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!1 &420541902
 GameObject:
   m_ObjectHideFlags: 0
@@ -9649,6 +9655,7 @@ MonoBehaviour:
   rightCounter: 1
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 787852926}
 --- !u!1 &471473339
 GameObject:
   m_ObjectHideFlags: 0
@@ -11453,6 +11460,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &542465059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14246,7 +14254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 368.4, y: -61}
+  m_AnchoredPosition: {x: 507, y: -61}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &706940475
@@ -24329,6 +24337,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &1155212452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27307,6 +27316,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &1284838860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31031,6 +31041,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &1500450421
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31474,6 +31485,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!1 &1542518860
 GameObject:
   m_ObjectHideFlags: 0
@@ -33905,6 +33917,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &1653931090
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35025,6 +35038,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!65 &1701231332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37462,6 +37476,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!1 &1853025210
 GameObject:
   m_ObjectHideFlags: 0
@@ -41551,7 +41566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 368, y: 0}
+  m_AnchoredPosition: {x: 508, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986114808
@@ -43080,6 +43095,7 @@ MonoBehaviour:
   rightCounter: 0
   largeText: {fileID: 1139247933}
   smallText: {fileID: 1900390029}
+  baggageOrganiser: {fileID: 0}
 --- !u!1 &2077026105
 GameObject:
   m_ObjectHideFlags: 0

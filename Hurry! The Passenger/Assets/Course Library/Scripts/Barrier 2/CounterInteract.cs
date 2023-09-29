@@ -17,6 +17,7 @@ public class CounterInteract : MonoBehaviour
 
     // Script
     private GameManager gameManager; // reference to the game manager script
+    public BaggageOrganiserInteract baggageOrganiser; // reference to BaggageOrganiserInteract script
 
     // Start is called before the first frame update
     void Start()
@@ -36,16 +37,23 @@ public class CounterInteract : MonoBehaviour
                 // If the player press F
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    // Player go to the right counter
-                    if (rightCounter)
+                     // Player goes to the right counter and has organized baggage
+                    if (rightCounter && baggageOrganiser.isBaggageWellOrganise())
                     {
-                        largeText.text = "Check-in Coompleted!";
+                        largeText.text = "Check-in Completed!";
                         StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
                         interactable = false;
                         interact.gameObject.SetActive(false);
                         gameManager.tasks[2] = true;
                         gameManager.UpdateNotesMenu();
                         gameManager.soundEffect.PlayOneShot(gameManager.taskComplete, 1.0f);
+                    }
+                    // Player goes to the right counter but hasn't organized baggage
+                    else if (rightCounter)
+                    {
+                        smallText.text = "Please organise your baggage first!";
+                        StartCoroutine(gameManager.ShowThingTemporarily(smallText.gameObject, 2));
+                        gameManager.soundEffect.PlayOneShot(gameManager.somethingWrong, 1.0f);
                     }
                     // Player go to the wrong counter
                     else
