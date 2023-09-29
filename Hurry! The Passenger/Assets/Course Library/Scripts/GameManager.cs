@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public int timeRemain;
     public float gravity;
 
+    public bool passedTut;
 
     // UI
     public GameObject guides; // show guides when player press I
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
     void Start() {
 
         gameState = GameState.Paused;
-
+        passedTut = false;
         // Get the reference to the player
         player = GameObject.Find("Player");
 
@@ -179,15 +180,32 @@ public class GameManager : MonoBehaviour
 
     // Close a task menu / tutorial menu / pause menu
     public void CloseMenu()
-    {
+    {   
+        if (passedTut)
+        {
         gameState = GameState.Running;
+        }
+        else
+        {
+            gameState = GameState.InTutorial;
+        }
+
         taskMenu.SetActive(false);
         guideMenu.SetActive(false);
         pauseMenu.SetActive(false);
         Cursor.visible = false;
     }
 
-
+    //When the player gets past the tutorial
+    public void PassedTutorial()
+    {
+        gameState = GameState.Running;
+        taskMenu.SetActive(false);
+        guideMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        Cursor.visible = false;
+        passedTut = true;
+    }
 
     // Show someting on the canvas temporarily
     public IEnumerator ShowThingTemporarily(GameObject gameObject, float time)
