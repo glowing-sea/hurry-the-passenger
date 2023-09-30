@@ -304,7 +304,12 @@ public class GameManager : MonoBehaviour
                 timeRemain = 5940;
                 break;
             case "skipbarrier1":
+                // playerController.enabled = false;
+                player.SetActive(false);
+                // Physics.SyncTransforms();
                 player.transform.position = new Vector3(27, 0, 0);
+                player.SetActive(true);
+                // playerController.enabled = true;
                 break;
             case "skipbarrier2":
                 tasks[1] = true;
