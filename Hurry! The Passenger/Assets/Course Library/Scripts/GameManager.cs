@@ -20,10 +20,8 @@ public class GameManager : MonoBehaviour
 
 
     // UI
-    public GameObject guides; // show guides when player press I
     public TextMeshProUGUI timeRemainText;
-    public Button restartButton;
-    public Button titleScreenButton;
+
 
 
     public GameObject taskMenu;
@@ -74,7 +72,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
 
+        // Pause the game and show up the guide
         gameState = GameState.Paused;
+        guideMenu.SetActive(true);
 
         // Get the reference to the player
         player = GameObject.Find("Player");
@@ -85,7 +85,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         timeRemain = (int) (timeRemainMinute * 60); // convert minute to second
         timeRemainText.text = displayTime(timeRemain); // display time remain
-        StartCoroutine(ShowThingTemporarily(guides, 3)); // hide control guides 3 second later
         StartCoroutine(TimeRemain()); // set up time countdown
         playerAudio = GetComponent<AudioSource>(); // get audio playing reference
         Physics.gravity = new Vector3(0, -gravity, 0); // set gravity
@@ -229,8 +228,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Over;
         largeText.text = "Game Over";
         largeText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
-        titleScreenButton.gameObject.SetActive(true);
+        pauseMenu.SetActive(true);
         playerAudio.PlayOneShot(crashSound, 1.0f); // play crash sound
         Cursor.visible = true;
     }
@@ -241,8 +239,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Over;
         largeText.text = "Game Finished";
         largeText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
-        titleScreenButton.gameObject.SetActive(true);
+        pauseMenu.SetActive(true);
         playerAudio.PlayOneShot(taskComplete, 1.0f); // play crash sound
         Cursor.visible = true;
     }

@@ -15,8 +15,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
     private bool interactable;
 
 
-    public Button confirm; // confirm baggage organise
-    public Button exit; // exit baggage organise
+    public GameObject baggageOrganiserMenu;
     public GameObject[] items; // a list of item to be organnise
 
     public TextMeshProUGUI largeText; // print text on the UI screen
@@ -49,8 +48,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
 
                     interact.gameObject.SetActive(false);
                     gameManager.staminaGauge.gameObject.SetActive(false);
-                    confirm.gameObject.SetActive(true);
-                    exit.gameObject.SetActive(true);
+                    baggageOrganiserMenu.SetActive(true);
                 }
             }
         }
@@ -80,8 +78,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
     // When the player want to exit the baggage organisation view
     public void ExitButton()
     {
-        confirm.gameObject.SetActive(false);
-        exit.gameObject.SetActive(false);
+        baggageOrganiserMenu.SetActive(false);
         interact.gameObject.SetActive(true);
         gameManager.gameState = GameState.Running;
         Cursor.visible = false;

@@ -53,6 +53,9 @@ https://www.cleanpng.com/png-star-png-image-64196/download-png.html
 Note icon on UI
 https://www.clipartkey.com/view/iRoToR_icons-checklist-computer-black-text-white-check-list/
 
+Guide icon on main screen
+https://www.cleanpng.com/png-question-mark-png-41120/
+
 
 **Sound Effect:**
 
