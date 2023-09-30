@@ -124,61 +124,28 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Press I to open task menu
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (gameState == GameState.Running)
-            {
-                gameState = GameState.Paused;
-                taskMenu.SetActive(true);
-            }
-            else if (gameState == GameState.Paused && taskMenu.activeSelf == true)
-            {
-                gameState = GameState.Running;
-                taskMenu.SetActive(false);
-            }
-        }
+        // Press some key to open and close menu
+        var menus = new (KeyCode, GameObject)[] {
+            (KeyCode.T, taskMenu),
+            (KeyCode.G, guideMenu),
+            (KeyCode.P, pauseMenu),
+            (KeyCode.BackQuote, inputCommand.gameObject),
+        };
 
-        // Press P to open pause menu
-        if (Input.GetKeyDown(KeyCode.P))
+        foreach (var (key, menu) in menus)
         {
-            if (gameState == GameState.Running)
+            if (Input.GetKeyDown(key))
             {
-                gameState = GameState.Paused;
-                pauseMenu.SetActive(true);
-            }
-            else if (gameState == GameState.Paused && pauseMenu.activeSelf == true)
-            {
-                gameState = GameState.Running;
-                pauseMenu.SetActive(false);
-            }
-        }
-        // Press G to open guide menu
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if (gameState == GameState.Running)
-            {
-                gameState = GameState.Paused;
-                guideMenu.SetActive(true);
-            }
-            else if (gameState == GameState.Paused && guideMenu.activeSelf == true)
-            {
-                gameState = GameState.Running;
-                guideMenu.SetActive(false);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            if (gameState == GameState.Running)
-            {
-                gameState = GameState.Paused; // Puase by BackQuote
-                inputCommand.gameObject.SetActive(true);
-            }
-            else if (gameState == GameState.Paused && inputCommand.gameObject == true)
-            {
-                gameState = GameState.Running;
-                inputCommand.gameObject.SetActive(false);
+                if (gameState == GameState.Running)
+                {
+                    gameState = GameState.Paused;
+                    menu.SetActive(true);
+                }
+                else if (gameState == GameState.Paused && menu.activeSelf == true)
+                {
+                    gameState = GameState.Running;
+                    menu.SetActive(false);
+                }
             }
         }
     }
