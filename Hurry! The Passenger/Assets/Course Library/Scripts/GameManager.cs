@@ -12,11 +12,27 @@ public class GameManager : MonoBehaviour
     public bool[] tasks;
 
     // Internal Variables
-    // -1 Over, 0 Playing, 1 Pause by the system, 2 Pause by Esc, 3 Pause by [I], 4 Organise baggage
-    public GameState gameState;
     public float timeRemainMinute;
     public int timeRemain;
     public float gravity;
+
+    // Game state
+    private GameState gameState_;
+    public GameState gameState
+    {
+        get { return gameState_; }
+        set
+        {
+            gameState_ = value;
+
+            // Control mouse lock
+            Cursor.lockState = value switch
+            {
+                GameState.Running => CursorLockMode.Locked,
+                _ => CursorLockMode.None,
+            };
+        }
+    }
 
 
     // UI
@@ -81,7 +97,6 @@ public class GameManager : MonoBehaviour
 
         // make the mouse inavtive for 0.2 seconds to wait for the game to be fully loaded
         // StartCoroutine(WaitForLoading());
-        // Cursor.visible = false;
         Time.timeScale = 1;
         timeRemain = (int) (timeRemainMinute * 60); // convert minute to second
         timeRemainText.text = displayTime(timeRemain); // display time remain
@@ -116,13 +131,11 @@ public class GameManager : MonoBehaviour
             {
                 gameState = GameState.Paused;
                 taskMenu.SetActive(true);
-                Cursor.visible = true;
             }
             else if (gameState == GameState.Paused && taskMenu.activeSelf == true)
             {
                 gameState = GameState.Running;
                 taskMenu.SetActive(false);
-                Cursor.visible = false;
             }
         }
 
@@ -133,13 +146,11 @@ public class GameManager : MonoBehaviour
             {
                 gameState = GameState.Paused;
                 pauseMenu.SetActive(true);
-                Cursor.visible = true;
             }
             else if (gameState == GameState.Paused && pauseMenu.activeSelf == true)
             {
                 gameState = GameState.Running;
                 pauseMenu.SetActive(false);
-                Cursor.visible = false;
             }
         }
         // Press G to open guide menu
@@ -149,13 +160,11 @@ public class GameManager : MonoBehaviour
             {
                 gameState = GameState.Paused;
                 guideMenu.SetActive(true);
-                Cursor.visible = true;
             }
             else if (gameState == GameState.Paused && guideMenu.activeSelf == true)
             {
                 gameState = GameState.Running;
                 guideMenu.SetActive(false);
-                Cursor.visible = false;
             }
         }
 
@@ -165,13 +174,11 @@ public class GameManager : MonoBehaviour
             {
                 gameState = GameState.Paused; // Puase by BackQuote
                 inputCommand.gameObject.SetActive(true);
-                Cursor.visible = true;
             }
             else if (gameState == GameState.Paused && inputCommand.gameObject == true)
             {
                 gameState = GameState.Running;
                 inputCommand.gameObject.SetActive(false);
-                Cursor.visible = false;
             }
         }
     }
@@ -183,7 +190,6 @@ public class GameManager : MonoBehaviour
         taskMenu.SetActive(false);
         guideMenu.SetActive(false);
         pauseMenu.SetActive(false);
-        Cursor.visible = false;
     }
 
 
@@ -230,7 +236,6 @@ public class GameManager : MonoBehaviour
         largeText.gameObject.SetActive(true);
         pauseMenu.SetActive(true);
         playerAudio.PlayOneShot(crashSound, 1.0f); // play crash sound
-        Cursor.visible = true;
     }
 
     // What to do when the player wins
@@ -241,7 +246,6 @@ public class GameManager : MonoBehaviour
         largeText.gameObject.SetActive(true);
         pauseMenu.SetActive(true);
         playerAudio.PlayOneShot(taskComplete, 1.0f); // play crash sound
-        Cursor.visible = true;
     }
 
 
