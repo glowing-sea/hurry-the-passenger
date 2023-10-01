@@ -94,16 +94,16 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player");
 
         // Whether change player's spawning point (mainly for testing)
-        if (GameSettings.changeSpawningPoint)
+        if (DebugSettings.instance.changeSpawningPoint)
         {
             player.SetActive(false);
-            player.transform.position = GameSettings.newSpawningPoint;
-            player.transform.rotation = GameSettings.newSpawningAngle;
+            player.transform.position = DebugSettings.instance.newSpawningPoint;
+            player.transform.eulerAngles = DebugSettings.instance.newSpawningRotation;
             player.SetActive(true);
         }
 
         // Whether to pop up a guide when started
-        if (GameSettings.showGuideWhenStart)
+        if (DebugSettings.instance.showGuideWhenStart)
         {
             gameState = GameState.Paused;
             guideMenu.SetActive(true);
@@ -111,7 +111,6 @@ public class GameManager : MonoBehaviour
         {
             gameState = GameState.Running;
         }
-
 
         // make the mouse inavtive for 0.2 seconds to wait for the game to be fully loaded
         // StartCoroutine(WaitForLoading());

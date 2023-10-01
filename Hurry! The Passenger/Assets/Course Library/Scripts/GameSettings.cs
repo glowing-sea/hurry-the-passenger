@@ -1,26 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-// This script is used to share between scene to reflect on game setting set on the titile screen
-public class GameSettings : MonoBehaviour
+// This script is used to share between scene to reflect on game setting set on the title screen
+public class GameSettings : ScriptableObject
 {
     // Default sensitivity
-    public static int sensitivity = 200;
-    public static bool showGuideWhenStart = false;
-    public static bool changeSpawningPoint = true;
-    public static Vector3 newSpawningPoint = new Vector3(38, 0, 0);
-    public static Quaternion newSpawningAngle = Quaternion.Euler(0, -90, 0);
+    public int sensitivity = 200;
 
-    // Start is called before the first frame update
-    void Start()
+    private static GameSettings instance_;
+    public static GameSettings instance
     {
-        
+        get
+        {
+            if (instance_ == null)
+            {
+                // Create an instance with default values on first access
+                instance_ = ScriptableObject.CreateInstance<GameSettings>();
+            }
+            return instance_;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    #if UNITY_EDITOR
+    [MenuItem("Game Settings/View Game Settings", false, 0)]
+    public static void ViewGameSettings()
     {
-        
+        Selection.activeObject = instance;
     }
+    #endif
 }

@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         stamina = maxStamina; // initialise stamina
         staminaGauge.gameObject.SetActive(false);
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // get reference
-        sensitivity = GameSettings.sensitivity; // change the game setting by reading the variable in the GameSetting script
+        sensitivity = GameSettings.instance.sensitivity; // change the game setting by reading the variable in the GameSetting script
     }
 
 
