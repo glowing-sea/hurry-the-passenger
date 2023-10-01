@@ -111,6 +111,5 @@ public class AutoDoor : MonoBehaviour
         stayOpenedTime = autoDoorTrigger.stayOpenedTime;
         yield return new WaitForSeconds(stayOpenedTime);
         doorState = DoorState.Closing;
-        Debug.Log(stayOpenedTime);
     }
 }

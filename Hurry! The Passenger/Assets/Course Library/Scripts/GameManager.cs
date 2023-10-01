@@ -25,12 +25,18 @@ public class GameManager : MonoBehaviour
         {
             gameState_ = value;
 
-            // Control mouse lock
-            Cursor.lockState = value switch
+            // Control mouse lock and visibility
+            switch (gameState_)
             {
-                GameState.Running => CursorLockMode.Locked,
-                _ => CursorLockMode.None,
-            };
+                case GameState.Running:
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    break;
+                default:
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    break;
+            }
         }
     }
 
