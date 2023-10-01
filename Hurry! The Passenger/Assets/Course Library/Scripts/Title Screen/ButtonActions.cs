@@ -27,8 +27,8 @@ public class ButtonActions : MonoBehaviour
         try
         {
             // Change player control sensitivity
-            GameSettings.instance.sensitivity = int.Parse(enterSensitivity.text);
-            Debug.Log(int.Parse(enterSensitivity.text));
+            GameSettings.instance.sensitivity = float.Parse(enterSensitivity.text);
+            Debug.Log("Sensitivity set to " + GameSettings.instance.sensitivity);
         }
         catch
         {

@@ -9,12 +9,11 @@ public class PlayerController : MonoBehaviour
 {
     // Control
     private Vector2 movement; // ref to keyboard inputs
-    private float turn; // ref to the mouse inputs
+    private float mouseX; // ref to the mouse inputs
     private Rigidbody playerRb;
     public float speed; // speed of the player
     public float maxStamina; // determine how long the player can run
     private float stamina; // current stamina
-    public static float sensitivity; // sensitivity of turnning the character
     public float jumpForce; // force apply to the player when they jump
     public float gravityModifier; // set to 9.8
 
@@ -46,7 +45,6 @@ public class PlayerController : MonoBehaviour
         stamina = maxStamina; // initialise stamina
         staminaGauge.gameObject.SetActive(false);
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // get reference
-        sensitivity = GameSettings.instance.sensitivity; // change the game setting by reading the variable in the GameSetting script
     }
 
 
@@ -131,8 +129,11 @@ public class PlayerController : MonoBehaviour
 
         
         // Rotate the character based on the mouse inpupt
-        turn = Input.GetAxis("Mouse X");
-        transform.Rotate(new Vector3(0, turn, 0), sensitivity * Time.deltaTime);
+        mouseX = Input.GetAxis("Mouse X"); // seems to be in pixels, documentation not clear
+        if (mouseX != 0)
+        {
+            transform.Rotate(Vector3.up, mouseX * GameSettings.instance.sensitivity);
+        }
 
 
         // Make the player jump

@@ -6,8 +6,8 @@ using UnityEngine;
 // This script is used to share between scene to reflect on game setting set on the title screen
 public class GameSettings : ScriptableObject
 {
-    // Default sensitivity
-    public int sensitivity = 200;
+    // Mouse sensitivity, in degrees per pixel
+    public float sensitivity = 1f;
 
     private static GameSettings instance_;
     public static GameSettings instance
