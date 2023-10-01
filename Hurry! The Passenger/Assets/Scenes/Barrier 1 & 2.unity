@@ -19306,7 +19306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasks: 000000
-  gameState: 0
   timeRemainMinute: 3
   timeRemain: 0
   gravity: 9.8
@@ -19314,11 +19313,11 @@ MonoBehaviour:
   taskMenu: {fileID: 155227638}
   guideMenu: {fileID: 2002214645}
   pauseMenu: {fileID: 1641774053}
+  checkMenu: {fileID: 371170126}
   noteText: {fileID: 1455143127}
   staminaGauge: {fileID: 663700789}
   smallText: {fileID: 1900390029}
   largeText: {fileID: 1139247933}
-  inputCommand: {fileID: 371170126}
   playerCamera: {fileID: 937584091}
   baggageCamera: {fileID: 534669904}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}

@@ -45,10 +45,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeRemainText;
 
 
-
+    // Menus
     public GameObject taskMenu;
     public GameObject guideMenu;
     public GameObject pauseMenu;
+    public TMPro.TMP_InputField checkMenu;
 
 
     public TextMeshProUGUI noteText; // show guides when player press I
@@ -56,8 +57,6 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI smallText;
     public TextMeshProUGUI largeText;
-
-    public TMPro.TMP_InputField inputCommand; // input cheat command
 
     // Cameras
     public Camera playerCamera;
@@ -151,7 +150,7 @@ public class GameManager : MonoBehaviour
             (KeyCode.T, taskMenu),
             (KeyCode.G, guideMenu),
             (KeyCode.P, pauseMenu),
-            (KeyCode.BackQuote, inputCommand.gameObject),
+            (KeyCode.BackQuote, checkMenu.gameObject),
         };
 
         foreach (var (key, menu) in menus)
@@ -291,7 +290,7 @@ public class GameManager : MonoBehaviour
     // Behaviour of the command line
     public void InputCommandConfirm()
     {
-        switch (inputCommand.text)
+        switch (checkMenu.text)
         {
             case "unlimitedtime":
                 timeRemain = 5940;
