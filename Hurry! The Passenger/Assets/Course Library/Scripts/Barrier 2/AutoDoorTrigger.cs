@@ -2,45 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class AutoDoorTrigger : MonoBehaviour
 {
-    private AutoDoor autoDoorRight;
-    private AutoDoor autoDoorLeft;
-    public float doorSpeed;
-    public float[] stayOpenedTimes;
-    public float stayOpenedTime;
-    private int openedTimes = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        autoDoorRight = GameObject.Find("Door Right").GetComponent<AutoDoor>(); // get reference
-        autoDoorLeft = GameObject.Find("Door Left").GetComponent<AutoDoor>(); // get reference
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<AutoDoor> doors;
+    [SerializeField] private float[] openDurationCandidates; 
+    private int openedTimes = 0; // How many times the door has been opened
 
     private void OnTriggerEnter(Collider other)
     {
-        // Open the doors
-        autoDoorRight.doorState = AutoDoor.DoorState.Opening;
-        autoDoorLeft.doorState = AutoDoor.DoorState.Opening;
+        // Open the doors when player enters the trigger
+        if (!other.CompareTag("Player")) return;
 
+        // Select a random duration for the door to stay open,
+        // but use a fixed duration of 0.5s every 5 times
+        float openDuration;
         if (openedTimes % 5 == 4)
         {
-            stayOpenedTime = 0.5f;
+            openDuration = 0.5f;
         }
         else
         {
-            int stayOpenedTimesIdx = Random.Range(0, stayOpenedTimes.Length);
-            stayOpenedTime = stayOpenedTimes[stayOpenedTimesIdx];
+            int stayOpenedTimesIdx = Random.Range(0, openDurationCandidates.Length);
+            openDuration = openDurationCandidates[stayOpenedTimesIdx];
         }
 
         openedTimes++;
+
+        foreach (AutoDoor door in doors)
+        {
+            door.openDuration = openDuration;
+            door.SetOpen(true);
+        }
     }
 }

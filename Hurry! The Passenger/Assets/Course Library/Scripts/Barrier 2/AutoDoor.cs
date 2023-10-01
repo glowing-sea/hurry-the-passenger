@@ -12,35 +12,21 @@ public class AutoDoor : MonoBehaviour
         Closed,
     }
 
+    public DoorState doorState { get; private set; } // current state of the door
 
-    public bool isRightDoor; // whether right or left door
-    public DoorState doorState; // current state of the door
+    public float doorSpeed; // spped of opening or closing
+    [System.NonSerialized] public float openDuration; // The time the door stay open
 
-
-    private float stayOpenedTime; // The time the door stay open
-    private float doorSpeed; // spped of opening or closing
-
-
-    private float doorX = 22.7f;
-    private float doorY = 2.5f;
-    public float openedDoorZ; /// where the door locates when it is open
-    public float closedDoorZ;
-
-    private AutoDoorTrigger autoDoorTrigger;
+    private Vector3 closedPosition;
+    public Vector3 openedDisplacement; // The displacement of the door when it is opened
+    private Vector3 openedPosition { get { return closedPosition + openedDisplacement; } }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        autoDoorTrigger = GameObject.Find("Door Controller").GetComponent<AutoDoorTrigger>();
-        doorSpeed = autoDoorTrigger.doorSpeed;
-
-        if (!isRightDoor)
-        {
-            openedDoorZ *= -1;
-            closedDoorZ *= -1;
-            doorSpeed *= -1;
-        }
+        doorState = DoorState.Closed;
+        closedPosition = transform.localPosition; // use the saved position as the closed position
     }
 
     // Update is called once per frame
@@ -50,23 +36,13 @@ public class AutoDoor : MonoBehaviour
         if (doorState == DoorState.Opening)
         {
             // Door is moving to its opened position
-            if (Mathf.Abs(transform.localPosition.z) < openedDoorZ)
+            if (transform.localPosition != openedPosition)
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * doorSpeed, Space.Self);
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, openedPosition, Time.deltaTime * doorSpeed);
             }
             // Door has got to its opened position
             else
             {
-                // Adjust right door's opened position
-                if (isRightDoor)
-                {
-                    transform.localPosition = new Vector3(doorX, doorY, openedDoorZ);
-                }
-                // Adjust left door's opened positon
-                else
-                {
-                    transform.localPosition = new Vector3(doorX, doorY, openedDoorZ * -1);
-                }
                 // Update the door state
                 doorState = DoorState.Opened;
             }
@@ -75,24 +51,14 @@ public class AutoDoor : MonoBehaviour
         // Close the door
         else if (doorState == DoorState.Closing)
         {
-            // Door is moving to itstis closed position
-            if (Mathf.Abs(transform.localPosition.z) > closedDoorZ)
+            // Door is moving to its closed position
+            if (transform.localPosition != closedPosition)
             {
-                transform.Translate(Vector3.back * Time.deltaTime * doorSpeed, Space.Self);
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, closedPosition, Time.deltaTime * doorSpeed);
             }
             // Door has got to its closed position
             else
             {
-                // Adjust right door's closed positon
-                if (isRightDoor)
-                {
-                    transform.localPosition = new Vector3(doorX, doorY, closedDoorZ);
-                }
-                // Adjust left door's closed position
-                else
-                {
-                    transform.localPosition = new Vector3(doorX, doorY, closedDoorZ * -1);
-                }
                 // Update the door state
                 doorState = DoorState.Closed;
             }
@@ -108,8 +74,34 @@ public class AutoDoor : MonoBehaviour
     // Keep the Open state for some time and then turn it into Closing state.
     IEnumerator StayOpenedForSomeTime()
     {
-        stayOpenedTime = autoDoorTrigger.stayOpenedTime;
-        yield return new WaitForSeconds(stayOpenedTime);
-        doorState = DoorState.Closing;
+        yield return new WaitForSeconds(openDuration);
+        SetOpen(false);
+    }
+
+    // Change the door state to Opening or Closing
+    public void SetOpen(bool open)
+    {
+        if (open)
+        {
+            doorState = DoorState.Opening;
+        }
+        else
+        {
+            doorState = DoorState.Closing;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw the door's opened displacement and position
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, openedDisplacement);
+
+        MeshFilter meshFilter = GetComponent<MeshFilter>();
+        if (meshFilter != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireMesh(meshFilter.sharedMesh, transform.position + openedDisplacement, transform.rotation, transform.localScale);
+        }
     }
 }
