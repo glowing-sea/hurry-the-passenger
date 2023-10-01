@@ -9,7 +9,9 @@ public class DebugSettings : ScriptableObject
     public Vector3 newSpawningPoint;
     public Vector3 newSpawningRotation;
 
+    #if UNITY_EDITOR
     private static readonly string assetPath = "Assets/DebugSettings.asset";
+    #endif
 
     private static DebugSettings instance_;
     public static DebugSettings instance
@@ -32,12 +34,29 @@ public class DebugSettings : ScriptableObject
     }
 
     #if UNITY_EDITOR
-    [MenuItem("Game Settings/(Re)craete Debug Settings", false, 20)]
-    public static void CreateDebugSettingsAsset()
+
+    [MenuItem("Game Settings/View Debug Settings", false, 1)]
+    public static void ViewDebugSettings()
+    {
+        Selection.activeObject = instance;
+    }
+
+    [MenuItem("Game Settings/Reset Debug Settings", false, 101)]
+    public static void ResetDebugSettings()
+    {
+        // Confirm dialog
+        if (!EditorUtility.DisplayDialog("Create Debug Settings", "Are you sure you want to recreate debug settings?", "Yes", "No")) return;
+
+        CreateDebugSettingsAsset();
+        Selection.activeObject = null;
+    }
+
+    private static void CreateDebugSettingsAsset()
     {
         instance_ = ScriptableObject.CreateInstance<DebugSettings>();
         AssetDatabase.CreateAsset(instance_, assetPath);
         AssetDatabase.SaveAssets();
     }
+
     #endif
 }

@@ -42,11 +42,15 @@ public class GameSettings : ScriptableObject
         Selection.activeObject = instance;
     }
 
-    [MenuItem("Game Settings/Reset Game Settings", false, 1)]
+    [MenuItem("Game Settings/Reset Game Settings", false, 100)]
     public static void ResetGameSettings()
     {
+        // Confirm dialog
+        if (!EditorUtility.DisplayDialog("Reset Game Settings", "Are you sure you want to reset game settings?", "Yes", "No")) return;
+
         instance_ = null;
         PlayerPrefs.DeleteKey("GameSettings");
+        Selection.activeObject = null;
     }
 
     [CustomEditor(typeof(GameSettings))]
