@@ -71,13 +71,29 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-
-        // Pause the game and show up the guide
-        gameState = GameState.Paused;
-        guideMenu.SetActive(true);
-
         // Get the reference to the player
         player = GameObject.Find("Player");
+
+        // Whether change player's spawning point (mainly for testing)
+        if (GameSettings.changeSpawningPoint)
+        {
+            player.SetActive(false);
+            player.transform.position = GameSettings.newSpawningPoint;
+            player.transform.rotation = GameSettings.newSpawningAngle;
+            player.SetActive(true);
+        }
+
+        // Whether to pop up a guide when started
+        if (GameSettings.showGuideWhenStart)
+        {
+            gameState = GameState.Paused;
+            guideMenu.SetActive(true);
+        } else
+        {
+            gameState = GameState.Running;
+            Cursor.visible = false;
+        }
+
 
         // make the mouse inavtive for 0.2 seconds to wait for the game to be fully loaded
         // StartCoroutine(WaitForLoading());
@@ -304,12 +320,10 @@ public class GameManager : MonoBehaviour
                 timeRemain = 5940;
                 break;
             case "skipbarrier1":
-                // playerController.enabled = false;
+            case "":
                 player.SetActive(false);
-                // Physics.SyncTransforms();
                 player.transform.position = new Vector3(27, 0, 0);
                 player.SetActive(true);
-                // playerController.enabled = true;
                 break;
             case "skipbarrier2":
                 tasks[1] = true;

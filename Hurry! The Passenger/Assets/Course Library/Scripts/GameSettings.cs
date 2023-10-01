@@ -7,6 +7,10 @@ public class GameSettings : MonoBehaviour
 {
     // Default sensitivity
     public static int sensitivity = 200;
+    public static bool showGuideWhenStart = false;
+    public static bool changeSpawningPoint = true;
+    public static Vector3 newSpawningPoint = new Vector3(38, 0, 0);
+    public static Quaternion newSpawningAngle = Quaternion.Euler(0, -90, 0);
 
     // Start is called before the first frame update
     void Start()
