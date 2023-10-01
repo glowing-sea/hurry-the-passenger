@@ -30,11 +30,9 @@ public class GameManager : MonoBehaviour
             {
                 case GameState.Running:
                     Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
                     break;
                 default:
                     Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
                     break;
             }
         }
@@ -112,7 +110,6 @@ public class GameManager : MonoBehaviour
         } else
         {
             gameState = GameState.Running;
-            Cursor.visible = false;
         }
 
 
