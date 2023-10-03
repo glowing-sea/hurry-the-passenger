@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
-    private GameManager gameManager;
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +18,9 @@ public class TutorialController : MonoBehaviour
     }
 
       //if collides with player, set game state to running.
-    private void OnCollisionEnter(Collision other)
-        {
-        if (other.gameObject.CompareTag("Player") && gameManager.gameState != GameState.Over)
+    private void OnTriggerEnter(Collider other){
+        Debug.Log("yaaaaaaaaaaaaaaaaaaaaay " + other.gameObject.name);
+        if (other.gameObject.name == "Player"  && gameManager.gameState != GameState.Over)
         {
             gameManager.gameState = GameState.Running;
             //print("collided");
