@@ -41,7 +41,6 @@ public class BaggageOrganiserInteract : MonoBehaviour
                 if (gameManager.gameState == GameState.Running && !gameManager.tasks[1])
                 {
                     gameManager.gameState = GameState.LeavingMainScene;
-                    Cursor.visible = true;
                     // go into baggage organisation view
                     gameManager.playerCamera.enabled = false; // !!! Test
                     gameManager.baggageCamera.enabled = true;
@@ -81,7 +80,6 @@ public class BaggageOrganiserInteract : MonoBehaviour
         baggageOrganiserMenu.SetActive(false);
         interact.gameObject.SetActive(true);
         gameManager.gameState = GameState.Running;
-        Cursor.visible = false;
         gameManager.playerCamera.enabled = true;
         gameManager.baggageCamera.enabled = false;
     }
