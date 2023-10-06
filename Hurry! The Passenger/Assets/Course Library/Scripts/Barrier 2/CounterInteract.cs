@@ -40,7 +40,7 @@ public class CounterInteract : MonoBehaviour
                      // Player goes to the right counter and has organized baggage
                     if (rightCounter && baggageOrganiser.isBaggageWellOrganise())
                     {
-                        largeText.text = "Check-in Completed!";
+                        largeText.text = "Check-in Completed!\n Please go to the International Departure!\nTime is Running Out!";
                         StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
                         interactable = false;
                         interact.gameObject.SetActive(false);
@@ -51,7 +51,7 @@ public class CounterInteract : MonoBehaviour
                     // Player goes to the right counter but hasn't organized baggage
                     else if (rightCounter)
                     {
-                        smallText.text = "Please organise your baggage first!";
+                        smallText.text = "Please organise your baggage first!\nBaggae Organiser is on the right side of the Airport Entrance";
                         StartCoroutine(gameManager.ShowThingTemporarily(smallText.gameObject, 2));
                         gameManager.soundEffect.PlayOneShot(gameManager.somethingWrong, 1.0f);
                     }

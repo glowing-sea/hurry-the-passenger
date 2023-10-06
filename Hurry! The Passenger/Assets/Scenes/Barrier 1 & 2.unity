@@ -4638,7 +4638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words: The check-in counter for the airlines CS104 and TX188 are closing now.
+  words: 'The check-in counter for the TX188 airlines is nearby. '
   interact: {fileID: 1703845520}
   conversation: {fileID: 126734428}
   background: {fileID: 1877555618}
@@ -38592,7 +38592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words: The check-in for the airline TX188 is located at counter 4.
+  words: The check-in Counter for the airline TX188 is located at Counter 4.
   interact: {fileID: 1703845520}
   conversation: {fileID: 126734428}
   background: {fileID: 1877555618}
@@ -41175,7 +41175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words: Did you know? One of the counter in Column A is almost close.
+  words: Did you know? Check-in Counters in Column A is for handling international
+    flights.
   interact: {fileID: 1703845520}
   conversation: {fileID: 126734428}
   background: {fileID: 1877555618}
