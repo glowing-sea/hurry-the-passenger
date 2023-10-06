@@ -278,13 +278,13 @@ public class GameManager : MonoBehaviour
     public void UpdateNotesMenu()
     {
         string title = "Notes\n\n";
-        string content = "Welcome to this short demo. You are now a person who almost late for the plane. You have to get to the “International Departure” in 5 minutes, but before this, you should:\n\n";
+        string content = "Hurry! You are almost late!\nYou only have *10 minutes* left to approach *International Departure* and \nto catch the plane, you need to:\n\n";
         string task1 = tasks[0] ? "[Completed] " : "[Unfinished] ";
         string task2 = tasks[1] ? "[Completed] " : "[Unfinished] ";
-        string task3 = tasks[2] ? "[Completed] " : "[Unfinished] ";
+        string task3 = tasks[2] ? "[Completed] " : "[Unfinished] "; 
         task1 = task1 + "Cross roads to the airport\n";
-        task2 = task2 + "Organise your baggage and avoid being overweight\n";
-        task3 = task3 + "Find the right check-in counter to check in\n";
+        task2 = task2 + "Organise your baggage to avoid being overweight\n";
+        task3 = task3 + "Find the right check-in counter and departure gate\n";
         string note = title + content + task1 + task2 + task3;
         noteText.text = note;
     }

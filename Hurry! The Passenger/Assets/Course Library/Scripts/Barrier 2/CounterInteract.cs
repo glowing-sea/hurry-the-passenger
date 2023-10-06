@@ -58,7 +58,7 @@ public class CounterInteract : MonoBehaviour
                     // Player go to the wrong counter
                     else
                     {
-                        smallText.text = "Wrong Check-in Counter\nFor some reason, you lost 30 seconds";
+                        smallText.text = "Wrong Check-in Counter\nFor some reason, you lost 30 seconds.\n [Tip: Ask NPC for help]";
                         StartCoroutine(gameManager.ShowThingTemporarily(smallText.gameObject, 2));
                         interactable = false;
                         gameManager.timeRemain -= 30;
