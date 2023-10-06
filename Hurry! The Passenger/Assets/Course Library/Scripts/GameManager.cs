@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         {
             gameState = GameState.Running;
         }
-
+        
         // make the mouse inavtive for 0.2 seconds to wait for the game to be fully loaded
         // StartCoroutine(WaitForLoading());
         Time.timeScale = 1;
@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
         roadAmbiance = GameObject.Find("Road Ambiance").GetComponent<AudioSource>();
         airportAmbiance = GameObject.Find("Airport Ambiance").GetComponent<AudioSource>();
         roadAmbiance.Play();
+
     }
 
     // Update is called once per frame
@@ -232,6 +233,12 @@ public class GameManager : MonoBehaviour
         playerAudio.PlayOneShot(taskComplete, 1.0f); // play crash sound
     }
 
+    //Continue Game State After Paused
+    public void ContinueGame()
+    {
+        gameState = GameState.Running;
+        pauseMenu.SetActive(false);
+    }
 
     // Reload the Barrier 1 & 2
     public void RestartGame()

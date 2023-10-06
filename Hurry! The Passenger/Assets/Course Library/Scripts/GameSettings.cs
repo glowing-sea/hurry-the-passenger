@@ -11,7 +11,7 @@ using UnityEditor.UIElements;
 public class GameSettings : ScriptableObject
 {
     // Mouse sensitivity, in degrees per pixel
-    public float sensitivity = 1f;
+    public float sensitivity = 0.1f;//adjust sensitivity from 1 to 0.1 to improve player's experience
 
     private static GameSettings instance_;
     public static GameSettings instance
