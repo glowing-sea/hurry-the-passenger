@@ -2057,9 +2057,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 92547085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6829c9e84a65e55d996bef3110206b15, type: 3}
+  m_Script: {fileID: 11500000, guid: 63df37c047066deac98ce90842f276e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!1 &94173604
 GameObject:
   m_ObjectHideFlags: 0
@@ -20125,6 +20126,7 @@ MonoBehaviour:
   timeRemainMinute: 3
   timeRemain: 0
   gravity: 9.8
+  passedTut: 0
   timeRemainText: {fileID: 1010127657}
   taskMenu: {fileID: 155227638}
   guideMenu: {fileID: 2002214645}
