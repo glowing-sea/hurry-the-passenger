@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // If the game is not over or pause, make player movement active
-        if (gameManager.gameState == GameState.Running || gameManager.gameState == GameState.InTutorial)
+        if (gameManager.gameState == GameState.Running)
         {
             PlayerMovement();
         }
