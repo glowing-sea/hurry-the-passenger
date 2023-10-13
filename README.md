@@ -56,6 +56,9 @@ https://www.clipartkey.com/view/iRoToR_icons-checklist-computer-black-text-white
 Guide icon on main screen
 https://www.cleanpng.com/png-question-mark-png-41120/
 
+Arrow on the minimap
+https://www.cleanpng.com/png-arrowhead-computer-icons-clip-art-left-arrow-1030804/download-png.html
+
 
 **Sound Effect:**
 
