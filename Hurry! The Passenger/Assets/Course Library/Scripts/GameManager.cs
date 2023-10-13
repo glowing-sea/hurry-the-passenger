@@ -120,7 +120,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         timeRemain = (int) (timeRemainMinute * 60); // convert minute to second
         timeRemainText.text = displayTime(timeRemain); // display time remain
-        StartCoroutine(TimeRemain()); // set up time countdown
         playerAudio = GetComponent<AudioSource>(); // get audio playing reference
         Physics.gravity = new Vector3(0, -gravity, 0); // set gravity
         UpdateNotesMenu(); // update the note menu (when the player press [I])
@@ -175,14 +174,7 @@ public class GameManager : MonoBehaviour
     // Close a task menu / tutorial menu / pause menu
     public void CloseMenu()
     {
-        if (passedTut)
-        {
         gameState = GameState.Running;
-        }
-        else
-        {
-            gameState = GameState.InTutorial;
-        }
         taskMenu.SetActive(false);
         guideMenu.SetActive(false);
         pauseMenu.SetActive(false);
@@ -207,7 +199,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Count Down Time Remain 
-    IEnumerator TimeRemain()
+    public IEnumerator TimeRemain()
     {
         while (true)
         {
