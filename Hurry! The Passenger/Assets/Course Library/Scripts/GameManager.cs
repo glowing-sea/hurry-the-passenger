@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     // Game state
     private GameState gameState_;
+
+        public bool passedTut;
     public GameState gameState
     {
         get { return gameState_; }
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
     void Start() {
         // Get the reference to the player
         player = GameObject.Find("Player");
+                passedTut = false;
 
         // Whether change player's spawning point (mainly for testing)
         if (DebugSettings.instance.changeSpawningPoint)
@@ -142,6 +145,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+                Debug.Log(gameState);
         // Press some key to open and close menu
         var menus = new (KeyCode, GameObject)[] {
             (KeyCode.T, taskMenu),
@@ -171,7 +175,14 @@ public class GameManager : MonoBehaviour
     // Close a task menu / tutorial menu / pause menu
     public void CloseMenu()
     {
+        if (passedTut)
+        {
         gameState = GameState.Running;
+        }
+        else
+        {
+            gameState = GameState.InTutorial;
+        }
         taskMenu.SetActive(false);
         guideMenu.SetActive(false);
         pauseMenu.SetActive(false);
