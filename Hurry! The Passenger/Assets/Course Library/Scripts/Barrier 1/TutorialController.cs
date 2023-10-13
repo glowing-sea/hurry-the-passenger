@@ -9,10 +9,12 @@ public class TutorialController : MonoBehaviour
 {
     public GameManager gameManager;
      public TMP_Text readyText; 
+     public bool textShown;
     // Start is called before the first frame update
     void Start()
     {
         //disable the ready text
+        textShown = false;
         readyText = transform.Find("Environment/TutReady").GetComponent<TMP_Text>();
         readyText.gameObject.SetActive(false);  
           }
@@ -33,18 +35,24 @@ public class TutorialController : MonoBehaviour
             Debug.Log("collided");
 
         GetComponent<TutorialController>().DisplayTextForDuration(5.0f);
-
+        textShown = true;
         }
     }
 
 
     public void DisplayTextForDuration(float duration)
     {
-        StartCoroutine(ShowTextForDuration(duration));
+        if (!textShown)
+        {
+            StartCoroutine(ShowTextForDuration(duration));
+            
+        }
+        
     }
 
  private IEnumerator ShowTextForDuration(float duration)
     {
+    
         readyText.gameObject.SetActive(true); // Show the text
 
         yield return new WaitForSeconds(duration); // Wait for the specified duration
