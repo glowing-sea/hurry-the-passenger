@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using TMPro;
+using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
     public GameManager gameManager;
+     public TMP_Text readyText; 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        //disable the ready text
+        readyText = transform.Find("Environment/TutReady").GetComponent<TMP_Text>();
+        readyText.gameObject.SetActive(false);  
+          }
 
     // Update is called once per frame
     void Update()
@@ -25,9 +31,26 @@ public class TutorialController : MonoBehaviour
             gameManager.gameState = GameState.Running;
             //print("collided");
             Debug.Log("collided");
+
+        GetComponent<TutorialController>().DisplayTextForDuration(5.0f);
+
         }
     }
 
+
+    public void DisplayTextForDuration(float duration)
+    {
+        StartCoroutine(ShowTextForDuration(duration));
+    }
+
+ private IEnumerator ShowTextForDuration(float duration)
+    {
+        readyText.gameObject.SetActive(true); // Show the text
+
+        yield return new WaitForSeconds(duration); // Wait for the specified duration
+
+        readyText.gameObject.SetActive(false); // Hide the text
+    }
 
 }
 
