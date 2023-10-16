@@ -49,14 +49,14 @@ public class CounterInteract : MonoBehaviour
                         interact.gameObject.SetActive(false);
                         gameManager.tasks[2] = true;
                         gameManager.UpdateNotesMenu();
-                        gameManager.soundEffect.PlayOneShot(gameManager.taskComplete, 1.0f);
+                        gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
                     }
                     // Player goes to the right counter but hasn't organized baggage
                     else if (rightCounter)
                     {
                         smallText.text = "Please organise your baggage first!\nBaggae Organiser is on the right side of the Airport Entrance";
                         StartCoroutine(gameManager.ShowThingTemporarily(smallText.gameObject, 2));
-                        gameManager.soundEffect.PlayOneShot(gameManager.somethingWrong, 1.0f);
+                        gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
                     }
                     // Player go to the wrong counter
                     else
@@ -67,7 +67,7 @@ public class CounterInteract : MonoBehaviour
                         gameManager.timeRemain -= 30;
                         interact.gameObject.SetActive(false);
                         gameManager.timeRemainText.text = gameManager.displayTime(gameManager.timeRemain);
-                        gameManager.soundEffect.PlayOneShot(gameManager.somethingWrong, 1.0f);
+                        gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
                     }
                 }
             }

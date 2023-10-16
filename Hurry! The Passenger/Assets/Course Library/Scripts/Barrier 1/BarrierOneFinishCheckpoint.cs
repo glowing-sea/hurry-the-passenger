@@ -31,11 +31,7 @@ public class BarrierOneFinishCheckpoint : MonoBehaviour
             {
                 gameManager.tasks[0] = true;
                 gameManager.UpdateNotesMenu();
-                gameManager.soundEffect.PlayOneShot(gameManager.taskComplete, 1.0f);
-                gameManager.bgm.clip = gameManager.bgm2;
-                gameManager.bgm.Play();
-                gameManager.roadAmbiance.Stop();
-                gameManager.airportAmbiance.Play();
+                gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
             }
         }
     }

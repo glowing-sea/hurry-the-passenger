@@ -39,7 +39,7 @@ public class InternationalDepatureInteract : MonoBehaviour
                 {
                     largeText.text = "Some Tasks are\nincomplete!";
                     StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
-                    gameManager.soundEffect.PlayOneShot(gameManager.somethingWrong, 1.0f);
+                    gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
                     return;
 
                 }

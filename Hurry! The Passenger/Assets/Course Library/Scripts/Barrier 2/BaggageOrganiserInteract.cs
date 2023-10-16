@@ -98,7 +98,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
 
             largeText.text = "Organisation Complete!";
             StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
-            gameManager.soundEffect.PlayOneShot(gameManager.taskComplete, 1.0f);
+            gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
             gameManager.tasks[1] = true;
             gameManager.UpdateNotesMenu();
         }
@@ -107,7 +107,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
         {
             largeText.text = "Organisation Incomplete!";
             StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
-            gameManager.soundEffect.PlayOneShot(gameManager.somethingWrong, 1.0f);
+            gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
         }
 
     }

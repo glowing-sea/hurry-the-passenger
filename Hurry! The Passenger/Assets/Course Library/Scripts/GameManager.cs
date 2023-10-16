@@ -65,19 +65,13 @@ public class GameManager : MonoBehaviour
 
 
     // Sound effect
-    private AudioSource playerAudio;
     public AudioClip crashSound;
-    public AudioSource roadAmbiance;
-    public AudioSource airportAmbiance;
-
-    // Bgm
-    public AudioClip bgm1;
-    public AudioClip bgm2;
     public AudioClip taskComplete;
     public AudioClip somethingWrong;
-    public AudioSource bgm;
-    public AudioSource soundEffect;
-    private float bgmVolumn = 0.2f;
+
+    public AudioSource bgmPlayer;
+    public AudioSource ambiencePlayer;
+    public AudioSource sfxPlayer;
 
 
     // Particle
@@ -144,24 +138,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         timeRemain = (int) (timeRemainMinute * 60); // convert minute to second
         timeRemainText.text = displayTime(timeRemain); // display time remain
-        playerAudio = GetComponent<AudioSource>(); // get audio playing reference
         Physics.gravity = new Vector3(0, -gravity, 0); // set gravity
         UpdateNotesMenu(); // update the note menu (when the player press [I])
-
-        // Set up bgm
-        bgm = GameObject.Find("Player Camera").GetComponent<AudioSource>(); // get bgm audio source
-        bgm.loop = true;
-        bgm.clip = bgm1;
-        bgm.volume = bgmVolumn;
-        bgm.Play();
-
-        // Set up soundEffect player
-        soundEffect = player.GetComponent<AudioSource>(); // get bgm audio source
-
-        // Set up ambiance sound effect
-        roadAmbiance = GameObject.Find("Road Ambiance").GetComponent<AudioSource>();
-        airportAmbiance = GameObject.Find("Airport Ambiance").GetComponent<AudioSource>();
-        roadAmbiance.Play();
 
     }
 
@@ -246,7 +224,7 @@ public class GameManager : MonoBehaviour
         largeText.text = "Game Over";
         largeText.gameObject.SetActive(true);
         pauseMenu.SetActive(true);
-        playerAudio.PlayOneShot(crashSound, 1.0f); // play crash sound
+        sfxPlayer.PlayOneShot(crashSound, 1.0f); // play crash sound
     }
 
     // What to do when the player wins
@@ -256,7 +234,7 @@ public class GameManager : MonoBehaviour
         largeText.text = "Game Finished";
         largeText.gameObject.SetActive(true);
         pauseMenu.SetActive(true);
-        playerAudio.PlayOneShot(taskComplete, 1.0f); // play crash sound
+        sfxPlayer.PlayOneShot(taskComplete, 1.0f); // play crash sound
     }
 
     //Continue Game State After Paused

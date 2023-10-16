@@ -39,7 +39,7 @@ public class NPCInteract : MonoBehaviour
             {
                 conversation.text = words;
                 StartCoroutine(gameManager.ShowThingTemporarily(background, 4));
-                gameManager.soundEffect.PlayOneShot(gameManager.taskComplete, 1.0f);
+                gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
             }
         }
     }
