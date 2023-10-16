@@ -19,6 +19,9 @@ public class BarrierOneFinishCheckpoint : MonoBehaviour
                 gameManager.UpdateNotesMenu();
                 gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
             }
+
+            // Set checkpoint to the next scene
+            gameManager.SetContinueScene("Barrier 2");
         }
     }
 }

@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public string startingSceneName;
+    [SerializeField] private string startingSceneName;
+    public string currentSceneName { get; private set; }
 
 
     // UI
@@ -109,11 +110,24 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player");
         passedTut = false;
 
-        // Load starting scene
-        LoadScene(startingSceneName, () =>
+        // Start from continued scene
+        currentSceneName = PlayerPrefs.GetString("ContinueSceneName", startingSceneName);
+
+        // In the editor, if another scene is already load, we set the continue scene to that.
+        // This prevents the continue scene from last time from being loaded when
+        // we are developing on another scene.
+        #if UNITY_EDITOR
+        if (SceneManager.sceneCount > 1)
+        {
+            SetContinueScene(SceneManager.GetSceneAt(1).name);
+        }
+        #endif
+
+        // Load current scene
+        LoadScene(currentSceneName, () =>
         {
             // Move player to spawn point
-            SpawnPoint spawnPoint = SpawnPoint.FindInScene(startingSceneName);
+            SpawnPoint spawnPoint = SpawnPoint.FindInScene(currentSceneName);
             TeleportPlayer(spawnPoint.transform.position, spawnPoint.transform.rotation);
 
             // Override spawning point with DebugSettings
@@ -359,5 +373,17 @@ public class GameManager : MonoBehaviour
         } else {
             callback?.Invoke();
         }
+    }
+
+    /// <summary>
+    /// Set the scene the game will continue from when the game is restarted.
+    /// </summary>
+    public void SetContinueScene(string sceneName)
+    {
+        currentSceneName = sceneName;
+        PlayerPrefs.SetString("ContinueSceneName", sceneName);
+        PlayerPrefs.Save();
+
+        Debug.Log("ContinueSceneName = " + sceneName);
     }
 }
