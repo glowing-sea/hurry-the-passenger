@@ -11,8 +11,6 @@ public class CounterInteract : MonoBehaviour
 
     // Interactable object variable
     TextMeshProUGUI interact;
-    TextMeshProUGUI largeText;
-    TextMeshProUGUI smallText;
 
 
     // Script
@@ -24,8 +22,6 @@ public class CounterInteract : MonoBehaviour
     {
         gameManager = GameManager.instance; // get reference
         interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
-        largeText = gameManager.mainUI.largeArbitraryText.GetComponent<TextMeshProUGUI>();
-        smallText = gameManager.mainUI.smallArbitraryText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -43,8 +39,7 @@ public class CounterInteract : MonoBehaviour
                      // Player goes to the right counter and has organized baggage
                     if (rightCounter && baggageOrganiser.isBaggageWellOrganise())
                     {
-                        largeText.text = "Check-in Completed!\n Please go to the International Departure!\nTime is Running Out!";
-                        StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
+                        gameManager.dialogSystem.StartDialog(DialogsRightCounter());
                         interactable = false;
                         interact.gameObject.SetActive(false);
                         gameManager.tasks[2] = true;
@@ -54,15 +49,13 @@ public class CounterInteract : MonoBehaviour
                     // Player goes to the right counter but hasn't organized baggage
                     else if (rightCounter)
                     {
-                        smallText.text = "Please organise your baggage first!\nBaggae Organiser is on the right side of the Airport Entrance";
-                        StartCoroutine(gameManager.ShowThingTemporarily(smallText.gameObject, 2));
+                        gameManager.dialogSystem.StartDialog(DialogsRightCounterNoBaggage());
                         gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
                     }
                     // Player go to the wrong counter
                     else
                     {
-                        smallText.text = "Wrong Check-in Counter\nFor some reason, you lost 30 seconds.\n [Tip: Ask NPC for help]";
-                        StartCoroutine(gameManager.ShowThingTemporarily(smallText.gameObject, 2));
+                        gameManager.dialogSystem.StartDialog(DialogsWrongCounter());
                         interactable = false;
                         gameManager.timeRemain -= 30;
                         interact.gameObject.SetActive(false);
@@ -72,6 +65,33 @@ public class CounterInteract : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator<DialogSystem.Dialog> DialogsWrongCounter()
+    {
+        yield return new DialogSystem.Dialog
+        {
+            name = "Counter Staff",
+            text = "Wrong Check-in Counter\nFor some reason, you lost 30 seconds.\n [Tip: Ask NPC for help]"
+        };
+    }
+
+    private IEnumerator<DialogSystem.Dialog> DialogsRightCounterNoBaggage()
+    {
+        yield return new DialogSystem.Dialog
+        {
+            name = "Counter Staff",
+            text = "Please organise your baggage first!\nBaggae Organiser is on the right side of the Airport Entrance"
+        };
+    }
+
+    private IEnumerator<DialogSystem.Dialog> DialogsRightCounter()
+    {
+        yield return new DialogSystem.Dialog
+        {
+            name = "Counter Staff",
+            text = "Check-in Completed!\n Please go to the International Departure!\nTime is Running Out!"
+        };
     }
 
     // Show interact key [f] in the UI
