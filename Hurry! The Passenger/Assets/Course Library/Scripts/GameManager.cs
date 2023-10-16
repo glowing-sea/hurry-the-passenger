@@ -144,7 +144,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                Debug.Log(gameState);
         // Press some key to open and close menu
         var menus = new (KeyCode, GameObject)[] {
             (KeyCode.T, taskMenu),

@@ -12,7 +12,6 @@ public class TutorialController : MonoBehaviour
     {
         //disable the ready text
         textShown = false;
-        readyText = transform.Find("Environment/TutReady").GetComponent<TMP_Text>();
         readyText.gameObject.SetActive(false);  
           }
 
@@ -24,15 +23,14 @@ public class TutorialController : MonoBehaviour
 
       //if collides with player, set game state to running.
     private void OnTriggerEnter(Collider other){
-        Debug.Log("yaaaaaaaaaaaaaaaaaaaaay " + other.gameObject.name);
         if (other.gameObject.name == "Player"  && gameManager.gameState != GameState.Over)
         {
+            Debug.Log("Tutorial Over");
+
             // Start countdown function
             StartCoroutine(gameManager.TimeRemain()); // set up time countdown
 
             gameManager.gameState = GameState.Running;
-            //print("collided");
-            Debug.Log("collided");
 
         GetComponent<TutorialController>().DisplayTextForDuration(5.0f);
         textShown = true;
