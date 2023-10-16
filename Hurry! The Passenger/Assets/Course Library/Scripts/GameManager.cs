@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -109,19 +110,19 @@ public class GameManager : MonoBehaviour
         passedTut = false;
 
         // Load starting scene
-        if (SceneManager.GetSceneByName(startingSceneName).isLoaded == false)
+        LoadScene(startingSceneName, () =>
         {
-            SceneManager.LoadScene(startingSceneName, LoadSceneMode.Additive);
-        }
+            // Move player to spawn point
+            SpawnPoint spawnPoint = SpawnPoint.FindInScene(startingSceneName);
+            TeleportPlayer(spawnPoint.transform.position, spawnPoint.transform.rotation);
 
-        // Whether change player's spawning point (mainly for testing)
-        if (DebugSettings.instance.changeSpawningPoint)
-        {
-            player.SetActive(false);
-            player.transform.position = DebugSettings.instance.newSpawningPoint;
-            player.transform.eulerAngles = DebugSettings.instance.newSpawningRotation;
-            player.SetActive(true);
-        }
+            // Override spawning point with DebugSettings
+            if (DebugSettings.instance.changeSpawningPoint)
+            {
+                TeleportPlayer(DebugSettings.instance.newSpawningPoint, DebugSettings.instance.newSpawningRotation);
+            }
+        });
+
 
         // Whether to pop up a guide when started
         if (DebugSettings.instance.showGuideWhenStart)
@@ -244,7 +245,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    // Reload the Barrier 1 & 2
+    // Restart Game
     public void RestartGame()
     {
         SceneManager.LoadScene(gameObject.scene.name);
@@ -314,6 +315,49 @@ public class GameManager : MonoBehaviour
             case "skipbarrier3":
                 tasks[2] = true;
                 break;
+        }
+    }
+
+    public void TeleportPlayer(Vector3 position, Quaternion? rotation)
+    {
+        player.SetActive(false);
+        player.transform.position = position;
+        if (rotation != null)
+        {
+            player.transform.rotation = rotation.Value;
+        }
+        player.SetActive(true);
+    }
+    public void TeleportPlayer(Vector3 position, Vector3 eulerAngles)
+    {
+        TeleportPlayer(position, Quaternion.Euler(eulerAngles));
+    }
+
+    public void LoadScene(string sceneName, System.Action callback = null)
+    {
+        if (!SceneManager.GetSceneByName(sceneName).isLoaded)
+        {
+            AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            op.completed += (AsyncOperation obj) =>
+            {
+                callback?.Invoke();
+            };
+        } else {
+            callback?.Invoke();
+        }
+    }
+
+    public void UnloadScene(string sceneName, System.Action callback = null)
+    {
+        if (SceneManager.GetSceneByName(sceneName).isLoaded)
+        {
+            AsyncOperation op = SceneManager.UnloadSceneAsync(sceneName, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+            op.completed += (AsyncOperation obj) =>
+            {
+                callback?.Invoke();
+            };
+        } else {
+            callback?.Invoke();
         }
     }
 }
