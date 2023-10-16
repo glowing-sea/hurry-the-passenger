@@ -9,20 +9,8 @@ public class ButtonActions : MonoBehaviour
 {
     public TMPro.TMP_InputField enterSensitivity;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Game Start
-    public void StartGame()
+    public void StartGame(bool continueGame)
     {
         try
         {
@@ -33,6 +21,12 @@ public class ButtonActions : MonoBehaviour
         }
         catch
         {
+        }
+
+        // Clear continue scene if we are not continuing
+        if (!continueGame)
+        {
+            PlayerPrefs.DeleteKey("ContinueSceneName");
         }
 
         // Load the game sence
