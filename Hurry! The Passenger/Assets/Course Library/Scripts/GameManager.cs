@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
     public ParticleSystem explosionParticle;
 
     public MainUI mainUI;
+    public DialogSystem dialogSystem;
 
 
     // Script

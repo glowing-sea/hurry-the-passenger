@@ -3621,7 +3621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words: 'The check-in counter for the TX188 airlines is nearby. '
+  dialogs:
+  - name: Relaxed Stranger
+    text: The check-in counter for the TX188 airlines is nearby.
 --- !u!1 &225937689
 GameObject:
   m_ObjectHideFlags: 0
@@ -25871,7 +25873,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words: The check-in Counter for the airline TX188 is located at Counter 4.
+  dialogs:
+  - name: Punk Stranger
+    text: The check-in Counter for the airline TX188 is located at Counter 4.
 --- !u!1 &1913139666
 GameObject:
   m_ObjectHideFlags: 0
@@ -27758,8 +27762,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  words: Did you know? Check-in Counters in Column A is for handling international
-    flights.
+  dialogs:
+  - name: Uncomfortable Stranger
+    text: Did you know? Check-in Counters in Column A is for handling international
+      flights.
 --- !u!1 &2023332249
 GameObject:
   m_ObjectHideFlags: 0

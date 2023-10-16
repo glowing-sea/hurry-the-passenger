@@ -5,16 +5,12 @@ using UnityEngine;
 
 public class NPCInteract : MonoBehaviour
 {
-    // The words the NPS is going to say
-    public string words;
+    // The dialogs the NPC is going to have
+    public List<DialogSystem.Dialog> dialogs;
 
     // Interactable object variable
     private TextMeshProUGUI interact;
     private bool interactable;
-
-    // Conversation Text Box
-    private TextMeshProUGUI conversation;
-    private GameObject background;
 
     // Script
     private GameManager gameManager; // reference to the game manager script
@@ -24,8 +20,6 @@ public class NPCInteract : MonoBehaviour
     {
         gameManager = GameManager.instance; // get reference
         interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
-        conversation = gameManager.mainUI.dialogueText.GetComponent<TextMeshProUGUI>();
-        background = gameManager.mainUI.dialogueBox;
     }
 
     // Update is called once per frame
@@ -37,9 +31,8 @@ public class NPCInteract : MonoBehaviour
             // If the player press F
             if (Input.GetKeyDown(KeyCode.F))
             {
-                conversation.text = words;
-                StartCoroutine(gameManager.ShowThingTemporarily(background, 4));
                 gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
+                gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
             }
         }
     }
