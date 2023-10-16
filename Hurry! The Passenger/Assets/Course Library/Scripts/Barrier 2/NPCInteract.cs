@@ -9,12 +9,12 @@ public class NPCInteract : MonoBehaviour
     public string words;
 
     // Interactable object variable
-    public TextMeshProUGUI interact;
+    private TextMeshProUGUI interact;
     private bool interactable;
 
     // Conversation Text Box
-    public TextMeshProUGUI conversation;
-    public GameObject background;
+    private TextMeshProUGUI conversation;
+    private GameObject background;
 
     // Script
     private GameManager gameManager; // reference to the game manager script
@@ -22,7 +22,10 @@ public class NPCInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // get reference
+        gameManager = GameManager.instance; // get reference
+        interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
+        conversation = gameManager.mainUI.dialogueText.GetComponent<TextMeshProUGUI>();
+        background = gameManager.mainUI.dialogueBox;
     }
 
     // Update is called once per frame

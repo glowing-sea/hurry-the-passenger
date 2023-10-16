@@ -6,7 +6,7 @@ using UnityEngine;
 public class InternationalDepatureInteract : MonoBehaviour
 {
     // UI
-    public TextMeshProUGUI largeText;
+    TextMeshProUGUI largeText;
 
 
     // Script
@@ -15,7 +15,8 @@ public class InternationalDepatureInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // get reference
+        gameManager = GameManager.instance; // get reference
+        largeText = gameManager.mainUI.largeArbitraryText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

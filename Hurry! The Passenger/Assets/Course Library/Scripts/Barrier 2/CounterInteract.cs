@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class CounterInteract : MonoBehaviour
 {
-    // Interactable object variable
-    public TextMeshProUGUI interact;
     private bool interactable;
 
     public bool rightCounter;
 
-    public TextMeshProUGUI largeText;
-    public TextMeshProUGUI smallText;
+    // Interactable object variable
+    TextMeshProUGUI interact;
+    TextMeshProUGUI largeText;
+    TextMeshProUGUI smallText;
 
 
     // Script
@@ -22,7 +22,10 @@ public class CounterInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // get reference
+        gameManager = GameManager.instance; // get reference
+        interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
+        largeText = gameManager.mainUI.largeArbitraryText.GetComponent<TextMeshProUGUI>();
+        smallText = gameManager.mainUI.smallArbitraryText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

@@ -4,16 +4,17 @@ using TMPro;
 
 public class TutorialController : MonoBehaviour
 {
-    public GameManager gameManager;
-     public TMP_Text readyText; 
-     public bool textShown;
+    GameManager gameManager;
+    public TMP_Text readyText; 
+    public bool textShown;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         //disable the ready text
         textShown = false;
         readyText.gameObject.SetActive(false);  
-          }
+    }
 
     // Update is called once per frame
     void Update()

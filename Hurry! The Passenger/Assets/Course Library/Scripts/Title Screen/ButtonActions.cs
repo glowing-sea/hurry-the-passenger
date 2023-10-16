@@ -36,7 +36,7 @@ public class ButtonActions : MonoBehaviour
         }
 
         // Load the game sence
-        SceneManager.LoadScene("Barrier 1 & 2");
+        SceneManager.LoadScene("Common");
     }
 
     // Quit the game

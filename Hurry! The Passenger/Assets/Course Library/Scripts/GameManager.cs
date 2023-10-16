@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public string startingSceneName;
+
 
     // UI
     public TextMeshProUGUI timeRemainText;
@@ -60,7 +62,6 @@ public class GameManager : MonoBehaviour
 
     // Cameras
     public Camera playerCamera;
-    public Camera baggageCamera;
 
 
     // Sound effect
@@ -82,6 +83,8 @@ public class GameManager : MonoBehaviour
     // Particle
     public ParticleSystem explosionParticle;
 
+    public MainUI mainUI;
+
 
     // Script
     private PlayerController playerController; // reference to the game manager script
@@ -89,12 +92,33 @@ public class GameManager : MonoBehaviour
     // Player
     private GameObject player;
 
+    // Helper property to get the instance of the game manager
+    public static GameManager instance
+    {
+        get
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("GameController");
+            if (obj != null)
+            {
+                return obj.GetComponent<GameManager>();
+            } else {
+                throw new System.NullReferenceException("No game manager loaded. Did you load the scene that contains the game manager?");
+            }
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start() {
         // Get the reference to the player
         player = GameObject.Find("Player");
-                passedTut = false;
+        passedTut = false;
+
+        // Load starting scene
+        if (SceneManager.GetSceneByName(startingSceneName).isLoaded == false)
+        {
+            SceneManager.LoadScene(startingSceneName, LoadSceneMode.Additive);
+        }
 
         // Whether change player's spawning point (mainly for testing)
         if (DebugSettings.instance.changeSpawningPoint)
@@ -245,7 +269,7 @@ public class GameManager : MonoBehaviour
     // Reload the Barrier 1 & 2
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(gameObject.scene.name);
     }
 
     // Back to title screen

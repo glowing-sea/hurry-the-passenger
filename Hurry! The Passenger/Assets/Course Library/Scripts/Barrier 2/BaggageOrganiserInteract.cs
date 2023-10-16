@@ -10,15 +10,17 @@ using UnityEngine.UI;
 // It also check if the play has sucessfully organised items in thier 3 bags
 public class BaggageOrganiserInteract : MonoBehaviour
 {
+    public Camera baggageCamera; // the camera for baggage organisation view
+
     // Interactable object variable
-    public TextMeshProUGUI interact;
+    private TextMeshProUGUI interact;
     private bool interactable;
 
 
     public GameObject baggageOrganiserMenu;
     public GameObject[] items; // a list of item to be organnise
 
-    public TextMeshProUGUI largeText; // print text on the UI screen
+    private TextMeshProUGUI largeText; // print text on the UI screen
 
     // Script
     private GameManager gameManager; // reference to the game manager script
@@ -27,7 +29,9 @@ public class BaggageOrganiserInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>(); // get reference
+        gameManager = GameManager.instance; // get reference
+        interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
+        largeText = gameManager.mainUI.largeArbitraryText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
                     gameManager.gameState = GameState.LeavingMainScene;
                     // go into baggage organisation view
                     gameManager.playerCamera.enabled = false; // !!! Test
-                    gameManager.baggageCamera.enabled = true;
+                    baggageCamera.enabled = true;
 
                     interact.gameObject.SetActive(false);
                     gameManager.staminaGauge.gameObject.SetActive(false);
@@ -81,7 +85,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
         interact.gameObject.SetActive(true);
         gameManager.gameState = GameState.Running;
         gameManager.playerCamera.enabled = true;
-        gameManager.baggageCamera.enabled = false;
+        baggageCamera.enabled = false;
     }
 
     // When the play want to confirm their baggage organisation

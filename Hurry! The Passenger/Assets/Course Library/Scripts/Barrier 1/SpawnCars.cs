@@ -80,7 +80,7 @@ public class SpawnCars : MonoBehaviour
         while (true)
         {
             carIndex = Random.Range(0, cars.Length);
-            instance = Instantiate(cars[carIndex], spawnPos, spawnRot);
+            instance = Instantiate(cars[carIndex], spawnPos, spawnRot, transform);
             instance.GetComponent<CarController>().speed = speed;
             yield return new WaitForSeconds(spawnDelay);
         }
@@ -97,7 +97,7 @@ public class SpawnCars : MonoBehaviour
             for (int i = 0; i < 4; i++)
             {
                 carIndex = Random.Range(0, cars.Length);
-                instance = Instantiate(cars[carIndex], spawnPos, spawnRot);
+                instance = Instantiate(cars[carIndex], spawnPos, spawnRot, transform);
                 instance.GetComponent<CarController>().speed = speed;
                 // make the car run for "stopTime" and stop for "stopTime" if stopTime > 0
                 if (stopTime > 0)
