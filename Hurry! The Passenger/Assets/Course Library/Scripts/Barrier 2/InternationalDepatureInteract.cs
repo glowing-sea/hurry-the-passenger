@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
 public class InternationalDepatureInteract : MonoBehaviour
 {
+    [SerializeField] private List<PlayerTask> requiredTasks;
+    [SerializeField] private PlayerTask finishedTask;
+
     // UI
     TextMeshProUGUI largeText;
 
@@ -29,24 +33,19 @@ public class InternationalDepatureInteract : MonoBehaviour
     // Call when the player touch it
     private void OnTriggerEnter(Collider other)
     {
-        bool[] tasks = gameManager.tasks;
-        if (other.gameObject.CompareTag("Player"))
-        {
-            for (int i = 0; i < tasks.Length; i++)
-            {
-                // Some tasks are incomplete
-                if (!tasks[i])
-                {
-                    largeText.text = "Some Tasks are\nincomplete!";
-                    StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
-                    gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
-                    return;
+        if (!other.gameObject.CompareTag("Player")) return;
 
-                }
-            }
+        // Check if the player has completed all the required tasks
+        if (requiredTasks.All((task) => gameManager.GetTaskState(task).isComplete))
+        {
             // All tasks are complete. the game is finished
             gameManager.GameFinished();
-            return;
+        }
+        else
+        {
+            largeText.text = "Some Tasks are\nincomplete!";
+            StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
+            gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
         }
     }
 }

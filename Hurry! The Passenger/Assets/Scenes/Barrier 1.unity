@@ -3167,7 +3167,7 @@ GameObject:
   - component: {fileID: 1798216469}
   - component: {fileID: 1798216470}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: Check Point
   m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3200,6 +3200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a050bffd1b504dd49a8fbb568bb99ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tasks:
+  - {fileID: 11400000, guid: c2830e721ec7712a8bbdbe3b07601e8d, type: 2}
+  - {fileID: 11400000, guid: 7e77cc57c95f56c23a9fdf4552c23dbe, type: 2}
 --- !u!1001 &1803215105
 PrefabInstance:
   m_ObjectHideFlags: 0

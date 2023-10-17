@@ -3,22 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Each scene should have one and only one spawn point,
-/// which is a game object tagged with Respawn and has a SpawnPoint script attached.
+/// Each scene should have one and only one check point,
+/// which is a game object tagged with Respawn and has a CheckPoint script attached.
+/// 
+/// The check point dictates where the player will spawn when the scene is loaded,
+/// as well as the tasks available in this scene.
 /// </summary>
-public class SpawnPoint : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
+    /// <summary>
+    /// Tasks available in this scene.
+    /// </summary>
+    public List<PlayerTask> tasks = new List<PlayerTask>();
+
     /// <summary>
     /// Find the spawn point in the given scene.
     /// </summary>
-    public static SpawnPoint FindInScene(string sceneName)
+    public static CheckPoint FindInScene(string sceneName)
     {
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
         foreach (GameObject spawnPoint in spawnPoints)
         {
             if (spawnPoint.scene.name == sceneName)
             {
-                return spawnPoint.GetComponent<SpawnPoint>();
+                return spawnPoint.GetComponent<CheckPoint>();
             }
         }
         return null;

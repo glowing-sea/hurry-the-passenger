@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 76edd066b398741fbb6b2d63336a23fc
+guid: 58f8f58814518ecfbbeed937837f5c70
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - baggageTask: {instanceID: 0}
-  - checkInTask: {instanceID: 0}
-  - baggageOrganiser: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -5,12 +5,12 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
+using System.Text;
 
 public class GameManager : MonoBehaviour
 {
     // Manage tasks the player has finished
-    // Only when all tasks is finished, the player can go to the international depature
-    public bool[] tasks;
+    public List<PlayerTask.State> tasks { get; private set; } = new List<PlayerTask.State>();
 
     // Internal Variables
     public float timeRemainMinute;
@@ -120,7 +120,10 @@ public class GameManager : MonoBehaviour
         #if UNITY_EDITOR
         if (SceneManager.sceneCount > 1)
         {
-            SetContinueScene(SceneManager.GetSceneAt(1).name);
+            if (SceneManager.GetSceneAt(1).name != currentSceneName)
+            {
+                ReachSceneCheckPoint(SceneManager.GetSceneAt(1).name);
+            }
         }
         #endif
 
@@ -128,7 +131,7 @@ public class GameManager : MonoBehaviour
         LoadScene(currentSceneName, () =>
         {
             // Move player to spawn point
-            SpawnPoint spawnPoint = SpawnPoint.FindInScene(currentSceneName);
+            CheckPoint spawnPoint = CheckPoint.FindInScene(currentSceneName);
             TeleportPlayer(spawnPoint.transform.position, spawnPoint.transform.rotation);
 
             // Override spawning point with DebugSettings
@@ -136,6 +139,9 @@ public class GameManager : MonoBehaviour
             {
                 TeleportPlayer(DebugSettings.instance.newSpawningPoint, DebugSettings.instance.newSpawningRotation);
             }
+
+            // Load tasks
+            ReloadTasksFromCheckpoint(spawnPoint);
         });
 
 
@@ -297,16 +303,19 @@ public class GameManager : MonoBehaviour
     // Update Notes menu text. (Note record what tasks has been completed or incompleted)
     public void UpdateNotesMenu()
     {
-        string title = "Notes\n\n";
-        string content = "Hurry! You are almost late!\nYou only have *10 minutes* left to approach *International Departure* and \nto catch the plane, you need to:\n\n";
-        string task1 = tasks[0] ? "[Completed] " : "[Unfinished] ";
-        string task2 = tasks[1] ? "[Completed] " : "[Unfinished] ";
-        string task3 = tasks[2] ? "[Completed] " : "[Unfinished] "; 
-        task1 = task1 + "Cross roads to the airport\n";
-        task2 = task2 + "Organise your baggage to avoid being overweight\n";
-        task3 = task3 + "Find the right check-in counter and departure gate\n";
-        string note = title + content + task1 + task2 + task3;
-        noteText.text = note;
+        StringBuilder sb = new();
+        sb.Append("Notes\n\n");
+        sb.Append("Hurry! You are almost late!\nYou only have *10 minutes* left to approach *International Departure* and \nto catch the plane, you need to:\n\n");
+        foreach (PlayerTask.State task in tasks)
+        {
+            if (task.task.isVisible)
+            {
+                sb.Append(task.isComplete ? "[Completed] " : "[Unfinished] ");
+                sb.Append(task.task.taskName);
+                sb.Append("\n");
+            }
+        }
+        noteText.text = sb.ToString();
     }
 
 
@@ -323,12 +332,6 @@ public class GameManager : MonoBehaviour
                 player.SetActive(false);
                 player.transform.position = new Vector3(27, 0, 0);
                 player.SetActive(true);
-                break;
-            case "skipbarrier2":
-                tasks[1] = true;
-                break;
-            case "skipbarrier3":
-                tasks[2] = true;
                 break;
         }
     }
@@ -376,15 +379,59 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Discard tasks from the previous scene and load tasks from the new scene.
+    private void ReloadTasksFromCheckpoint(CheckPoint checkPoint)
+    {
+        tasks.Clear();
+        tasks.AddRange(checkPoint.tasks.Select((PlayerTask task) => task.CreateState()));
+        UpdateNotesMenu();
+    }
+
     /// <summary>
-    /// Set the scene the game will continue from when the game is restarted.
+    /// Called when player reaches a scene's checkpoint trigger.<br>
+    /// Set the scene the game will continue from when the game is restarted, and reload tasks.
     /// </summary>
-    public void SetContinueScene(string sceneName)
+    public void ReachSceneCheckPoint(string sceneName)
     {
         currentSceneName = sceneName;
         PlayerPrefs.SetString("ContinueSceneName", sceneName);
         PlayerPrefs.Save();
 
-        Debug.Log("ContinueSceneName = " + sceneName);
+        Debug.Log("Checkpoint: " + sceneName);
+
+        ReloadTasksFromCheckpoint(CheckPoint.FindInScene(sceneName));
+    }
+
+
+
+    public PlayerTask.State GetTaskState(PlayerTask task)
+    {
+        int index = tasks.FindIndex((PlayerTask.State state) => state.task == task);
+        if (index == -1)
+        {
+            throw new System.ArgumentException("Task not loaded: " + task.taskName);
+        }
+        return tasks[index];
+    }
+
+    public void CompleteTask(int index)
+    {
+        PlayerTask.State task = tasks[index];
+        if (!task.isComplete)
+        {
+            task.isComplete = true;
+            UpdateNotesMenu();
+            sfxPlayer.PlayOneShot(taskComplete, 1.0f);
+            Debug.Log("Task complete: " + task.task.taskName);
+        }
+    }
+    public void CompleteTask(PlayerTask task)
+    {
+        int index = tasks.FindIndex((PlayerTask.State state) => state.task == task);
+        if (index == -1)
+        {
+            throw new System.ArgumentException("Task not loaded: " + task.taskName);
+        }
+        CompleteTask(index);
     }
 }

@@ -2672,6 +2672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!1 &166494920
@@ -2895,6 +2897,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &177001498
@@ -4092,6 +4096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &273721340
@@ -4181,6 +4187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!1 &296397927
@@ -4847,6 +4855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!1 &337372503
@@ -6371,6 +6381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!1 &420541902
@@ -7305,6 +7317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 1
   baggageOrganiser: {fileID: 787852926}
 --- !u!1 &471473339
@@ -8364,6 +8378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &542465059
@@ -11523,6 +11539,7 @@ MonoBehaviour:
   - {fileID: 2105920603}
   - {fileID: 53791458}
   - {fileID: 1617526171}
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
 --- !u!1 &803182923
 GameObject:
   m_ObjectHideFlags: 0
@@ -16825,6 +16842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &1155212452
@@ -18908,6 +18927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &1284838860
@@ -21317,6 +21338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &1500450421
@@ -21682,6 +21705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!1 &1542518860
@@ -22944,6 +22969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &1653931090
@@ -23483,6 +23510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!65 &1701231332
@@ -24653,6 +24682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!4 &1862405986 stripped
@@ -24968,7 +24999,7 @@ GameObject:
   - component: {fileID: 1865714209}
   - component: {fileID: 1865714208}
   m_Layer: 0
-  m_Name: Spawn Point
+  m_Name: Check Point
   m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24986,6 +25017,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a050bffd1b504dd49a8fbb568bb99ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tasks:
+  - {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
+  - {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  - {fileID: 11400000, guid: 63008ad1338eff4499222c4e14bd882f, type: 2}
 --- !u!4 &1865714209
 Transform:
   m_ObjectHideFlags: 0
@@ -28148,6 +28183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76edd066b398741fbb6b2d63336a23fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
 --- !u!1 &2077939566
@@ -28195,6 +28232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14932d46f6cd846b59fee4ff1846be09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiredTasks:
+  - {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
+  - {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
+  finishedTask: {fileID: 0}
 --- !u!65 &2077939569
 BoxCollider:
   m_ObjectHideFlags: 0

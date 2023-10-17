@@ -20,6 +20,8 @@ public class BaggageOrganiserInteract : MonoBehaviour
     public GameObject baggageOrganiserMenu;
     public GameObject[] items; // a list of item to be organnise
 
+    [SerializeField] PlayerTask baggageTask;
+
     private TextMeshProUGUI largeText; // print text on the UI screen
 
     // Script
@@ -42,7 +44,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 // if the player has not finished organising their baggage
-                if (gameManager.gameState == GameState.Running && !gameManager.tasks[1])
+                if (gameManager.gameState == GameState.Running && !gameManager.GetTaskState(baggageTask).isComplete)
                 {
                     gameManager.gameState = GameState.LeavingMainScene;
                     // go into baggage organisation view
@@ -61,7 +63,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // if the player close to this object and has not finished organising their baggage
-        if (other.gameObject.CompareTag("Player") && !gameManager.tasks[1])
+        if (other.gameObject.CompareTag("Player") && !gameManager.GetTaskState(baggageTask).isComplete)
         {
             interact.gameObject.SetActive(true);
             interactable = true;
@@ -98,9 +100,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
 
             largeText.text = "Organisation Complete!";
             StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
-            gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
-            gameManager.tasks[1] = true;
-            gameManager.UpdateNotesMenu();
+            gameManager.CompleteTask(baggageTask);
         }
         // Organisation Complete
         else
