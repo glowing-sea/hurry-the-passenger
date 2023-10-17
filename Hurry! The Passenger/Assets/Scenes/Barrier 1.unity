@@ -1419,8 +1419,9 @@ GameObject:
   - component: {fileID: 728351588}
   - component: {fileID: 728351590}
   - component: {fileID: 728351589}
+  - component: {fileID: 728351591}
   m_Layer: 9
-  m_Name: TutPassInvisWall
+  m_Name: TutPassTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1435,7 +1436,7 @@ Transform:
   m_GameObject: {fileID: 728351587}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.87, y: 0, z: -15.2}
+  m_LocalPosition: {x: 143.51, y: 0, z: -15.2}
   m_LocalScale: {x: 1, y: 15, z: 150}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1477,6 +1478,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &728351591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728351587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46197b94f0405c466a26e3c2b7c7b1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 1
+  dialogs:
+  - name: Me
+    text: How much time do I have... [checks watch] 10 minutes? That's bad.
 --- !u!4 &807436482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2713314244063612866, guid: 9966eaabb3d5241a28e8150b1cb94769, type: 3}
@@ -2304,7 +2321,6 @@ Transform:
   - {fileID: 671813685}
   - {fileID: 1085074226}
   - {fileID: 1544910342}
-  - {fileID: 728351588}
   - {fileID: 14734126}
   - {fileID: 94173605}
   - {fileID: 1089832205}
@@ -2320,6 +2336,8 @@ Transform:
   - {fileID: 13977357}
   - {fileID: 1373972032}
   - {fileID: 1546630552}
+  - {fileID: 1789841520}
+  - {fileID: 728351588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1460776562
@@ -3158,6 +3176,79 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1789841519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1789841520}
+  - component: {fileID: 1789841522}
+  - component: {fileID: 1789841521}
+  m_Layer: 0
+  m_Name: Initial Dialog Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1789841520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789841519}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 171.54, y: 0, z: -27.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1385500138}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1789841521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789841519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46197b94f0405c466a26e3c2b7c7b1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 1
+  dialogs:
+  - name: Me
+    text: Damn, I'm almost late for my flight.
+  - name: Me
+    text: I can't believe the bus stop is this far from the airport. Now I gotta
+      run all the way to the entrance.
+--- !u!135 &1789841522
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789841519}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4.38
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1798216468
 GameObject:
   m_ObjectHideFlags: 0
