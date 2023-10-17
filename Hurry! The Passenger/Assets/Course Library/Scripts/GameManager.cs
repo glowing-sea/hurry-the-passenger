@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Linq;
 using System.Text;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
+using Slider = UnityEngine.UI.Slider;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.UIElements;
+#endif
 
 public class GameManager : MonoBehaviour
 {
@@ -434,4 +441,90 @@ public class GameManager : MonoBehaviour
         }
         CompleteTask(index);
     }
+
+    #if UNITY_EDITOR
+    [CustomEditor(typeof(GameManager))]
+    public class GameManagerEditor : Editor
+    {
+        ListView taskListView;
+
+        public override VisualElement CreateInspectorGUI()
+        {
+            var root = new VisualElement();
+            var gameManager = (GameManager) target;
+            InspectorElement.FillDefaultInspector(root, serializedObject, this);
+
+            if (Application.isPlaying)
+            {
+
+                // Add task list
+                var Label = new Label("Tasks")
+                {
+                    style =
+                    {
+                        marginTop = 10,
+                        marginBottom = 5,
+                        unityFontStyleAndWeight = FontStyle.Bold,
+                    }
+                };
+                root.Add(Label);
+                taskListView = new ListView(gameManager.tasks, -1, () =>
+                {
+                    var element = new VisualElement()
+                    {
+                        style =
+                        {
+                            flexDirection = FlexDirection.Row,
+                            alignItems = Align.Center,
+                        }
+                    };
+
+                    var checkbox = new UnityEngine.UIElements.Toggle();
+                    checkbox.RegisterValueChangedCallback((ChangeEvent<bool> evt) =>
+                    {
+                        gameManager.tasks[element.parent.IndexOf(element)].isComplete = evt.newValue;
+                        gameManager.UpdateNotesMenu();
+                    });
+
+                    var label = new Label()
+                    {
+                        style =
+                        {
+                            flexGrow = 1,
+                        }
+                    };
+
+                    element.Add(label);
+                    element.Add(checkbox);
+                    return element;
+
+                }, (VisualElement element, int index) =>
+                {
+                    var task = gameManager.tasks[index];
+                    var label = element.Q<Label>();
+                    label.text = task.task.taskName;
+                    var checkbox = element.Q<UnityEngine.UIElements.Toggle>();
+                    checkbox.value = task.isComplete;
+                });
+
+                taskListView.selectionType = SelectionType.None;
+                taskListView.virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight;
+                root.Add(taskListView);
+            }
+
+            return root;
+        }
+
+        void Update()
+        {
+            if (Application.isPlaying)
+            {
+                taskListView?.RefreshItems();
+            }
+        }
+
+        void OnEnable() { EditorApplication.update += Update; }
+        void OnDisable() { EditorApplication.update -= Update; }
+    }
+    #endif
 }
