@@ -4969,11 +4969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf33e656ea7344480a86f06051e2bb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasks: 000000
-  timeRemainMinute: 10
-  timeRemain: 0
+  initialTime: 600
   gravity: 9.8
-  passedTut: 0
   startingSceneName: Barrier 1
   timeRemainText: {fileID: 1010127657}
   taskMenu: {fileID: 155227638}

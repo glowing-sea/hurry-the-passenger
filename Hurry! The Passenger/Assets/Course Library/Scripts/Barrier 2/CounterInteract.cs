@@ -69,7 +69,6 @@ public class CounterInteract : MonoBehaviour
             text = "Hey, I'm checking-in to this flight. [shows the ticket]"
         };
         gameManager.timeRemain -= 30;
-        gameManager.timeRemainText.text = gameManager.displayTime(gameManager.timeRemain);
         gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
         yield return new DialogSystem.Dialog
         {

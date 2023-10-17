@@ -4,6 +4,7 @@ using TMPro;
 
 public class TutorialController : MonoBehaviour
 {
+    [SerializeField] private PlayerTask tutorialTask;
     GameManager gameManager;
     public TMP_Text readyText; 
     public bool textShown;
@@ -16,25 +17,23 @@ public class TutorialController : MonoBehaviour
         readyText.gameObject.SetActive(false);  
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
-
       //if collides with player, set game state to running.
     private void OnTriggerEnter(Collider other){
         if (other.gameObject.name == "Player"  && gameManager.gameState != GameState.Over)
         {
-            Debug.Log("Tutorial Over");
+            if (!gameManager.GetTaskState(tutorialTask).isComplete)
+            {
+                Debug.Log("Tutorial Over");
+                gameManager.CompleteTask(tutorialTask);
 
-            // Start countdown function
-            StartCoroutine(gameManager.TimeRemain()); // set up time countdown
+                // Start timer
+                gameManager.timerEnabled = true;
 
-            gameManager.gameState = GameState.Running;
+                gameManager.gameState = GameState.Running;
 
-        GetComponent<TutorialController>().DisplayTextForDuration(5.0f);
-        textShown = true;
+                GetComponent<TutorialController>().DisplayTextForDuration(5.0f);
+                textShown = true;
+            }
         }
     }
 

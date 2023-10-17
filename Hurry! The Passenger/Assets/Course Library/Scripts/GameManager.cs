@@ -19,15 +19,14 @@ public class GameManager : MonoBehaviour
     // Manage tasks the player has finished
     public List<PlayerTask.State> tasks { get; private set; } = new List<PlayerTask.State>();
 
-    // Internal Variables
-    public float timeRemainMinute;
-    public int timeRemain;
+    public int initialTime;
+    [System.NonSerialized] public int timeRemain;
+    [System.NonSerialized] public bool timerEnabled;
+
     public float gravity;
 
     // Game state
     private GameState gameState_;
-
-        public bool passedTut;
     public GameState gameState
     {
         get { return gameState_; }
@@ -116,7 +115,6 @@ public class GameManager : MonoBehaviour
     void Start() {
         // Get the reference to the player
         player = GameObject.Find("Player");
-        passedTut = false;
 
         // Start from continued scene
         currentSceneName = PlayerPrefs.GetString("ContinueSceneName", startingSceneName);
@@ -165,8 +163,14 @@ public class GameManager : MonoBehaviour
         // make the mouse inavtive for 0.2 seconds to wait for the game to be fully loaded
         // StartCoroutine(WaitForLoading());
         Time.timeScale = 1;
-        timeRemain = (int) (timeRemainMinute * 60); // convert minute to second
-        timeRemainText.text = displayTime(timeRemain); // display time remain
+
+        // Setup timer
+        timeRemain = initialTime;
+        StartCoroutine(TimerUpdate());
+        // Enable timer as long as we are not in the starting scene,
+        // for which the timer is started by finishing the tutorial.
+        if (currentSceneName != startingSceneName) timerEnabled = true;
+
         Physics.gravity = new Vector3(0, -gravity, 0); // set gravity
         UpdateNotesMenu(); // update the note menu (when the player press [I])
 
@@ -175,6 +179,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         // Press some key to open and close menu
         var menus = new (KeyCode, GameObject)[] {
             (KeyCode.T, taskMenu),
@@ -228,8 +234,8 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Running;
     }
 
-    // Count Down Time Remain 
-    public IEnumerator TimeRemain()
+    // Countdown timer
+    private IEnumerator TimerUpdate()
     {
         while (true)
         {
@@ -238,9 +244,24 @@ public class GameManager : MonoBehaviour
                 GameOver();
                 break;
             }
-            timeRemainText.text = displayTime(timeRemain);
+            
+            // Display minute : second given how many second left
+            if (timerEnabled)
+            {
+                int minute = System.Math.Max(timeRemain / 60, 0);
+                int second = System.Math.Max(timeRemain % 60, 0);
+                timeRemainText.text = string.Format("{0:d2}:{1:d2}", minute, second);
+            }
+            else
+            {
+                timeRemainText.text = "";
+            }
+
             yield return new WaitForSeconds(1);
-            if (gameState == GameState.Running || gameState == GameState.LeavingMainScene){
+
+            bool isRunning = gameState == GameState.Running || gameState == GameState.LeavingMainScene;
+            if (timerEnabled && isRunning)
+            {
                 timeRemain--;
             }
         }
@@ -283,28 +304,6 @@ public class GameManager : MonoBehaviour
     public void ToTitleScreen()
     {
         SceneManager.LoadScene("Title");
-    }
-
-
-    // Display minute : second given how many second left
-    public string displayTime(int timeRemain)
-    {
-        if (timeRemain > 0)
-        {
-            int second = timeRemain % 60;
-            if (second < 10)
-            {
-                return (timeRemain / 60) + ":0" + second;
-            }
-            else
-            {
-                return (timeRemain / 60) + ":" + second;
-            }
-        } else
-        {
-            return "0:00";
-        }
-
     }
 
     // Update Notes menu text. (Note record what tasks has been completed or incompleted)

@@ -680,6 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a369f83e97725477abea1fbbc02c7c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishedTask: {fileID: 0}
 --- !u!114 &381151405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,6 +1453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb72fab0b829db07a770f1571ac94f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialTask: {fileID: 11400000, guid: c2830e721ec7712a8bbdbe3b07601e8d, type: 2}
   readyText: {fileID: 1558703960}
   textShown: 0
 --- !u!65 &728351590
