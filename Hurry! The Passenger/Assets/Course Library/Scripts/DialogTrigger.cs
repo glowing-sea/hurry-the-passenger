@@ -13,6 +13,22 @@ public class DialogTrigger : MonoBehaviour
     {
         if (other.gameObject.name != "Player") return;
 
+        StartCoroutine(WaitForRunningState());
+    }
+    
+    // Wait for game state to become running
+    IEnumerator WaitForRunningState()
+    {
+        while (GameManager.instance.gameState != GameState.Running)
+        {
+            yield return null;
+        }
+        
+        StartDialog();
+    }
+
+    void StartDialog()
+    {
         GameManager.instance.dialogSystem.StartDialog(dialogs.GetEnumerator());
 
         if (destroyAfterUse)
