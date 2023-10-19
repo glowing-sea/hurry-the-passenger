@@ -13,14 +13,12 @@ public class ButtonActions : MonoBehaviour
     // Hide Continue Button if no save data
     void Start()
     {
-        // PlayerPrefs.DeleteKey("ContinueSceneName");
         // Disable self if there is no continue scene
         if (!PlayerPrefs.HasKey("ContinueSceneName"))
         {
             continueButton.SetActive(false);
         }
     }
-
 
     // Game Start
     public void StartGame(bool continueGame)
