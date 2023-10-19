@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using Dialog = DialogSystem.Dialog;
 
 public class InternationalDepatureInteract : MonoBehaviour
 {
     [SerializeField] private List<PlayerTask> requiredTasks;
     [SerializeField] private PlayerTask finishedTask;
-
-    // UI
-    TextMeshProUGUI largeText;
-
+    [SerializeField] private GameObject blocker;
 
     // Script
     private GameManager gameManager; // reference to the game manager script
@@ -20,15 +18,7 @@ public class InternationalDepatureInteract : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.instance; // get reference
-        largeText = gameManager.mainUI.largeArbitraryText.GetComponent<TextMeshProUGUI>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     // Call when the player touch it
     private void OnTriggerEnter(Collider other)
@@ -38,14 +28,28 @@ public class InternationalDepatureInteract : MonoBehaviour
         // Check if the player has completed all the required tasks
         if (requiredTasks.All((task) => gameManager.GetTaskState(task).isComplete))
         {
-            // All tasks are complete. the game is finished
-            gameManager.GameFinished();
+            gameManager.CompleteTask(finishedTask);
+            gameManager.dialogSystem.StartDialog(Dialog(true));
         }
         else
         {
-            largeText.text = "Some Tasks are\nincomplete!";
-            StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
-            gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
+            gameManager.dialogSystem.StartDialog(Dialog(false));
         }
+    }
+
+    IEnumerator<Dialog> Dialog(bool success)
+    {
+        yield return new Dialog("Airport Security", "Only passengers with a valid boarding pass may go through.");
+        if (!success)
+        {
+            gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
+            yield return new Dialog("Me", "Of course. (I need to go check-in first)");
+            yield break;
+        }
+
+        yield return new Dialog("Me", "[shows boarding pass]");
+        gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
+        yield return new Dialog("Airport Security", "[gestures approval]");
+        Destroy(gameObject);
     }
 }
