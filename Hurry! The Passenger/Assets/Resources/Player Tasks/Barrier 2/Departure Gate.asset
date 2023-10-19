@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Find the departure gate
   isVisible: 1
+  sceneName: Barrier 2
+  sortingOrder: 2
