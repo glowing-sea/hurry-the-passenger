@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System.Linq;
 using System.Text;
 using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 using Slider = UnityEngine.UI.Slider;
+
+
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -17,7 +18,7 @@ using UnityEditor.UIElements;
 public class GameManager : MonoBehaviour
 {
     // Manage tasks the player has finished
-    public List<PlayerTask.State> tasks { get; private set; } = new List<PlayerTask.State>();
+    private Dictionary<PlayerTask, PlayerTask.State> taskStates = new();
 
     public int initialTime;
     [System.NonSerialized] public int timeRemain;
@@ -116,6 +117,14 @@ public class GameManager : MonoBehaviour
         // Get the reference to the player
         player = GameObject.Find("Player");
 
+        // Create state for all tasks
+        List<PlayerTask> tasks = Resources.LoadAll<PlayerTask>("Player Tasks").ToList();
+        tasks.Sort();
+        foreach (var task in tasks)
+        {
+            taskStates.Add(task, new PlayerTask.State());
+        }
+
         // Start from continued scene
         currentSceneName = PlayerPrefs.GetString("ContinueSceneName", startingSceneName);
 
@@ -144,9 +153,6 @@ public class GameManager : MonoBehaviour
             {
                 TeleportPlayer(DebugSettings.instance.newSpawningPoint, DebugSettings.instance.newSpawningRotation);
             }
-
-            // Load tasks
-            ReloadTasksFromCheckpoint(spawnPoint);
         });
 
 
@@ -312,12 +318,13 @@ public class GameManager : MonoBehaviour
         StringBuilder sb = new();
         sb.Append("Notes\n\n");
         sb.Append("Hurry! You are almost late!\nYou only have *10 minutes* left to approach *International Departure* and \nto catch the plane, you need to:\n\n");
-        foreach (PlayerTask.State task in tasks)
+        foreach (var (task, state) in taskStates)
         {
-            if (task.task.isVisible)
+            // Display only tasks in the current scene and that are visible
+            if (task.sceneName == currentSceneName && task.isVisible)
             {
-                sb.Append(task.isComplete ? "[Completed] " : "[Unfinished] ");
-                sb.Append(task.task.taskName);
+                sb.Append(state.isComplete ? "[Completed] " : "[Unfinished] ");
+                sb.Append(task.taskName);
                 sb.Append("\n");
             }
         }
@@ -385,17 +392,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Discard tasks from the previous scene and load tasks from the new scene.
-    private void ReloadTasksFromCheckpoint(CheckPoint checkPoint)
-    {
-        tasks.Clear();
-        tasks.AddRange(checkPoint.tasks.Select((PlayerTask task) => task.CreateState()));
-        UpdateNotesMenu();
-    }
-
     /// <summary>
     /// Called when player reaches a scene's checkpoint trigger.<br>
-    /// Set the scene the game will continue from when the game is restarted, and reload tasks.
+    /// Set the scene the game will continue from when the game is restarted.
     /// </summary>
     public void ReachSceneCheckPoint(string sceneName)
     {
@@ -405,40 +404,22 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Checkpoint: " + sceneName);
 
-        ReloadTasksFromCheckpoint(CheckPoint.FindInScene(sceneName));
+        // Scene has changed, so different tasks will display
+        UpdateNotesMenu();
     }
 
 
 
     public PlayerTask.State GetTaskState(PlayerTask task)
     {
-        int index = tasks.FindIndex((PlayerTask.State state) => state.task == task);
-        if (index == -1)
-        {
-            throw new System.ArgumentException("Task not loaded: " + task.taskName);
-        }
-        return tasks[index];
+        return taskStates[task];
     }
 
-    public void CompleteTask(int index)
-    {
-        PlayerTask.State task = tasks[index];
-        if (!task.isComplete)
-        {
-            task.isComplete = true;
-            UpdateNotesMenu();
-            sfxPlayer.PlayOneShot(taskComplete, 1.0f);
-            Debug.Log("Task complete: " + task.task.taskName);
-        }
-    }
     public void CompleteTask(PlayerTask task)
     {
-        int index = tasks.FindIndex((PlayerTask.State state) => state.task == task);
-        if (index == -1)
-        {
-            throw new System.ArgumentException("Task not loaded: " + task.taskName);
-        }
-        CompleteTask(index);
+        var state = taskStates[task];
+        state.isComplete = true;
+        taskStates[task] = state;
     }
 
     #if UNITY_EDITOR
@@ -467,7 +448,7 @@ public class GameManager : MonoBehaviour
                     }
                 };
                 root.Add(Label);
-                taskListView = new ListView(gameManager.tasks, -1, () =>
+                taskListView = new ListView(gameManager.taskStates.Keys.ToList(), -1, () =>
                 {
                     var element = new VisualElement()
                     {
@@ -481,7 +462,10 @@ public class GameManager : MonoBehaviour
                     var checkbox = new UnityEngine.UIElements.Toggle();
                     checkbox.RegisterValueChangedCallback((ChangeEvent<bool> evt) =>
                     {
-                        gameManager.tasks[element.parent.IndexOf(element)].isComplete = evt.newValue;
+                        var task = (PlayerTask) element.userData;
+                        var state = gameManager.taskStates[task];
+                        state.isComplete = evt.newValue;
+                        gameManager.taskStates[task] = state;
                         gameManager.UpdateNotesMenu();
                     });
 
@@ -499,11 +483,12 @@ public class GameManager : MonoBehaviour
 
                 }, (VisualElement element, int index) =>
                 {
-                    var task = gameManager.tasks[index];
+                    var (task, state) = gameManager.taskStates.ElementAt(index);
+                    element.userData = task;
                     var label = element.Q<Label>();
-                    label.text = task.task.taskName;
+                    label.text = task.taskName;
                     var checkbox = element.Q<UnityEngine.UIElements.Toggle>();
-                    checkbox.value = task.isComplete;
+                    checkbox.value = state.isComplete;
                 });
 
                 taskListView.selectionType = SelectionType.None;

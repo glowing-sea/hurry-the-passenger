@@ -6,16 +6,10 @@ using UnityEngine;
 /// Each scene should have one and only one check point,
 /// which is a game object tagged with Respawn and has a CheckPoint script attached.
 /// 
-/// The check point dictates where the player will spawn when the scene is loaded,
-/// as well as the tasks available in this scene.
+/// The check point dictates where the player will spawn when the scene is loaded.
 /// </summary>
 public class CheckPoint : MonoBehaviour
 {
-    /// <summary>
-    /// Tasks available in this scene.
-    /// </summary>
-    public List<PlayerTask> tasks = new List<PlayerTask>();
-
     /// <summary>
     /// Find the spawn point in the given scene.
     /// </summary>

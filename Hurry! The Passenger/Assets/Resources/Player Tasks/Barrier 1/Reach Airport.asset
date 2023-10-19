@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f8f58814518ecfbbeed937837f5c70, type: 3}
-  m_Name: Organize Baggage
+  m_Name: Reach Airport
   m_EditorClassIdentifier: 
-  taskName: Organise your baggage to avoid being overweight
+  taskName: Cross roads to reach the airport
   isVisible: 1
+  sceneName: Barrier 1
+  sortingOrder: 1
