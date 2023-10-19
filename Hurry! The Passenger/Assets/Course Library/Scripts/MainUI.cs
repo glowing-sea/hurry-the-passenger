@@ -10,4 +10,6 @@ public class MainUI : MonoBehaviour
 
     public GameObject dialogueBox;
     public GameObject dialogueText;
+
+    public GameObject autoSavingIndicator;
 }

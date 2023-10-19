@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(Collider))]
 public class CheckPointTrigger : MonoBehaviour
@@ -26,6 +27,11 @@ public class CheckPointTrigger : MonoBehaviour
 
         // Set checkpoint
         gameManager.ReachSceneCheckPoint(checkPointSceneName);
+
+        // Show auto save indicator
+        TextMeshProUGUI text = gameManager.mainUI.autoSavingIndicator.GetComponent<TextMeshProUGUI>();
+        StartCoroutine(gameManager.ShowThingTemporarily(text.gameObject, 1));
+
 
         if (destroyAfterUse)
         {

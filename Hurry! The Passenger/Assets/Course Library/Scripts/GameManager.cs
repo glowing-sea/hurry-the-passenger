@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     [System.NonSerialized] public bool timerEnabled;
 
     public int balance;
-    public TextMeshProUGUI balanceText;
 
     public float gravity;
 
@@ -57,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     // UI
     public TextMeshProUGUI timeRemainText;
-
+    public TextMeshProUGUI balanceText;
 
     // Menus
     public GameObject taskMenu;
@@ -314,9 +313,16 @@ public class GameManager : MonoBehaviour
     }
 
     // Restart Game
-    public void RestartGame()
+    public void LoadGame(bool continueOrNot)
     {
-        PlayerPrefs.SetInt("ContinueOrNot", 0);
+        if (continueOrNot)
+        {
+            PlayerPrefs.SetInt("ContinueOrNot", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ContinueOrNot", 0);
+        }
         SceneManager.LoadScene(gameObject.scene.name);
     }
 
