@@ -461,6 +461,8 @@ public class GameManager : MonoBehaviour
         var state = taskStates[task];
         state.isComplete = true;
         taskStates[task] = state;
+        sfxPlayer.PlayOneShot(taskComplete, 1.0f);
+        UpdateNotesMenu();
     }
 
     #if UNITY_EDITOR
