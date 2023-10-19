@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     [System.NonSerialized] public int timeRemain;
     [System.NonSerialized] public bool timerEnabled;
 
+    public int balance;
+    public TextMeshProUGUI balanceText;
+
     public float gravity;
 
     // Game state
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour
     public AudioClip crashSound;
     public AudioClip taskComplete;
     public AudioClip somethingWrong;
+    public AudioClip pickUpMoney;
 
     public AudioSource bgmPlayer;
     public AudioSource ambiencePlayer;
@@ -116,8 +120,17 @@ public class GameManager : MonoBehaviour
         // Get the reference to the player
         player = GameObject.Find("Player");
 
-        // Start from continued scene
-        currentSceneName = PlayerPrefs.GetString("ContinueSceneName", startingSceneName);
+        // Load a new state or a continue state
+        if (PlayerPrefs.GetInt("ContinueOrNot") == 0)
+        {
+            currentSceneName = startingSceneName;
+            timeRemain = initialTime;
+        } else
+        {
+            currentSceneName = PlayerPrefs.GetString("ContinueSceneName", startingSceneName);
+            timeRemain = PlayerPrefs.GetInt("TimeRemain", timeRemain);
+            balance = PlayerPrefs.GetInt("Balance", balance);
+        }
 
         // In the editor, if another scene is already load, we set the continue scene to that.
         // This prevents the continue scene from last time from being loaded when
@@ -164,8 +177,7 @@ public class GameManager : MonoBehaviour
         // StartCoroutine(WaitForLoading());
         Time.timeScale = 1;
 
-        // Setup timer
-        timeRemain = initialTime;
+
         StartCoroutine(TimerUpdate());
         // Enable timer as long as we are not in the starting scene,
         // for which the timer is started by finishing the tutorial.
@@ -173,6 +185,7 @@ public class GameManager : MonoBehaviour
 
         Physics.gravity = new Vector3(0, -gravity, 0); // set gravity
         UpdateNotesMenu(); // update the note menu (when the player press [I])
+        UpdateBalance(0, true); // update balance on the UI
 
     }
 
@@ -297,6 +310,7 @@ public class GameManager : MonoBehaviour
     // Restart Game
     public void RestartGame()
     {
+        PlayerPrefs.SetInt("ContinueOrNot", 0);
         SceneManager.LoadScene(gameObject.scene.name);
     }
 
@@ -385,6 +399,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Increase or decrease the money. If negative, return false
+    public bool UpdateBalance(int amount, bool increase)
+    {
+        // Play sound if the balance increase
+        if (amount != 0)
+        {
+            sfxPlayer.PlayOneShot(pickUpMoney, 2);
+        }
+
+        int newBalance = balance = increase ? balance + amount : balance - amount;
+        if (newBalance >= 0)
+        {
+            balance = newBalance;
+            balanceText.text = "$ " + balance;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
     // Discard tasks from the previous scene and load tasks from the new scene.
     private void ReloadTasksFromCheckpoint(CheckPoint checkPoint)
     {
@@ -401,6 +438,8 @@ public class GameManager : MonoBehaviour
     {
         currentSceneName = sceneName;
         PlayerPrefs.SetString("ContinueSceneName", sceneName);
+        PlayerPrefs.SetInt("TimeRemain", timeRemain);
+        PlayerPrefs.SetInt("Balance", balance);
         PlayerPrefs.Save();
 
         Debug.Log("Checkpoint: " + sceneName);

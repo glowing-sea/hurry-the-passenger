@@ -8,6 +8,17 @@ using System;
 public class ButtonActions : MonoBehaviour
 {
     public TMPro.TMP_InputField enterSensitivity;
+    public GameObject continueButton;
+
+    // Hide Continue Button if no save data
+    void Start()
+    {
+        // Disable self if there is no continue scene
+        if (PlayerPrefs.GetString("ContinueSceneName", "") == "")
+        {
+            continueButton.SetActive(false);
+        }
+    }
 
     // Game Start
     public void StartGame(bool continueGame)
@@ -24,9 +35,13 @@ public class ButtonActions : MonoBehaviour
         }
 
         // Clear continue scene if we are not continuing
-        if (!continueGame)
+        if (continueGame)
         {
-            PlayerPrefs.DeleteKey("ContinueSceneName");
+            // PlayerPrefs.DeleteKey("ContinueSceneName");
+            PlayerPrefs.SetInt("ContinueOrNot", 1);
+        } else
+        {
+            PlayerPrefs.SetInt("ContinueOrNot", 0);
         }
 
         // Load the game sence
