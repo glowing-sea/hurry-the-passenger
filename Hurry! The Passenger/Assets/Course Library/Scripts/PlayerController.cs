@@ -56,6 +56,12 @@ public class PlayerController : MonoBehaviour
 
         {
             PlayerMovement();
+
+            // Die if player is below the ground
+            if (transform.position.y < -40)
+            {
+                gameManager.GameOver();
+            }
         }
     }
 
