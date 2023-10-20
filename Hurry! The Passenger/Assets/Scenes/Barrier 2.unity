@@ -15808,9 +15808,10 @@ MonoBehaviour:
   destroyAfterUse: 0
   dialogs:
   - name: Airport Security
-    text: This is domestic departure, are you boarding on a domestic flight?
+    text: (Stopped by the airport security) Hey, you are boarding an international
+      flight, you should go to the international terminal to the right
   - name: Me
-    text: Nope, my bad.
+    text: 'Oh, ok. (here goes 30 seconds) '
 --- !u!65 &1031641833
 BoxCollider:
   m_ObjectHideFlags: 0
