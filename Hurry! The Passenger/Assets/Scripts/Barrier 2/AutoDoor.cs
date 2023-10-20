@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AutoDoor : MonoBehaviour
 {
@@ -13,6 +14,13 @@ public class AutoDoor : MonoBehaviour
         Closed,
     }
 
+    private TextMeshProUGUI interact;
+    private bool interactable;
+
+    // Script
+    private GameManager gameManager; // reference to the game manager script
+
+    public List<DialogSystem.Dialog> dialogs;
     public DoorState doorState { get; private set; } // current state of the door
 
     public float doorSpeed; // spped of opening or closing
@@ -27,6 +35,8 @@ public class AutoDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance; // get reference
+        interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
         doorState = DoorState.Closed;
         closedPosition = transform.localPosition; // use the saved position as the closed position
     }
@@ -105,6 +115,15 @@ public class AutoDoor : MonoBehaviour
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireMesh(meshFilter.sharedMesh, transform.position + openedDisplacement, transform.rotation, transform.localScale);
+        }
+    }
+
+    //if the player collides with door
+    private void OnCollisionEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+             gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
         }
     }
 }

@@ -10115,6 +10115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs: []
   doorSpeed: 40
   openedDisplacement: {x: 0, y: 0, z: 9}
 --- !u!4 &682351944 stripped
@@ -19611,6 +19612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs:
+  - name: Me
+    text: Just the kind of automatic door that shuts at my face...... Maybe I should
+      sprint when it opens
   doorSpeed: 40
   openedDisplacement: {x: 0, y: 0, z: -9}
 --- !u!1 &1311072679
