@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI smallText;
     public TextMeshProUGUI largeText;
+    public TextMeshProUGUI text;
 
     // Cameras
     public Camera playerCamera;

@@ -13,10 +13,12 @@ public class CheckPointTrigger : MonoBehaviour
 
     public string checkPointSceneName;
 
+    private TextMeshProUGUI text;
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        
+
         GameManager gameManager = GameManager.instance;
 
         // Set the task to complete
@@ -29,8 +31,8 @@ public class CheckPointTrigger : MonoBehaviour
         gameManager.ReachSceneCheckPoint(checkPointSceneName);
 
         // Show auto save indicator
-        TextMeshProUGUI text = gameManager.mainUI.autoSavingIndicator.GetComponent<TextMeshProUGUI>();
-        StartCoroutine(gameManager.ShowThingTemporarily(text.gameObject, 1));
+        text = gameManager.mainUI.autoSavingIndicator.GetComponent<TextMeshProUGUI>();
+        StartCoroutine(gameManager.ShowThingTemporarily(text.gameObject, 2));
 
 
         if (destroyAfterUse)

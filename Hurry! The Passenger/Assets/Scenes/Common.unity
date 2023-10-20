@@ -4120,7 +4120,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 796963557}
   - {fileID: 663700788}
   - {fileID: 996622265}
   - {fileID: 1347055096}
@@ -4131,6 +4130,7 @@ RectTransform:
   - {fileID: 1703845519}
   - {fileID: 1139247932}
   - {fileID: 1900390028}
+  - {fileID: 796963557}
   - {fileID: 1877555619}
   - {fileID: 1283008040}
   m_Father: {fileID: 2111652105}
@@ -4157,7 +4157,7 @@ MonoBehaviour:
   interactPrompt: {fileID: 1703845518}
   dialogueBox: {fileID: 1877555618}
   dialogueText: {fileID: 126734426}
-  autoSavingIndicator: {fileID: 796963556}
+  autoSavingIndicator: {fileID: 0}
 --- !u!1 &728069245
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,7 +4559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Autosaving now...
+  m_text: Auto Saving
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8887514be60924b0ba1319bd10d63d0f, type: 2}
   m_sharedMaterial: {fileID: 21010144202549244, guid: 8887514be60924b0ba1319bd10d63d0f, type: 2}
@@ -4592,7 +4592,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 9
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5253,6 +5253,7 @@ MonoBehaviour:
   staminaGauge: {fileID: 663700789}
   smallText: {fileID: 1900390029}
   largeText: {fileID: 1139247933}
+  text: {fileID: 796963558}
   playerCamera: {fileID: 937584091}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
   taskComplete: {fileID: 8300000, guid: 113ee460fadc340e4957a7404a9fbb27, type: 3}
