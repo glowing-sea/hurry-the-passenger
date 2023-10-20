@@ -317,7 +317,7 @@ public class GameManager : MonoBehaviour
             if(isGameOver)
     {
         Debug.Log("Game Over. Can't continue.");
-        return; // 如果游戏已结束，直接返回，不执行下面的代码
+        return; // Can't continue if game is over
     }
         gameState = GameState.Running;
         pauseMenu.SetActive(false);
