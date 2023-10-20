@@ -287,6 +287,8 @@ public class GameManager : MonoBehaviour
     }
 
     // What to do when the player fails
+    public bool isGameOver = false; 
+
     public void GameOver()
     {
         gameState = GameState.Over;
@@ -294,6 +296,8 @@ public class GameManager : MonoBehaviour
         largeText.gameObject.SetActive(true);
         pauseMenu.SetActive(true);
         sfxPlayer.PlayOneShot(crashSound, 1.0f); // play crash sound
+        isGameOver = true; 
+
     }
 
     // What to do when the player wins
@@ -304,11 +308,17 @@ public class GameManager : MonoBehaviour
         largeText.gameObject.SetActive(true);
         pauseMenu.SetActive(true);
         sfxPlayer.PlayOneShot(taskComplete, 1.0f); // play crash sound
+        isGameOver = true; 
     }
 
     //Continue Game State After Paused
     public void ContinueGame()
     {
+            if(isGameOver)
+    {
+        Debug.Log("Game Over. Can't continue.");
+        return; // 如果游戏已结束，直接返回，不执行下面的代码
+    }
         gameState = GameState.Running;
         pauseMenu.SetActive(false);
     }
@@ -324,6 +334,8 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("ContinueOrNot", 0);
         }
+        isGameOver = false;
+
         SceneManager.LoadScene(gameObject.scene.name);
     }
 
