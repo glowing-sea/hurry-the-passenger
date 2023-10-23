@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public TMPro.TMP_InputField checkMenu;
 
+    // Exclamation Mark to notify the player there is an update in GuidMenu or TaskMenu
+    [SerializeField] private GameObject guideMenuUpdateMark;
+    [SerializeField] private GameObject taskMenuUpdateMark;
 
     public TextMeshProUGUI noteText; // show guides when player press I
     public Slider staminaGauge;
@@ -220,20 +223,24 @@ public class GameManager : MonoBehaviour
                 }
                 else if (gameState == GameState.Paused && menu.activeSelf == true)
                 {
-                    gameState = GameState.Running;
-                    menu.SetActive(false);
+                    CloseMenu(menu.name);
                 }
             }
         }
     }
 
     // Close a task menu / tutorial menu / pause menu
-    public void CloseMenu()
+    public void CloseMenu(string menuName)
     {
         gameState = GameState.Running;
         taskMenu.SetActive(false);
         guideMenu.SetActive(false);
         pauseMenu.SetActive(false);
+
+        if (menuName == "Guide Menu")
+            guideMenuUpdateMark.SetActive(false);
+        if (menuName == "Task Menu")
+            taskMenuUpdateMark.SetActive(false);
     }
 
 
