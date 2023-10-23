@@ -1234,7 +1234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: International
+  m_text: Demostic
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12690,7 +12690,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Domestic
+  m_text: International
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13789,7 +13789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919936036}
   m_Layer: 0
-  m_Name: Domestic Departure
+  m_Name: International Departure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15860,7 +15860,7 @@ MonoBehaviour:
   destroyAfterUse: 0
   dialogs:
   - name: Airport Security
-    text: This is domestic departure, are you boarding on a domestic flight?
+    text: This is international departure, are you boarding on a international flight?
   - name: Me
     text: Nope, my bad.
 --- !u!65 &1031641833

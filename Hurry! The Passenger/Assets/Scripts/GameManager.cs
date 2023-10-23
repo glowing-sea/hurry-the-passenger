@@ -351,7 +351,7 @@ public class GameManager : MonoBehaviour
     {
         StringBuilder sb = new();
         sb.Append("Notes\n\n");
-        sb.Append("Hurry! You are almost late!\nYou only have *10 minutes* left to approach *International Departure* and \nto catch the plane, you need to:\n\n");
+        sb.Append("Hurry! You are almost late!\nYou only have *15 minutes* left to board a *Domestic Flight* to Sydney and \nto catch the plane, you need to:\n\n");
         foreach (var (task, state) in taskStates)
         {
             // Display only tasks in the current scene and that are visible
