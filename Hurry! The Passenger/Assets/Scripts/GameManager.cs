@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     public GameObject taskMenu;
     public GameObject guideMenu;
     public GameObject pauseMenu;
-    public TMPro.TMP_InputField checkMenu;
+    public TMPro.TMP_InputField cheatMenu;
 
     // Exclamation Mark to notify the player there is an update in GuidMenu or TaskMenu
     [SerializeField] private GameObject guideMenuUpdateMark;
@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour
             (KeyCode.T, taskMenu),
             (KeyCode.G, guideMenu),
             (KeyCode.P, pauseMenu),
-            (KeyCode.BackQuote, checkMenu.gameObject),
+            (KeyCode.BackQuote, cheatMenu.gameObject),
         };
 
         foreach (var (key, menu) in menus)
@@ -236,6 +236,7 @@ public class GameManager : MonoBehaviour
         taskMenu.SetActive(false);
         guideMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        cheatMenu.gameObject.SetActive(false);
 
         if (menuName == "Guide Menu")
             guideMenuUpdateMark.SetActive(false);
@@ -370,13 +371,14 @@ public class GameManager : MonoBehaviour
             }
         }
         noteText.text = sb.ToString();
+        taskMenuUpdateMark.SetActive(true);
     }
 
 
     // Behaviour of the command line
     public void InputCommandConfirm()
     {
-        string command = checkMenu.text;
+        string command = cheatMenu.text;
 
         if (command.StartsWith("skip "))
         {
@@ -384,7 +386,7 @@ public class GameManager : MonoBehaviour
             CompleteTask(command);
         }
 
-        switch (checkMenu.text)
+        switch (cheatMenu.text)
         {
             case "unlimitedtime":
                 timeRemain = 5940;

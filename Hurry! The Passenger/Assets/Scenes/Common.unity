@@ -5533,7 +5533,7 @@ MonoBehaviour:
   taskMenu: {fileID: 155227638}
   guideMenu: {fileID: 2002214645}
   pauseMenu: {fileID: 1641774053}
-  checkMenu: {fileID: 371170126}
+  cheatMenu: {fileID: 371170126}
   guideMenuUpdateMark: {fileID: 924797483}
   taskMenuUpdateMark: {fileID: 252535627}
   noteText: {fileID: 1455143127}
