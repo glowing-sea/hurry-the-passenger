@@ -4161,7 +4161,8 @@ MonoBehaviour:
   interactPrompt: {fileID: 1703845518}
   dialogueBox: {fileID: 1877555618}
   dialogueText: {fileID: 126734426}
-  autoSavingIndicator: {fileID: 0}
+  autoSavingIndicator: {fileID: 796963556}
+  minimap: {fileID: 1283008039}
 --- !u!1 &728069245
 GameObject:
   m_ObjectHideFlags: 0

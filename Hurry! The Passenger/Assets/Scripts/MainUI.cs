@@ -12,4 +12,6 @@ public class MainUI : MonoBehaviour
     public GameObject dialogueText;
 
     public GameObject autoSavingIndicator;
+
+    public GameObject minimap;
 }

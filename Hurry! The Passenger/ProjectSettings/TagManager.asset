@@ -11,6 +11,9 @@ TagManager:
   - NotBag
   - AirportGate
   - Car
+  - Money
+  - Bomb
+  - InsideTray
   layers:
   - Default
   - TransparentFX

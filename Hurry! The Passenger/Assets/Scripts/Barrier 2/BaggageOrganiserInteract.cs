@@ -39,24 +39,15 @@ public class BaggageOrganiserInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (interactable)
+        if (interactable && Input.GetKeyDown(KeyCode.F) && GameManager.instance.gameState == GameState.Running && !gameManager.GetTaskState(baggageTask).isComplete)
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                // if the player has not finished organising their baggage
-                if (gameManager.gameState == GameState.Running && !gameManager.GetTaskState(baggageTask).isComplete)
-                {
-                    gameManager.gameState = GameState.LeavingMainScene;
-                    // go into baggage organisation view
-                    gameManager.playerCamera.enabled = false; // !!! Test
-                    baggageCamera.enabled = true;
-
-                    interact.gameObject.SetActive(false);
-                    gameManager.staminaGauge.gameObject.SetActive(false);
-                    baggageOrganiserMenu.SetActive(true);
-                }
-            }
-        }
+            baggageOrganiserMenu.SetActive(true); // open special menu
+            interact.gameObject.SetActive(false); // close interact prompt
+            gameManager.gameState = GameState.LeavingMainScene; // go into special game state that player cannot move
+            baggageCamera.depth = 1; // bring security camera forward
+            gameManager.staminaGauge.gameObject.SetActive(false); // hide stamina if player is running
+            gameManager.mainUI.minimap.SetActive(false); // hide minimap
+        } 
     }
 
     // Show [F] when the player close to it
@@ -83,11 +74,11 @@ public class BaggageOrganiserInteract : MonoBehaviour
     // When the player want to exit the baggage organisation view
     public void ExitButton()
     {
-        baggageOrganiserMenu.SetActive(false);
-        interact.gameObject.SetActive(true);
-        gameManager.gameState = GameState.Running;
-        gameManager.playerCamera.enabled = true;
-        baggageCamera.enabled = false;
+        baggageOrganiserMenu.SetActive(false); // close special menu
+        interact.gameObject.SetActive(true); // reopen interact prompt
+        gameManager.gameState = GameState.Running; // reset game state
+        baggageCamera.depth = -1; // bring security camera back
+        gameManager.mainUI.minimap.SetActive(true); // reopen minimap
     }
 
     // When the play want to confirm their baggage organisation

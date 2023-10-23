@@ -1,0 +1,70 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SecurityCheckInteract : MonoBehaviour
+{
+    // Special Camera for playing the security check minigame
+    public Camera securityCheckCamera;
+
+    // The task to be finished in this minigame
+    [SerializeField] PlayerTask securityCheckTask;
+
+    // Interact Text
+    GameObject interactPrompt;
+    bool interactable;
+
+    // Script
+    private GameManager gameManager; // reference to the game manager script
+
+    // UI
+    public GameObject securityCheckMenu;
+
+    void Start()
+    {
+        gameManager = GameManager.instance; // get reference
+        interactPrompt = GameManager.instance.mainUI.interactPrompt;
+    }
+
+    void Update()
+    {
+        if (interactable && Input.GetKeyDown(KeyCode.F) && GameManager.instance.gameState == GameState.Running && !gameManager.GetTaskState(securityCheckTask).isComplete)
+        {
+            securityCheckMenu.SetActive(true); // open special menu
+            interactPrompt.gameObject.SetActive(false); // close interact prompt
+            gameManager.gameState = GameState.LeavingMainScene; // go into special game state that player cannot move
+            securityCheckCamera.depth = 1; // bring security camera forward
+            gameManager.staminaGauge.gameObject.SetActive(false); // hide stamina if player is running
+            gameManager.mainUI.minimap.SetActive(false); // hide minimap
+        }
+    }
+
+
+    // Show [F] when the player close to it
+    private void OnTriggerEnter(Collider other)
+    {
+        // if the player close to this object and has not finished organising their baggage
+        if (other.gameObject.CompareTag("Player"))
+        {
+            interactable = true;
+            interactPrompt.SetActive(true);
+        }
+    }
+
+    // When the player want to exit the baggage organisation view
+    public void ExitButton()
+    {
+        securityCheckMenu.SetActive(false); // close special menu
+        interactPrompt.gameObject.SetActive(true); // reopen interact prompt
+        gameManager.gameState = GameState.Running; // reset game state
+        securityCheckCamera.depth = -1; // bring security camera back
+        gameManager.mainUI.minimap.SetActive(true); // reopen minimap
+    }
+
+
+    void OnTriggerExit()
+    {
+        interactable = false;
+        interactPrompt.SetActive(false);
+    }
+}

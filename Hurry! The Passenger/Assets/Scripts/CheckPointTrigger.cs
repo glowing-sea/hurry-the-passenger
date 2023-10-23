@@ -31,8 +31,7 @@ public class CheckPointTrigger : MonoBehaviour
         gameManager.ReachSceneCheckPoint(checkPointSceneName);
 
         // Show auto save indicator
-        text = gameManager.mainUI.autoSavingIndicator.GetComponent<TextMeshProUGUI>();
-        StartCoroutine(gameManager.ShowThingTemporarily(text.gameObject, 2));
+        StartCoroutine(gameManager.ShowThingTemporarily(gameManager.mainUI.autoSavingIndicator, 2));
 
 
         if (destroyAfterUse)
