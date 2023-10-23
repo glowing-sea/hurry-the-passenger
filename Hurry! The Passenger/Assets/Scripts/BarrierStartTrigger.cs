@@ -20,11 +20,7 @@ public class BarrierStartTrigger : MonoBehaviour
         GameManager gameManager = GameManager.instance;
 
         // Set checkpoint
-        gameManager.ReachSceneCheckPoint(sceneName);
-
-        // Show auto save indicator
-        StartCoroutine(gameManager.ShowThingTemporarily(gameManager.mainUI.autoSavingIndicator, 2));
-
+        gameManager.ReachNewBarrier(sceneName);
 
         if (destroyAfterUse)
         {

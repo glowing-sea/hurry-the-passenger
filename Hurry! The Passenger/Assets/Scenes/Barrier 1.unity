@@ -684,6 +684,10 @@ MonoBehaviour:
   requiredTasks:
   - {fileID: 11400000, guid: c2830e721ec7712a8bbdbe3b07601e8d, type: 2}
   finishedTask: {fileID: 11400000, guid: 7e77cc57c95f56c23a9fdf4552c23dbe, type: 2}
+  enterDialogue: []
+  exitDialogue: []
+  succeedDialogue: []
+  failDialogue: []
 --- !u!4 &383247642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8595057761349578515, guid: 2d855785aa94e49c4ad764ce3cb72256, type: 3}
@@ -3442,7 +3446,7 @@ GameObject:
   - component: {fileID: 1798216469}
   - component: {fileID: 1798216470}
   m_Layer: 0
-  m_Name: Check Point
+  m_Name: Spawn Point
   m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3803,6 +3807,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1798216469}
-  - {fileID: 1385500138}
   - {fileID: 664539101}
   - {fileID: 381151402}
+  - {fileID: 1385500138}

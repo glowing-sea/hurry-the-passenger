@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
         {
             if (SceneManager.GetSceneAt(1).name != currentSceneName)
             {
-                ReachSceneCheckPoint(SceneManager.GetSceneAt(1).name);
+                ReachNewBarrier(SceneManager.GetSceneAt(1).name);
             }
         }
         #endif
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
         LoadScene(currentSceneName, () =>
         {
             // Move player to spawn point
-            CheckPoint spawnPoint = CheckPoint.FindInScene(currentSceneName);
+            SpawnPoint spawnPoint = SpawnPoint.FindInScene(currentSceneName);
             TeleportPlayer(spawnPoint.transform.position, spawnPoint.transform.rotation);
 
             // Override spawning point with DebugSettings
@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         if (currentSceneName != startingSceneName) timerEnabled = true;
 
         Physics.gravity = new Vector3(0, -gravity, 0); // set gravity
-        UpdateNotesMenu(); // update the note menu (when the player press [I])
+        UpdateTaskMenu(); // update the note menu (when the player press [I])
         UpdateBalance(0, true); // update balance on the UI
 
     }
@@ -347,7 +347,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update Notes menu text. (Note record what tasks has been completed or incompleted)
-    public void UpdateNotesMenu()
+    public void UpdateTaskMenu()
     {
         StringBuilder sb = new();
         sb.Append("Notes\n\n");
@@ -459,10 +459,10 @@ public class GameManager : MonoBehaviour
 
 
     /// <summary>
-    /// Called when player reaches a scene's checkpoint trigger.<br>
-    /// Set the scene the game will continue from when the game is restarted.
+    /// Called when player reaches a new barrier.<br>
+    /// Save the game progress and update the TaskMenu
     /// </summary>
-    public void ReachSceneCheckPoint(string sceneName)
+    public void ReachNewBarrier(string sceneName)
     {
         currentSceneName = sceneName;
         PlayerPrefs.SetString("ContinueSceneName", sceneName);
@@ -470,10 +470,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Balance", balance);
         PlayerPrefs.Save();
 
+        StartCoroutine(ShowThingTemporarily(mainUI.autoSavingIndicator, 2));
         Debug.Log("Checkpoint: " + sceneName);
 
         // Scene has changed, so different tasks will display
-        UpdateNotesMenu();
+        UpdateTaskMenu();
     }
 
 
@@ -490,7 +491,7 @@ public class GameManager : MonoBehaviour
         state.isComplete = true;
         taskStates[task] = state;
         sfxPlayer.PlayOneShot(taskComplete, 1.0f);
-        UpdateNotesMenu();
+        UpdateTaskMenu();
     }
 
     // Mark a task as completed given the task ID
@@ -504,7 +505,7 @@ public class GameManager : MonoBehaviour
                 state.isComplete = true;
                 taskStates[entry.Key] = state;
                 sfxPlayer.PlayOneShot(taskComplete, 1.0f);
-                UpdateNotesMenu();
+                UpdateTaskMenu();
             }
 
         }
@@ -554,7 +555,7 @@ public class GameManager : MonoBehaviour
                         var state = gameManager.taskStates[task];
                         state.isComplete = evt.newValue;
                         gameManager.taskStates[task] = state;
-                        gameManager.UpdateNotesMenu();
+                        gameManager.UpdateTaskMenu();
                     });
 
                     var label = new Label()

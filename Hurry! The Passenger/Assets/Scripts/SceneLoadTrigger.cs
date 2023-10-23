@@ -12,7 +12,7 @@ public class SceneLoadTrigger : MonoBehaviour
     }
     public SceneLoadTriggerType type;
 
-    public bool destroyAfterUse = false;
+    public bool destroyAfterUse = true;
 
     public string sceneName;
 

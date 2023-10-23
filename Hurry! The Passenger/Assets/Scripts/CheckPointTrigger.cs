@@ -30,7 +30,7 @@ public class CheckPointTrigger : MonoBehaviour
         }
 
         // Set checkpoint
-        gameManager.ReachSceneCheckPoint(checkPointSceneName);
+        gameManager.ReachNewBarrier(checkPointSceneName);
 
         // Show auto save indicator
         StartCoroutine(gameManager.ShowThingTemporarily(gameManager.mainUI.autoSavingIndicator, 2));

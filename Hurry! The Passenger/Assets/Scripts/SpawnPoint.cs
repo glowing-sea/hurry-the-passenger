@@ -8,19 +8,19 @@ using UnityEngine;
 /// 
 /// The check point dictates where the player will spawn when the scene is loaded.
 /// </summary>
-public class CheckPoint : MonoBehaviour
+public class SpawnPoint : MonoBehaviour
 {
     /// <summary>
     /// Find the spawn point in the given scene.
     /// </summary>
-    public static CheckPoint FindInScene(string sceneName)
+    public static SpawnPoint FindInScene(string sceneName)
     {
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
         foreach (GameObject spawnPoint in spawnPoints)
         {
             if (spawnPoint.scene.name == sceneName)
             {
-                return spawnPoint.GetComponent<CheckPoint>();
+                return spawnPoint.GetComponent<SpawnPoint>();
             }
         }
         return null;
@@ -36,3 +36,4 @@ public class CheckPoint : MonoBehaviour
         Gizmos.DrawRay(new Vector3(0, 2.5f, 0), Vector3.forward * 2f);
     }
 }
+
