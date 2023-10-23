@@ -38,6 +38,7 @@ public class BarrierFinishTrigger : MonoBehaviour
             if (destroyAfterUse)
             {
                 Destroy(gameObject);
+                gameManager.dialogSystem.StartDialog(Dialog(true));
             }
         } else
         {

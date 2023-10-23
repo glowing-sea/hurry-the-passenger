@@ -7,6 +7,9 @@ public class SecurityCheckInteract : MonoBehaviour
     // Special Camera for playing the security check minigame
     public Camera securityCheckCamera;
 
+    // The barrier to be destroy after the security check is completed
+    public GameObject securiyBarrier;
+
     // The task to be finished in this minigame
     [SerializeField] PlayerTask securityCheckTask;
 
@@ -59,6 +62,7 @@ public class SecurityCheckInteract : MonoBehaviour
         gameManager.gameState = GameState.Running; // reset game state
         securityCheckCamera.depth = -1; // bring security camera back
         gameManager.mainUI.minimap.SetActive(true); // reopen minimap
+        Destroy(securiyBarrier);
     }
 
 

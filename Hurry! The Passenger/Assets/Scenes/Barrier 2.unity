@@ -386,12 +386,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32206061}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1416603366}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &32206063
 MonoBehaviour:
@@ -654,9 +654,8 @@ GameObject:
   - component: {fileID: 42192855}
   - component: {fileID: 42192854}
   - component: {fileID: 42192852}
-  - component: {fileID: 42192856}
   m_Layer: 0
-  m_Name: Entrance Trigger
+  m_Name: Entrance Dialogs Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42192850}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 15.05, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -760,21 +759,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8, y: 4, z: 1}
   m_Center: {x: 3.89, y: 0, z: 10}
---- !u!114 &42192856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42192850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058201d9b62d4b743a4d856f8e4127eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  destroyAfterUse: 0
-  sceneName: Barrier 3
 --- !u!1 &47669231
 GameObject:
   m_ObjectHideFlags: 0
@@ -7912,8 +7896,8 @@ Transform:
   m_GameObject: {fileID: 513813295}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.769913, y: 2.5087657, z: -0.002193451}
-  m_LocalScale: {x: 0.4999999, y: 5, z: 80.000015}
+  m_LocalPosition: {x: -56.769913, y: 2.5087657, z: -2.35}
+  m_LocalScale: {x: 0.4999999, y: 5, z: 77.56}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 710293998}
@@ -9371,7 +9355,7 @@ Transform:
   m_GameObject: {fileID: 603852363}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.82003, y: 5.34, z: 47.340027}
+  m_LocalPosition: {x: -56.82003, y: 6.54, z: 45.65}
   m_LocalScale: {x: 0.4999999, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9833,39 +9817,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661179510}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &668076004
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 668076005}
-  m_Layer: 0
-  m_Name: Baggage Organiser
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &668076005
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668076004}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 11.660137, y: 0.16, z: 65.457855}
-  m_LocalScale: {x: 2, y: 0.5, z: 10}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2101668975}
-  - {fileID: 787852925}
-  m_Father: {fileID: 1416603366}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &674053727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11794,7 +11745,7 @@ GameObject:
   - component: {fileID: 787852924}
   - component: {fileID: 787852926}
   m_Layer: 0
-  m_Name: Interactable
+  m_Name: Baggage Organiser Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11829,12 +11780,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787852923}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.09108736, y: 10.100014, z: 0.020985033}
-  m_LocalScale: {x: 2, y: 20, z: 5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.8699875, y: 5.2100067, z: 65.64003}
+  m_LocalScale: {x: 20, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 668076005}
+  m_Children:
+  - {fileID: 2101668975}
+  m_Father: {fileID: 1416603366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &787852926
 MonoBehaviour:
@@ -14206,8 +14158,10 @@ GameObject:
   - component: {fileID: 943512481}
   - component: {fileID: 943512480}
   - component: {fileID: 943512479}
+  - component: {fileID: 943512482}
+  - component: {fileID: 943512483}
   m_Layer: 9
-  m_Name: Barrier 2 Start Trigger
+  m_Name: Barrier 2 Start Trigger (Preload Barrier 3)
   m_TagString: AirportGate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14263,6 +14217,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &943512482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943512478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058201d9b62d4b743a4d856f8e4127eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  destroyAfterUse: 1
+  sceneName: Barrier 3
+--- !u!114 &943512483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943512478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058201d9b62d4b743a4d856f8e4127eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  destroyAfterUse: 1
+  sceneName: Barrier 1
 --- !u!1 &943532957
 GameObject:
   m_ObjectHideFlags: 0
@@ -19015,7 +18999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242739878}
   m_Layer: 0
-  m_Name: Doors
+  m_Name: Auto Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21046,17 +21030,16 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 32206062}
+  - {fileID: 42192851}
   - {fileID: 177421439}
   - {fileID: 710293998}
   - {fileID: 1242739878}
   - {fileID: 1315331111}
-  - {fileID: 668076005}
+  - {fileID: 787852925}
   - {fileID: 348506664}
   - {fileID: 1141670749}
   - {fileID: 423967338}
   - {fileID: 1712579306}
-  - {fileID: 42192851}
   - {fileID: 919936036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28714,7 +28697,7 @@ Transform:
   m_GameObject: {fileID: 2077939566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.720024, y: 1.94, z: 47.260017}
+  m_LocalPosition: {x: -54.25, y: 1.94, z: 47.260017}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28992,7 +28975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101668975}
   m_Layer: 0
-  m_Name: Physical
+  m_Name: Baggage Organiser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29006,15 +28989,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101668974}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.010492516, y: -0.5050007, z: -0.018217469}
+  m_LocalScale: {x: 0.2, y: 0.05, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1011927251}
   - {fileID: 1863257903}
   - {fileID: 803182924}
-  m_Father: {fileID: 668076005}
+  m_Father: {fileID: 787852925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2105920603
 GameObject:
@@ -29398,6 +29381,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1865714209}
+  - {fileID: 32206062}
   - {fileID: 943512481}
   - {fileID: 2077939567}
   - {fileID: 1416603366}
