@@ -1,19 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 // The script that will run when the player enter a new barrier
 // It should be placed in the object in the scene in the new barrier (not the previous barrier)
 [RequireComponent(typeof(Collider))]
-public class CheckPointTrigger : MonoBehaviour
+public class BarrierStartTrigger : MonoBehaviour
 {
     public bool destroyAfterUse = true;
-    
-    [Tooltip("Task to mark as completed, optional")]
-    public PlayerTask completedTask;
-
-    public string checkPointSceneName;
+    public string sceneName;
 
     private TextMeshProUGUI text;
 
@@ -23,14 +19,8 @@ public class CheckPointTrigger : MonoBehaviour
 
         GameManager gameManager = GameManager.instance;
 
-        // Set the task to complete
-        if (completedTask)
-        {
-            gameManager.CompleteTask(completedTask);
-        }
-
         // Set checkpoint
-        gameManager.ReachSceneCheckPoint(checkPointSceneName);
+        gameManager.ReachSceneCheckPoint(sceneName);
 
         // Show auto save indicator
         StartCoroutine(gameManager.ShowThingTemporarily(gameManager.mainUI.autoSavingIndicator, 2));

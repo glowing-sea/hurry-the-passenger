@@ -9,7 +9,9 @@ public class PlayerTask : ScriptableObject, IComparable<PlayerTask>
 {
     // Properties
     public string taskName = "";
-    
+
+    public string taskID = "";
+
     [Tooltip("Whether the task is visible in the UI")]
     public bool isVisible = true;
 

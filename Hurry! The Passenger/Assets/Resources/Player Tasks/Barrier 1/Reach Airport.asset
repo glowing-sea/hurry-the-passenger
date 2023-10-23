@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Reach Airport
   m_EditorClassIdentifier: 
   taskName: Cross roads to reach the airport
+  taskID: ReachAirport
   isVisible: 1
   sceneName: Barrier 1
   sortingOrder: 1

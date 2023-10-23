@@ -8,6 +8,7 @@ using System.Text;
 using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 using Slider = UnityEngine.UI.Slider;
+using System.Xml;
 
 
 #if UNITY_EDITOR
@@ -368,12 +369,19 @@ public class GameManager : MonoBehaviour
     // Behaviour of the command line
     public void InputCommandConfirm()
     {
+        string command = checkMenu.text;
+
+        if (command.StartsWith("skip "))
+        {
+            command = command.Substring(5);
+            CompleteTask(command);
+        }
+
         switch (checkMenu.text)
         {
             case "unlimitedtime":
                 timeRemain = 5940;
                 break;
-            case "skipbarrier1":
             case "":
                 player.SetActive(false);
                 player.transform.position = new Vector3(27, 0, 0);
@@ -475,6 +483,7 @@ public class GameManager : MonoBehaviour
         return taskStates[task];
     }
 
+    // Mark a task as completed given the task object
     public void CompleteTask(PlayerTask task)
     {
         var state = taskStates[task];
@@ -484,7 +493,24 @@ public class GameManager : MonoBehaviour
         UpdateNotesMenu();
     }
 
-    #if UNITY_EDITOR
+    // Mark a task as completed given the task ID
+    public void CompleteTask(string taskID)
+    {
+        foreach (KeyValuePair<PlayerTask, PlayerTask.State> entry in taskStates)
+        {
+            if (entry.Key.taskID == taskID)
+            {
+                var state = taskStates[entry.Key];
+                state.isComplete = true;
+                taskStates[entry.Key] = state;
+                sfxPlayer.PlayOneShot(taskComplete, 1.0f);
+                UpdateNotesMenu();
+            }
+
+        }
+    }
+
+#if UNITY_EDITOR
     [CustomEditor(typeof(GameManager))]
     public class GameManagerEditor : Editor
     {

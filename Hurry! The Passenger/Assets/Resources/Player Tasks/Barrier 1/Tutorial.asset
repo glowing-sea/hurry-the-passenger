@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   taskName: Complete Tutorial
-  isVisible: 0
+  taskID: Tutorial
+  isVisible: 1
   sceneName: Barrier 1
   sortingOrder: 0

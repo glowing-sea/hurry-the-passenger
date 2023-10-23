@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Departure Gate
   m_EditorClassIdentifier: 
   taskName: Find the departure gate
+  taskID: DepatureGate
   isVisible: 1
   sceneName: Barrier 2
   sortingOrder: 2

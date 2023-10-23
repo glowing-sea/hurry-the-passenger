@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Organize Baggage
   m_EditorClassIdentifier: 
   taskName: Organise your baggage to avoid being overweight
+  taskID: OrganiseBaggage
   isVisible: 1
   sceneName: Barrier 2
   sortingOrder: 0
