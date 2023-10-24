@@ -13,10 +13,10 @@ public class BarrierFinishTrigger : MonoBehaviour
     public bool destroyAfterUse = true;
     [SerializeField] private List<PlayerTask> requiredTasks;
     [SerializeField] private PlayerTask finishedTask;
-    [SerializeField] private List<Dialog> enterDialogue;
-    [SerializeField] private List<Dialog> exitDialogue;
-    [SerializeField] private List<Dialog> succeedDialogue;
-    [SerializeField] private List<Dialog> failDialogue;
+    [SerializeField] private List<Dialog> enterDialogue = new();
+    [SerializeField] private List<Dialog> exitDialogue = new();
+    [SerializeField] private List<Dialog> succeedDialogue = new();
+    [SerializeField] private List<Dialog> failDialogue = new();
     [SerializeField] private bool lastBarrier = false; // finishing this will complete the game
 
     // Script
@@ -28,9 +28,23 @@ public class BarrierFinishTrigger : MonoBehaviour
         gameManager = GameManager.instance; // get reference
     }
 
+    // Wait for the playing of dialog to complete
+    private bool dialogueStartPlaying = false;
+    void Update()
+    {
+        // All dialogue has been played and the game state is back to running
+        if (dialogueStartPlaying & gameManager.gameState == GameState.Running) {
+            if (lastBarrier)
+                gameManager.GameFinished();
+            if (destroyAfterUse)
+                Destroy(gameObject);
+        }   
+    }
+
     // Call when the player touch it
     private void OnTriggerEnter(Collider other)
     {
+
         if (!other.gameObject.CompareTag("Player")) return;
 
         // Check if the player has completed all the required tasks
@@ -40,17 +54,15 @@ public class BarrierFinishTrigger : MonoBehaviour
             if (finishedTask != null)
                 gameManager.CompleteTask(finishedTask);
 
-            if (lastBarrier)
-                gameManager.GameFinished();
-            else
-                gameManager.dialogSystem.StartDialog(Dialog(true));
-
-            if (destroyAfterUse)
-                Destroy(gameObject);
+            gameManager.dialogSystem.StartDialog(Dialog(true));
+            dialogueStartPlaying = true;
 
         } else
         {
-            gameManager.dialogSystem.StartDialog(Dialog(false));
+            Debug.Log("Some task in Barrier is incompleted");
+            DialogTrigger.StartDialog(enterDialogue);
+            DialogTrigger.StartDialog(failDialogue);
+            //DialogTrigger.StartDialog(exitDialogue);
         }
     }
 

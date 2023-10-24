@@ -8850,7 +8850,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10979,9 +10979,9 @@ MonoBehaviour:
   - {fileID: 1307559781}
   - {fileID: 680121412}
   openDurationCandidates:
-  - 2
-  - 2
-  - 2
+  - 0.3
+  - 0.5
+  - 0.4
 --- !u!4 &740680106 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c14bb5ce28dbb7442a2f79d8b6a061ce, type: 3}

@@ -904,6 +904,7 @@ MonoBehaviour:
   exitDialogue: []
   succeedDialogue: []
   failDialogue: []
+  lastBarrier: 0
 --- !u!4 &383247642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8595057761349578515, guid: 2d855785aa94e49c4ad764ce3cb72256, type: 3}
