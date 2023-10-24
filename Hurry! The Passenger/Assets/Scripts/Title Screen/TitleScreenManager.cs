@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 
 // This script is used to store the functions associate with the button and input text on the title screen
-public class ButtonActions : MonoBehaviour
+public class TitleScreenManager : MonoBehaviour
 {
     public TMPro.TMP_InputField enterSensitivity;
     public GameObject continueButton;
+    public GameObject settingMenu;
 
     // Hide Continue Button if no save data
     void Start()
@@ -17,6 +17,20 @@ public class ButtonActions : MonoBehaviour
         if (!PlayerPrefs.HasKey("ContinueSceneName"))
         {
             continueButton.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (settingMenu.activeSelf)
+            {
+                settingMenu.SetActive(false);
+            } else
+            {
+                settingMenu.SetActive(true);
+            }
         }
     }
 
@@ -39,7 +53,8 @@ public class ButtonActions : MonoBehaviour
         {
             // PlayerPrefs.DeleteKey("ContinueSceneName");
             PlayerPrefs.SetInt("ContinueOrNot", 1);
-        } else
+        }
+        else
         {
             PlayerPrefs.SetInt("ContinueOrNot", 0);
         }
@@ -52,5 +67,25 @@ public class ButtonActions : MonoBehaviour
     public void QuiteGame()
     {
         Application.Quit();
+    }
+
+    public void OpenSettings()
+    {
+        settingMenu.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settingMenu.SetActive(false);
+        if (!PlayerPrefs.HasKey("ContinueSceneName"))
+        {
+            continueButton.SetActive(false);
+        }
+    }
+
+    public void DeleteAllSave()
+    {
+        PlayerPrefs.DeleteAll();
+        enterSensitivity.text = "0.1";
     }
 }

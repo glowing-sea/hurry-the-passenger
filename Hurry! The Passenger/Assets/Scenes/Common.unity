@@ -6997,7 +6997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c513d0b95f74ce98d406d527640ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 400
   maxStamina: 100
   jumpForce: 200
   gravityModifier: 9.8
@@ -7017,7 +7017,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174830332}
-  m_Material: {fileID: 13400000, guid: 9acdafb21a7434806a96e66d89d40f93, type: 2}
+  m_Material: {fileID: 13400000, guid: aa229b01de88e435699d8aa603c2d4c3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
