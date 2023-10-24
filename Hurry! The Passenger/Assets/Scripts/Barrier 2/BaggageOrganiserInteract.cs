@@ -47,6 +47,9 @@ public class BaggageOrganiserInteract : MonoBehaviour
             baggageCamera.depth = 1; // bring security camera forward
             gameManager.staminaGauge.gameObject.SetActive(false); // hide stamina if player is running
             gameManager.mainUI.minimap.SetActive(false); // hide minimap
+            gameManager.mainUI.taskIcon.SetActive(false);
+            gameManager.mainUI.guideIcon.SetActive(false);
+            gameManager.mainUI.pauseIcon.SetActive(false);
         } 
     }
 
@@ -79,6 +82,9 @@ public class BaggageOrganiserInteract : MonoBehaviour
         gameManager.gameState = GameState.Running; // reset game state
         baggageCamera.depth = -1; // bring security camera back
         gameManager.mainUI.minimap.SetActive(true); // reopen minimap
+        gameManager.mainUI.taskIcon.SetActive(true);
+        gameManager.mainUI.guideIcon.SetActive(true);
+        gameManager.mainUI.pauseIcon.SetActive(true);
     }
 
     // When the play want to confirm their baggage organisation

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 using static DialogSystem;
 using Dialog = DialogSystem.Dialog;
@@ -16,6 +17,7 @@ public class BarrierFinishTrigger : MonoBehaviour
     [SerializeField] private List<Dialog> exitDialogue;
     [SerializeField] private List<Dialog> succeedDialogue;
     [SerializeField] private List<Dialog> failDialogue;
+    [SerializeField] private bool lastBarrier = false; // finishing this will complete the game
 
     // Script
     private GameManager gameManager; // reference to the game manager script
@@ -34,12 +36,18 @@ public class BarrierFinishTrigger : MonoBehaviour
         // Check if the player has completed all the required tasks
         if (requiredTasks.All((task) => gameManager.GetTaskState(task).isComplete))
         {
-            gameManager.CompleteTask(finishedTask);
-            if (destroyAfterUse)
-            {
-                Destroy(gameObject);
+
+            if (finishedTask != null)
+                gameManager.CompleteTask(finishedTask);
+
+            if (lastBarrier)
+                gameManager.GameFinished();
+            else
                 gameManager.dialogSystem.StartDialog(Dialog(true));
-            }
+
+            if (destroyAfterUse)
+                Destroy(gameObject);
+
         } else
         {
             gameManager.dialogSystem.StartDialog(Dialog(false));

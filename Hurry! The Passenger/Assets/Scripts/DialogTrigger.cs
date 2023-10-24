@@ -24,16 +24,16 @@ public class DialogTrigger : MonoBehaviour
             yield return null;
         }
         
-        StartDialog();
-    }
-
-    void StartDialog()
-    {
-        GameManager.instance.dialogSystem.StartDialog(dialogs.GetEnumerator());
+        StartDialog(dialogs);
 
         if (destroyAfterUse)
         {
             Destroy(gameObject);
         }
+    }
+
+    public static void StartDialog(List<Dialog> dialogs)
+    {
+        GameManager.instance.dialogSystem.StartDialog(dialogs.GetEnumerator());
     }
 }

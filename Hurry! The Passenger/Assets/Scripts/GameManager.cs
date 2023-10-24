@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string startingSceneName;
     public string currentSceneName { get; private set; }
 
-
     // UI
     public TextMeshProUGUI timeRemainText;
     public TextMeshProUGUI balanceText;

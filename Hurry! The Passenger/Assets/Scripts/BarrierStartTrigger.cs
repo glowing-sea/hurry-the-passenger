@@ -10,11 +10,14 @@ public class BarrierStartTrigger : MonoBehaviour
 {
     public bool destroyAfterUse = true;
     public string sceneName;
+    public GameObject preventGoBack;
 
     private TextMeshProUGUI text;
 
     private void OnTriggerEnter(Collider other)
     {
+        preventGoBack.SetActive(true);
+
         if (!other.CompareTag("Player")) return;
 
         GameManager gameManager = GameManager.instance;

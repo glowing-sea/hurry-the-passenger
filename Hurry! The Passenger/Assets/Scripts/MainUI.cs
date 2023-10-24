@@ -14,4 +14,7 @@ public class MainUI : MonoBehaviour
     public GameObject autoSavingIndicator;
 
     public GameObject minimap;
+    public GameObject guideIcon;
+    public GameObject taskIcon;
+    public GameObject pauseIcon;
 }
