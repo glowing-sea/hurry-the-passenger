@@ -98,7 +98,7 @@ public class CounterInteract : MonoBehaviour
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "Alright. Do you have your checked baggage? [stares at the baggage] Well, my apologies, but you need to organised your baggage first."
+            text = "Alright. Do you have your checked baggage? [stares at the baggage] Well, my apologies, but you need to organise your baggage first as they are overweighted."
         };
         yield return new DialogSystem.Dialog
         {
@@ -128,12 +128,12 @@ public class CounterInteract : MonoBehaviour
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "[operates the computer] Alright. You are good to go. Please go to the International Departure."
+            text = "[operates the computer] Alright. You are good to go. Please go to the Domestic Departure."
         };
         yield return new DialogSystem.Dialog
         {
             name = "Me",
-            text = "International Departure. Got it. (Time is running out. I should hurry.)"
+            text = "Domestic Departure. Got it. (Time is running out. I should hurry.)"
         };
     }
 

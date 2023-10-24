@@ -59,10 +59,7 @@ public class BarrierFinishTrigger : MonoBehaviour
 
         } else
         {
-            Debug.Log("Some task in Barrier is incompleted");
-            DialogTrigger.StartDialog(enterDialogue);
-            DialogTrigger.StartDialog(failDialogue);
-            //DialogTrigger.StartDialog(exitDialogue);
+            gameManager.dialogSystem.StartDialog(Dialog(false));
         }
     }
 

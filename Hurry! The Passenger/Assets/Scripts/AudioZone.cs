@@ -40,7 +40,7 @@ public class AudioZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Exit();
+            // Exit();
         }
     }
 
@@ -65,22 +65,22 @@ public class AudioZone : MonoBehaviour
         }
     }
 
-    void Exit()
-    {
-        Debug.Log($"Exited audio zone {gameObject.name}");
+    //void Exit()
+    //{
+    //    Debug.Log($"Exited audio zone {gameObject.name}");
 
-        // Stop BGM
-        if (bgm != null && bgmPlayer.clip == bgm)
-        {
-            bgmPlayer.Stop();
-            bgmPlayer.clip = null;
-        }
+    //    // Stop BGM
+    //    if (bgm != null && bgmPlayer.clip == bgm)
+    //    {
+    //        bgmPlayer.Stop();
+    //        bgmPlayer.clip = null;
+    //    }
 
-        // Stop ambience
-        if (ambience != null && ambiencePlayer.clip == ambience)
-        {
-            ambiencePlayer.Stop();
-            ambiencePlayer.clip = null;
-        }
-    }
+    //    // Stop ambience
+    //    if (ambience != null && ambiencePlayer.clip == ambience)
+    //    {
+    //        ambiencePlayer.Stop();
+    //        ambiencePlayer.clip = null;
+    //    }
+    //}
 }

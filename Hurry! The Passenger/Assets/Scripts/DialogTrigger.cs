@@ -23,17 +23,12 @@ public class DialogTrigger : MonoBehaviour
         {
             yield return null;
         }
-        
-        StartDialog(dialogs);
+
+        GameManager.instance.dialogSystem.StartDialog(dialogs.GetEnumerator());
 
         if (destroyAfterUse)
         {
             Destroy(gameObject);
         }
-    }
-
-    public static void StartDialog(List<Dialog> dialogs)
-    {
-        GameManager.instance.dialogSystem.StartDialog(dialogs.GetEnumerator());
     }
 }

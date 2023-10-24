@@ -3677,75 +3677,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
   m_PrefabInstance: {fileID: 1416898462}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &220517367
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 220517368}
-  - component: {fileID: 220517370}
-  - component: {fileID: 220517371}
-  m_Layer: 0
-  m_Name: NPC Interact
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &220517368
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220517367}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.239971, y: 1.597, z: -54.280033}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1408950623}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &220517370
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220517367}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3420873, y: 1, z: 1.2316674}
-  m_Center: {x: 0.07371545, y: 0, z: 0.10569113}
---- !u!114 &220517371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220517367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogs:
-  - name: Relaxed Stranger
-    text: The check-in counter for the TX188 airlines is nearby.
 --- !u!1 &225937689
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,39 +4908,6 @@ MonoBehaviour:
   checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
   rightCounter: 0
   baggageOrganiser: {fileID: 0}
---- !u!1 &337372503
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 337372504}
-  m_Layer: 0
-  m_Name: NPC (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &337372504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337372503}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 682351944}
-  - {fileID: 1912175004}
-  m_Father: {fileID: 1315331111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &347439179
 GameObject:
   m_ObjectHideFlags: 0
@@ -6221,6 +6119,42 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.379417, y: 3.4217117, z: 1}
   m_Center: {x: -0.09612463, y: 1.2108561, z: 0}
+--- !u!114 &399677561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215471660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - name: Relaxed Stranger
+    text: The check-in counter for the TX188 airlines is nearby.
+--- !u!65 &399677562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215471660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.990994, y: 5.095331, z: 8.133293}
+  m_Center: {x: -0.11889315, y: 2.0476656, z: -0.49863815}
 --- !u!1 &402291137
 GameObject:
   m_ObjectHideFlags: 0
@@ -7437,7 +7371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
   checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
-  rightCounter: 1
+  rightCounter: 0
   baggageOrganiser: {fileID: 787852926}
 --- !u!1 &471473339
 GameObject:
@@ -9610,11 +9544,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1646877681}
+    m_TransformParent: {fileID: 1315331111}
     m_Modifications:
     - target: {fileID: 100000, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
       propertyPath: m_Name
-      value: NPC Physical
+      value: NPC (2)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
       propertyPath: m_RootOrder
@@ -9675,6 +9609,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1862405988}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1862405991}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1862405990}
   m_SourcePrefab: {fileID: 100100000, guid: f19c9246d91b3d5488c65e0539de4da2, type: 3}
 --- !u!1 &657639939
 GameObject:
@@ -19687,9 +19627,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 337372504}
-  - {fileID: 1646877681}
-  - {fileID: 1408950623}
+  - {fileID: 682351944}
+  - {fileID: 1862405986}
+  - {fileID: 399677557}
   m_Father: {fileID: 1416603366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319526658
@@ -20798,39 +20738,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405163751}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1408950622
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1408950623}
-  m_Layer: 0
-  m_Name: NPC (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1408950623
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408950622}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 399677557}
-  - {fileID: 220517368}
-  m_Father: {fileID: 1315331111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413675730
 GameObject:
   m_ObjectHideFlags: 0
@@ -21050,11 +20957,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1408950623}
+    m_TransformParent: {fileID: 1315331111}
     m_Modifications:
     - target: {fileID: 100000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_Name
-      value: NPC Physical
+      value: NPC (3)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_RootOrder
@@ -21078,23 +20985,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -53.459415
+      value: 32.64
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.2588191
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.9659258
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21102,7 +21009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -21115,6 +21022,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 399677559}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 399677562}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 399677561}
   m_SourcePrefab: {fileID: 100100000, guid: 03ffd135f81a3fb4cb6f2e6e944f979d, type: 3}
 --- !u!1 &1436034995
 GameObject:
@@ -21874,7 +21787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baggageTask: {fileID: 11400000, guid: 99ae35b75a0cb0c158ae50e316d2f3fd, type: 2}
   checkInTask: {fileID: 11400000, guid: 76f3c76bae3b353dc9f0cfc84f630d5e, type: 2}
-  rightCounter: 0
+  rightCounter: 1
   baggageOrganiser: {fileID: 0}
 --- !u!65 &1500450421
 BoxCollider:
@@ -23148,11 +23061,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 337372504}
+    m_TransformParent: {fileID: 1315331111}
     m_Modifications:
     - target: {fileID: 100000, guid: f147a01ef442b2345a3546109476c690, type: 3}
       propertyPath: m_Name
-      value: NPC Physical
+      value: NPC (1)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f147a01ef442b2345a3546109476c690, type: 3}
       propertyPath: m_RootOrder
@@ -23213,6 +23126,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: f147a01ef442b2345a3546109476c690, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1741963993}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: f147a01ef442b2345a3546109476c690, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1741963995}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: f147a01ef442b2345a3546109476c690, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1741963994}
   m_SourcePrefab: {fileID: 100100000, guid: f147a01ef442b2345a3546109476c690, type: 3}
 --- !u!1 &1641880129
 GameObject:
@@ -23320,39 +23239,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641880129}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1646877680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1646877681}
-  m_Layer: 0
-  m_Name: NPC (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1646877681
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646877680}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1862405986}
-  - {fileID: 2023316763}
-  m_Father: {fileID: 1315331111}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1651562591
 GameObject:
   m_ObjectHideFlags: 0
@@ -24452,6 +24338,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0307941, y: 3.6718407, z: 1}
   m_Center: {x: -0.013436019, y: 1.3359206, z: -1.110223e-16}
+--- !u!114 &1741963994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741963991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - name: Punk Stranger
+    text: The check-in Counter for the airline TX188 is located at Counter 1.
+  - name: Me
+    text: I wonder which lane....
+  - name: Punk Strainger
+    text: 'Sorry bud, gotta go! '
+  - name: Me
+    text: '( Hmmm.... There are multiple lanes with counter 4. Can''t blame him for
+      not being helpful though... I have to ask around more) '
+--- !u!65 &1741963995
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741963991}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.741764, y: 4.2668424, z: 7.557167}
+  m_Center: {x: -0.03596568, y: 1.6334214, z: 0.112486124}
 --- !u!1 &1767634028
 GameObject:
   m_ObjectHideFlags: 0
@@ -25246,6 +25175,42 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2924945, y: 3.4099116, z: 1}
   m_Center: {x: -0.06787634, y: 1.204956, z: -0.000000014901161}
+--- !u!114 &1862405990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526600323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - name: Uncomfortable Stranger
+    text: Did you know? Check-in Counters in Column D is for handling domestic flights.
+--- !u!65 &1862405991
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526600323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.02147, y: 5.340406, z: 7.583704}
+  m_Center: {x: -0.111260645, y: 2.170203, z: -0.060855146}
 --- !u!1 &1863257902
 GameObject:
   m_ObjectHideFlags: 0
@@ -26372,82 +26337,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910194054}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1912175003
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1912175004}
-  - component: {fileID: 1912175006}
-  - component: {fileID: 1912175007}
-  m_Layer: 0
-  m_Name: NPC Interact
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1912175004
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912175003}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.800034, y: 1.597, z: 1.7999916}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 337372504}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1912175006
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912175003}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3548421, y: 1, z: 1.3188412}
-  m_Center: {x: 0.1774206, y: 0, z: 0.1594204}
---- !u!114 &1912175007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912175003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogs:
-  - name: Punk Stranger
-    text: The check-in Counter for the airline TX188 is located at Counter 4.
-  - name: Me
-    text: I wonder which lane....
-  - name: Punk Strainger
-    text: 'Sorry bud, gotta go! '
-  - name: Me
-    text: '( Hmmm.... There are multiple lanes with counter 4. Can''t blame him for
-      not being helpful though... I have to ask around more) '
 --- !u!1 &1913139666
 GameObject:
   m_ObjectHideFlags: 0
@@ -28268,76 +28157,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2023316762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2023316763}
-  - component: {fileID: 2023316765}
-  - component: {fileID: 2023316766}
-  m_Layer: 0
-  m_Name: NPC Interact
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2023316763
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023316762}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.2199955, y: 1.597, z: -24.52}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1646877681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2023316765
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023316762}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.2162222, y: 1.0174016, z: 1.0275517}
-  m_Center: {x: 0.05247469, y: 0.008700418, z: 0.0137758255}
---- !u!114 &2023316766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023316762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec8ec0d25e44404db3eb19a299ed59e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogs:
-  - name: Uncomfortable Stranger
-    text: Did you know? Check-in Counters in Column A is for handling international
-      flights.
 --- !u!1 &2023332249
 GameObject:
   m_ObjectHideFlags: 0
