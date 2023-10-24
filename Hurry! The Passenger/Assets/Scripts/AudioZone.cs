@@ -68,7 +68,7 @@ public class AudioZone : MonoBehaviour
     void Exit()
     {
         Debug.Log($"Exited audio zone {gameObject.name}");
-        
+
         // Stop BGM
         if (bgm != null && bgmPlayer.clip == bgm)
         {

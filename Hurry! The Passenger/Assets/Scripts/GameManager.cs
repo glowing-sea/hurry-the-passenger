@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 using Slider = UnityEngine.UI.Slider;
 using System.Xml;
+using static UnityEngine.EventSystems.EventTrigger;
 
 
 #if UNITY_EDITOR
@@ -505,18 +506,14 @@ public class GameManager : MonoBehaviour
     // Mark a task as completed given the task ID
     public void CompleteTask(string taskID)
     {
+        PlayerTask task = null;
         foreach (KeyValuePair<PlayerTask, PlayerTask.State> entry in taskStates)
         {
             if (entry.Key.taskID == taskID)
-            {
-                var state = taskStates[entry.Key];
-                state.isComplete = true;
-                taskStates[entry.Key] = state;
-                sfxPlayer.PlayOneShot(taskComplete, 1.0f);
-                UpdateTaskMenu();
-            }
-
+                task = entry.Key;
         }
+        if (task != null)
+            CompleteTask(task);
     }
 
 #if UNITY_EDITOR
