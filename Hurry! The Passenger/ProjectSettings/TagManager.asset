@@ -14,6 +14,8 @@ TagManager:
   - Money
   - Bomb
   - InsideTray
+  - Tray
+  - DeleteTrigger
   layers:
   - Default
   - TransparentFX

@@ -385,6 +385,13 @@ public class GameManager : MonoBehaviour
             command = command.Substring(5);
             CompleteTask(command);
         }
+        if (command.StartsWith("ContinueSceneName = "))
+        {
+            command = command.Substring(20);
+            PlayerPrefs.SetString("ContinueSceneName", command);
+            PlayerPrefs.SetInt("TimeRemain", 600);
+            sfxPlayer.PlayOneShot(taskComplete, 1.0f);
+        }
 
         switch (cheatMenu.text)
         {

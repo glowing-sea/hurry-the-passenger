@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SecurityCheckInteract : MonoBehaviour
@@ -23,10 +24,19 @@ public class SecurityCheckInteract : MonoBehaviour
     // UI
     public GameObject securityCheckMenu;
 
+    // Position and rotation to drop a item
+    private Vector3 spawnPos;
+    private Quaternion spawnRot;
+
+    // A list of item prefabs
+    public GameObject[] items;
+
     void Start()
     {
         gameManager = GameManager.instance; // get reference
         interactPrompt = GameManager.instance.mainUI.interactPrompt;
+        spawnPos = new Vector3(-80f, 5.8f, 101.06f);
+        spawnRot = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
@@ -43,6 +53,13 @@ public class SecurityCheckInteract : MonoBehaviour
             gameManager.mainUI.guideIcon.SetActive(false);
             gameManager.mainUI.pauseIcon.SetActive(false);
         }
+    }
+
+    public void DropItem()
+    {
+        GameObject instance;
+        instance = Instantiate(items[0], spawnPos, spawnRot, transform);
+
     }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingTray : MonoBehaviour
 {
-    private static float speed = 4f;
+    public float speed = 4f;
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -20,10 +20,11 @@ public class MovingTray : MonoBehaviour
         // rb.AddForce(new Vector3(-speed, 0, 0), ForceMode.VelocityChange);
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name == "Scan Finish Trigger")
-            Destroy(gameObject);
+        if(other.gameObject.CompareTag("DeleteTrigger")){
+            Destroy(this);
+        }
+        Debug.Log("Colllide");
     }
-
 }
