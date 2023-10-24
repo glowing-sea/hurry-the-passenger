@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Barrier 3.unity
     guid: c089de87f5362ab449d779a7b3e0e4a7
+  - enabled: 1
+    path: Assets/Scenes/Barrier 4.unity
+    guid: 128a3885e1f2849dd887a7e0077983c5
   m_configObjects: {}

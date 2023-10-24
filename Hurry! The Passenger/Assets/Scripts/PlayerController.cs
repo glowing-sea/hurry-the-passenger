@@ -131,8 +131,8 @@ public class PlayerController : MonoBehaviour
         staminaGauge.value = stamina;
 
         // Apply walk/run/stap
-        playerRb.AddRelativeForce(Vector3.forward * newSpeed * 10000 * movement.y * Time.deltaTime);
-        playerRb.AddRelativeForce(Vector3.right * newSpeed * 10000 * movement.x * Time.deltaTime);
+        playerRb.AddRelativeForce(Vector3.forward * newSpeed * movement.y, ForceMode.VelocityChange);
+        playerRb.AddRelativeForce(Vector3.right * newSpeed * movement.x, ForceMode.VelocityChange);
 
         
         // Rotate the character based on the mouse inpupt
