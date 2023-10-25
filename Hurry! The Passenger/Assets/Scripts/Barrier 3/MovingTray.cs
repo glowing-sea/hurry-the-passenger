@@ -25,6 +25,6 @@ public class MovingTray : MonoBehaviour
         if(other.gameObject.CompareTag("DeleteTrigger")){
             Destroy(this);
         }
-        Debug.Log("Colllide");
+        // Debug.Log("Colllide");
     }
 }

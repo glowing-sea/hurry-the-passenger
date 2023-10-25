@@ -9,6 +9,7 @@ public class AutoDoor : MonoBehaviour
         Opening,
         Closing,
         Opened,
+        StayingOpened,
         Closed,
     }
 
@@ -16,6 +17,7 @@ public class AutoDoor : MonoBehaviour
 
     public float doorSpeed; // spped of opening or closing
     [System.NonSerialized] public float openDuration; // The time the door stay open
+
 
     private Vector3 closedPosition;
     public Vector3 openedDisplacement; // The displacement of the door when it is opened
@@ -68,6 +70,7 @@ public class AutoDoor : MonoBehaviour
         else if (doorState == DoorState.Opened)
         {
             StartCoroutine(StayOpenedForSomeTime());
+            doorState = DoorState.StayingOpened;
         }
     }
 

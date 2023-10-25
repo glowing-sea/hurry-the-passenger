@@ -21,6 +21,7 @@ public class AutoDoorTrigger : MonoBehaviour
         {
             door.openDuration = openDuration;
             door.SetOpen(true);
+            Debug.Log("Switch to Opening");
         }
     }
 }
