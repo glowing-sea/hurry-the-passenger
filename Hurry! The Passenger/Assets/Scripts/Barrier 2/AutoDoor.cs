@@ -118,12 +118,13 @@ public class AutoDoor : MonoBehaviour
         }
     }
 
-    //if the player collides with door
-    private void OnCollisionEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-             gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
+            Debug.Log("Collide");
+            gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
         }
+
     }
 }
