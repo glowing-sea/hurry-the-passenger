@@ -2195,9 +2195,12 @@ MonoBehaviour:
     text: How much time do I have... [checks watch] 10 minutes? That's bad.
     sound: 0
   - name: Me
-    text: What's up with the roads? Why don't they have traffic lights? Maybe I should
-      just run it...... If I cross the road lane by lane, and take a break in the
-      middle, I might not get hit. Gotta hurry anyways
+    text: 'What''s up with the roads? Why don''t they have traffic lights? Maybe
+      I should just run it! '
+    sound: 0
+  - name: Me
+    text: If I cross the road lane by lane, and stop in the middle of the road, I
+      might not get hit. Gotta hurry!
     sound: 0
 --- !u!65 &1037185218
 BoxCollider:

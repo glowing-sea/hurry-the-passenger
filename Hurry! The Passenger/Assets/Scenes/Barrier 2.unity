@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.1341472, b: 0.121078566, a: 1}
+  m_IndirectSpecularColor: {r: 0.17487636, g: 0.2187573, b: 0.30103955, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24550,7 +24550,7 @@ MonoBehaviour:
     text: 'Sorry bud, gotta go! '
     sound: 0
   - name: Me
-    text: '( Hmmm.... There are multiple lanes with counter 1. Can''t blame him for
+    text: '(Hmmm.... There are multiple lanes with counter 1. Can''t blame him for
       not being helpful though... I have to ask around more) '
     sound: 0
 --- !u!65 &1741963995
