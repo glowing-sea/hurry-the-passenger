@@ -1770,8 +1770,6 @@ GameObject:
   - component: {fileID: 728351588}
   - component: {fileID: 728351590}
   - component: {fileID: 728351589}
-  - component: {fileID: 728351591}
-  - component: {fileID: 728351592}
   m_Layer: 9
   m_Name: Tutorial Finish Trigger (Preload Barrier 2)
   m_TagString: Untagged
@@ -1830,37 +1828,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &728351591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728351587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46197b94f0405c466a26e3c2b7c7b1fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyAfterUse: 1
-  dialogs:
-  - name: Me
-    text: How much time do I have... [checks watch] 10 minutes? That's bad.
---- !u!114 &728351592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728351587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058201d9b62d4b743a4d856f8e4127eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  destroyAfterUse: 1
-  sceneName: Barrier 2
 --- !u!4 &758959738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
@@ -2161,6 +2128,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1014797949310951927, guid: e7db4011ca7f11c408c1ad18b34ed04d, type: 3}
   m_PrefabInstance: {fileID: 974359749}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1037185214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037185215}
+  - component: {fileID: 1037185218}
+  - component: {fileID: 1037185216}
+  - component: {fileID: 1037185217}
+  m_Layer: 9
+  m_Name: Tutorial Finish Dialog and Barrier 2 Preload
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037185215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037185214}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 143.51, y: 0, z: -15.2}
+  m_LocalScale: {x: 1, y: 15, z: 150}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1385500138}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037185216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037185214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058201d9b62d4b743a4d856f8e4127eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  destroyAfterUse: 0
+  sceneName: Barrier 2
+--- !u!114 &1037185217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037185214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46197b94f0405c466a26e3c2b7c7b1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 1
+  dialogs:
+  - name: Me
+    text: How much time do I have... [checks watch] 10 minutes? That's bad.
+    sound: 0
+--- !u!65 &1037185218
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037185214}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1085074222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2767,6 +2821,7 @@ Transform:
   - {fileID: 1789841520}
   - {fileID: 1546630552}
   - {fileID: 728351588}
+  - {fileID: 1037185215}
   - {fileID: 433151010}
   - {fileID: 1558703959}
   - {fileID: 644235063}
@@ -3811,9 +3866,11 @@ MonoBehaviour:
   dialogs:
   - name: Me
     text: Damn, I'm almost late for my flight.
+    sound: 0
   - name: Me
     text: I can't believe the bus stop is this far from the airport. Now I gotta
       run all the way to the entrance.
+    sound: 0
 --- !u!135 &1789841522
 SphereCollider:
   m_ObjectHideFlags: 0

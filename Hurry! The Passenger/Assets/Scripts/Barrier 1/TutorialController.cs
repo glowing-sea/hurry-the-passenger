@@ -29,8 +29,6 @@ public class TutorialController : MonoBehaviour
                 // Start timer
                 gameManager.timerEnabled = true;
 
-                gameManager.gameState = GameState.Running;
-
                 GetComponent<TutorialController>().DisplayTextForDuration(5.0f);
                 textShown = true;
             }
@@ -45,7 +43,6 @@ public class TutorialController : MonoBehaviour
             StartCoroutine(ShowTextForDuration(duration));
             
         }
-        
     }
 
  private IEnumerator ShowTextForDuration(float duration)
