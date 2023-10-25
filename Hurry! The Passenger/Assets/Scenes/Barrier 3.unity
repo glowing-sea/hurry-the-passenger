@@ -2663,12 +2663,14 @@ MonoBehaviour:
   timePunishment: 10
   securityCheckMenu: {fileID: 1439751067}
   itemLeftText: {fileID: 1656783976}
-  timeDecrease: {fileID: 1602129604}
+  timeDecreasePunish: {fileID: 1602129604}
   dropItemButton: {fileID: 640818086}
   warningText: {fileID: 1306780036}
   itemIndicator: {fileID: 844775433}
   item: {fileID: 2041676826973783928, guid: cd88a77f9d3c14f30899eeff203ae645, type: 3}
-  itemNum: 5
+  itemNumNormal: 6
+  itemNumLiquid: 2
+  itemNumDanger: 2
 --- !u!1 &821128761
 GameObject:
   m_ObjectHideFlags: 0

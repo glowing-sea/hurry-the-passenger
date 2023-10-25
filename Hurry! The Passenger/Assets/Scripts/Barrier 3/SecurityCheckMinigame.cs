@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using System;
+using System.Linq;
 
 public class SecurityCheckMinigame : MonoBehaviour
 {
@@ -41,8 +42,11 @@ public class SecurityCheckMinigame : MonoBehaviour
     // A list of item prefabs
     public GameObject item;
 
-    // Number of iten need to scanned
-    public int itemNum;
+    // Number of iten need to scanned;
+    private int itemNum;
+    [SerializeField] private int itemNumNormal;
+    [SerializeField] private int itemNumLiquid;
+    [SerializeField] private int itemNumDanger;
     private int itemLeft;
 
     // Have an item ready to be scanned
@@ -52,10 +56,6 @@ public class SecurityCheckMinigame : MonoBehaviour
     public Queue<ItemType> itemsToBeScannedCopy = new();
 
     private bool dropItemCoolDown = true;
-
-    [SerializeField] float probNormal;
-    [SerializeField] float probLiquid;
-    [SerializeField] float probDanger;
 
 
     // Texture
@@ -76,17 +76,47 @@ public class SecurityCheckMinigame : MonoBehaviour
 
     void Start()
     {
+        itemNum = itemNumNormal + itemNumLiquid + itemNumDanger;
         itemLeft = itemNum;
         itemLeftText.text = "Item Left: " + itemLeft;
         gameManager = GameManager.instance; // get reference
         interactPrompt = GameManager.instance.mainUI.interactPrompt;
 
-        for(int i = 0; i < itemNum; i++)
+        List<ItemType> items = new();
+
+        int i;
+        for (i = 0; i < itemNumNormal; i++)
         {
-            itemsToBeScannedCopy.Enqueue(DrawAnItem());
+            items.Add(ItemType.Normal);
         }
+        for (i = 0; i < itemNumLiquid; i++)
+        {
+            items.Add(ItemType.Liquid);
+        }
+        for (i = 0; i < itemNumDanger; i++)
+        {
+            items.Add(ItemType.Danger);
+        }
+
+        Shuffle(items);
+
+        itemsToBeScannedCopy = new Queue<ItemType>(items);
         itemsToBeScanned = new Queue<ItemType>(itemsToBeScannedCopy);
         Debug.Log(itemsToBeScannedCopy == null);
+    }
+
+    public static void Shuffle<T>(List<T> list)
+    {
+        System.Random rng = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 
     void Update()
@@ -138,27 +168,6 @@ public class SecurityCheckMinigame : MonoBehaviour
             attributes.MarkAsRescan();
         }
         itemIndicator.gameObject.SetActive(true);
-    }
-
-    // Randomly Select an item type based on their probability
-    private ItemType DrawAnItem()
-    {
-        ItemType[] types = new ItemType[] {ItemType.Normal, ItemType.Liquid, ItemType.Danger };
-        float[] probabilities = new float[] {probNormal, probLiquid, probDanger};
-
-        float r = UnityEngine.Random.Range(0f, 1f);
-        ItemType selectedType = ItemType.Normal;
-        float commutativePro = probabilities[0];
-        for (int i = 0; i < types.Length; i++)
-        {
-            if (r <= commutativePro)
-            {
-                selectedType = types[i];
-                break;
-            }
-            commutativePro += probabilities[i + 1];
-        }
-        return selectedType;
     }
 
 
