@@ -122,9 +122,7 @@ public class AutoDoor : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collide");
             gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
         }
-
     }
 }

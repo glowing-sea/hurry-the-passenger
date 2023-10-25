@@ -68,7 +68,7 @@ public class CounterInteract : MonoBehaviour
             name = "Me",
             text = "Hey, I'm checking-in to this flight. [shows the ticket]"
         };
-        gameManager.timeRemain -= 30;
+        gameManager.TimeDecrese(30);
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",

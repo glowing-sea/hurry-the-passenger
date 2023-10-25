@@ -97,7 +97,6 @@ public class GameManager : MonoBehaviour
     public MainUI mainUI;
     public DialogSystem dialogSystem;
 
-
     // Script
     private PlayerController playerController; // reference to the game manager script
 
@@ -244,16 +243,23 @@ public class GameManager : MonoBehaviour
             taskMenuUpdateMark.SetActive(false);
     }
 
+    public void ShowThingTemporarily(GameObject gameObject, float time)
+    {
+        StartCoroutine(ShowThingTemporarilyEnumerator(gameObject, time));
+    }
 
+    public void ShowThingTemporarily(TextMeshProUGUI text, float time)
+    {
+        StartCoroutine(ShowThingTemporarilyEnumerator(text.gameObject, time));
+    }
 
     // Show someting on the canvas temporarily
-    public IEnumerator ShowThingTemporarily(GameObject gameObject, float time)
+    private IEnumerator ShowThingTemporarilyEnumerator(GameObject gameObject, float time)
     {
         gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         gameObject.SetActive(false);
     }
-
 
     // Hide control guides after 3 second
     IEnumerator WaitForLoading()
@@ -272,18 +278,8 @@ public class GameManager : MonoBehaviour
                 GameOver();
                 break;
             }
-            
-            // Display minute : second given how many second left
-            if (timerEnabled)
-            {
-                int minute = System.Math.Max(timeRemain / 60, 0);
-                int second = System.Math.Max(timeRemain % 60, 0);
-                timeRemainText.text = string.Format("{0:d2}:{1:d2}", minute, second);
-            }
-            else
-            {
-                timeRemainText.text = "";
-            }
+
+            TimeUpdateImmediately();
 
             yield return new WaitForSeconds(1);
 
@@ -293,6 +289,27 @@ public class GameManager : MonoBehaviour
                 timeRemain--;
             }
         }
+    }
+
+    private void TimeUpdateImmediately()
+    {
+        // Display minute : second given how many second left
+        if (timerEnabled)
+        {
+            int minute = System.Math.Max(timeRemain / 60, 0);
+            int second = System.Math.Max(timeRemain % 60, 0);
+            timeRemainText.text = string.Format("{0:d2}:{1:d2}", minute, second);
+        }
+        else
+        {
+            timeRemainText.text = "";
+        }
+    }
+
+    public void TimeDecrese(int time)
+    {
+        timeRemain -= time;
+        TimeUpdateImmediately();
     }
 
     // What to do when the player fails
@@ -486,7 +503,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Balance", balance);
         PlayerPrefs.Save();
 
-        StartCoroutine(ShowThingTemporarily(mainUI.autoSavingIndicator, 2));
+        ShowThingTemporarily(mainUI.autoSavingIndicator, 2);
         Debug.Log("Checkpoint: " + sceneName);
 
         // Scene has changed, so different tasks will display

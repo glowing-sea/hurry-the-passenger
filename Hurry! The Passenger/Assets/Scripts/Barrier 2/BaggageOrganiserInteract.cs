@@ -95,7 +95,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
         if (isBaggageWellOrganise())
         {
             largeText.text = "Organisation Complete!";
-            StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
+            gameManager.ShowThingTemporarily(largeText, 2);
             gameManager.CompleteTask(baggageTask);
             ExitButton();
         }
@@ -103,7 +103,7 @@ public class BaggageOrganiserInteract : MonoBehaviour
         else
         {
             largeText.text = "Organisation Incomplete!";
-            StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
+            gameManager.ShowThingTemporarily(largeText, 2);
             gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
         }
 
