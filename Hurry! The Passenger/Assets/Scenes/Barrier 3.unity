@@ -801,6 +801,7 @@ MonoBehaviour:
   failDialogue:
   - name: Me
     text: I should get my baggage checked first
+    sound: 0
   lastBarrier: 0
 --- !u!65 &242723828
 BoxCollider:
@@ -875,6 +876,7 @@ MonoBehaviour:
   dialogs:
   - name: Me
     text: I need to hurry up. There is no point in going back.
+    sound: 2
 --- !u!65 &266994077
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3977,6 +3979,7 @@ MonoBehaviour:
   dialogs:
   - name: Me
     text: I need to hurry up. There is no point in going back.
+    sound: 0
 --- !u!65 &1476160023
 BoxCollider:
   m_ObjectHideFlags: 0

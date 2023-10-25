@@ -15920,7 +15920,7 @@ MonoBehaviour:
   dialogs:
   - name: Airport Security
     text: This is international departure, are you boarding on a international flight?
-    sound: 0
+    sound: 2
   - name: Me
     text: Nope, my bad.
     sound: 0
@@ -21604,7 +21604,7 @@ MonoBehaviour:
   dialogs:
   - name: Me
     text: I need to hurry up. There is no point in going back.
-    sound: 0
+    sound: 2
 --- !u!65 &1439284573
 BoxCollider:
   m_ObjectHideFlags: 0
