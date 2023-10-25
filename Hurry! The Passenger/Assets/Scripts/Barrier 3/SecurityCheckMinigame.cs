@@ -38,6 +38,7 @@ public class SecurityCheckMinigame : MonoBehaviour
     public Button dropItemButton;
     public TextMeshProUGUI warningText;
     public TextMeshProUGUI itemIndicator;
+    public GameObject guideMenu;
 
     // A list of item prefabs
     public GameObject item;
@@ -56,7 +57,6 @@ public class SecurityCheckMinigame : MonoBehaviour
     public Queue<ItemType> itemsToBeScannedCopy = new();
 
     private bool dropItemCoolDown = true;
-
 
     // Texture
     // Change items when it is placed in different bags
@@ -103,6 +103,8 @@ public class SecurityCheckMinigame : MonoBehaviour
         itemsToBeScannedCopy = new Queue<ItemType>(items);
         itemsToBeScanned = new Queue<ItemType>(itemsToBeScannedCopy);
         Debug.Log(itemsToBeScannedCopy == null);
+
+        OpenGuide();
     }
 
     public static void Shuffle<T>(List<T> list)
@@ -315,6 +317,16 @@ public class SecurityCheckMinigame : MonoBehaviour
             }
         }
         itemLeft = itemNum;
+    }
+
+    public void OpenGuide()
+    {
+        guideMenu.SetActive(true);
+    }
+
+    public void CloseGuide()
+    {
+        guideMenu.SetActive(false);
     }
 }
 
