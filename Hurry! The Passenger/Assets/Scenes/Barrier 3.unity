@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs: []
   doorSpeed: 15
   openedDisplacement: {x: 0, y: 0, z: 9}
 --- !u!65 &50813096
@@ -388,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs: []
   doorSpeed: 15
   openedDisplacement: {x: 0, y: 0, z: -9}
 --- !u!65 &87432814
@@ -617,6 +619,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3608307819486079256, guid: 38269cb6599e84c5bbc633a55a533dbb, type: 3}
   m_PrefabInstance: {fileID: 340056295}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &211186452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211186453}
+  - component: {fileID: 211186455}
+  - component: {fileID: 211186456}
+  m_Layer: 0
+  m_Name: Item Delete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &211186453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211186452}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.707107, z: -0, w: 0.70710665}
+  m_LocalPosition: {x: 8.38, y: 8.0030575, z: 58.55517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 816012810}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &211186455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211186452}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5850136, y: 2.3655035, z: 2.6026003}
+  m_Center: {x: 0.0018968582, y: 0.6827518, z: 3.854556}
+--- !u!114 &211186456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211186452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf78923012a443ca9463f84241e8ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224934703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs: []
   doorSpeed: 15
   openedDisplacement: {x: 0, y: 0, z: 9}
 --- !u!65 &423014283
@@ -1536,6 +1605,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 816012810}
     m_Modifications:
+    - target: {fileID: 2653474764539807884, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.958954
@@ -1578,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8721764436529185441, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
       propertyPath: m_Name
-      value: Sample Tray
+      value: Tray Spawn Location
       objectReference: {fileID: 0}
     - target: {fileID: 8721764436529185441, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
       propertyPath: m_IsActive
@@ -1612,7 +1685,7 @@ GameObject:
   - component: {fileID: 513584729}
   m_Layer: 0
   m_Name: Item Checker
-  m_TagString: DeleteTrigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2361,7 +2434,7 @@ GameObject:
   - component: {fileID: 674335126}
   - component: {fileID: 674335125}
   m_Layer: 0
-  m_Name: TraySpawnManager
+  m_Name: Tray Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2538,15 +2611,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1973656217}
+  - {fileID: 513584726}
+  - {fileID: 211186453}
+  - {fileID: 2096181654}
   - {fileID: 479573542}
   - {fileID: 5681612226408665292}
-  - {fileID: 674335126}
   - {fileID: 2129169759}
-  - {fileID: 1973656217}
+  - {fileID: 674335126}
   - {fileID: 1739935568}
-  - {fileID: 1209178401}
-  - {fileID: 513584726}
-  - {fileID: 2096181654}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &816012812
@@ -2583,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sampleItem: {fileID: 1248428124}
-  conveyorSpeed: 2
+  conveyorSpeed: 6
   securityCheckCamera: {fileID: 2129169760}
   securiyBarrier: {fileID: 1233057561}
   securityCheckTask: {fileID: 11400000, guid: 4840766f6fbc94d7ea37bd6ec506c889, type: 2}
@@ -2591,7 +2664,7 @@ MonoBehaviour:
   itemNumText: {fileID: 1656783976}
   items:
   - {fileID: 2041676826973783928, guid: cd88a77f9d3c14f30899eeff203ae645, type: 3}
-  itemNum: 10
+  itemNum: 2
 --- !u!1 &821128761
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,72 +3535,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38269cb6599e84c5bbc633a55a533dbb, type: 3}
---- !u!1 &1209178400
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1209178401}
-  - component: {fileID: 1209178402}
-  - component: {fileID: 1209178403}
-  m_Layer: 0
-  m_Name: Item Delete Trigger
-  m_TagString: DeleteTrigger
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1209178401
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209178400}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.707107, z: -0, w: 0.70710665}
-  m_LocalPosition: {x: 4.8589554, y: 8.0030575, z: 58.55517}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 816012810}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1209178402
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209178400}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.5850136, y: 2.3655035, z: 7.3861365}
-  m_Center: {x: 0.0018968582, y: 0.6827518, z: 1.5025432}
---- !u!114 &1209178403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209178400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc83cfe0eca545208a0727a5bb9642e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1233057561
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,7 +5022,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 816012813}
         m_TargetAssemblyTypeName: SecurityCheckMinigame, Assembly-CSharp
-        m_MethodName: ExitButton
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5336,6 +5343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs: []
   doorSpeed: 15
   openedDisplacement: {x: 0, y: 0, z: -9}
 --- !u!65 &1697231721
@@ -5582,8 +5590,8 @@ GameObject:
   - component: {fileID: 1739935569}
   - component: {fileID: 1739935570}
   m_Layer: 0
-  m_Name: Tray Delete Trigger
-  m_TagString: DeleteTrigger
+  m_Name: Tray Delete
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5633,7 +5641,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1739935567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebfc0c5e59364737a9de3dc1e239f6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a3a552001ae74fb0b90b7e028251e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1755858278
@@ -5880,6 +5888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs: []
   doorSpeed: 15
   openedDisplacement: {x: 0, y: 0, z: -9}
 --- !u!65 &1804806680
@@ -6390,6 +6399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf86af57e1fc4fb8b5d4d166fb914fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogs: []
   doorSpeed: 15
   openedDisplacement: {x: 0, y: 0, z: 9}
 --- !u!65 &1936955029
@@ -7486,6 +7496,10 @@ PrefabInstance:
     - target: {fileID: 2041676826973783928, guid: cd88a77f9d3c14f30899eeff203ae645, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2041676826973783928, guid: cd88a77f9d3c14f30899eeff203ae645, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2483780063014919051, guid: cd88a77f9d3c14f30899eeff203ae645, type: 3}
       propertyPath: m_LocalPosition.x
