@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SecurityCheckInteract : MonoBehaviour
+public class SecurityCheckMinigame : MonoBehaviour
 {
+    public GameObject sampleItem; // the item indicate where to drop other items.
+
     public float conveyorSpeed;
 
     // Special Camera for playing the security check minigame
@@ -26,10 +27,6 @@ public class SecurityCheckInteract : MonoBehaviour
     // UI
     public GameObject securityCheckMenu;
 
-    // Position and rotation to drop a item
-    private Vector3 spawnPos;
-    private Quaternion spawnRot;
-
     // A list of item prefabs
     public GameObject[] items;
 
@@ -37,8 +34,6 @@ public class SecurityCheckInteract : MonoBehaviour
     {
         gameManager = GameManager.instance; // get reference
         interactPrompt = GameManager.instance.mainUI.interactPrompt;
-        spawnPos = new Vector3(-80f, 5.8f, 101.06f);
-        spawnRot = Quaternion.Euler(0, 0, 0);
     }
 
     void Update()
@@ -60,7 +55,7 @@ public class SecurityCheckInteract : MonoBehaviour
     public void DropItem()
     {
         GameObject instance;
-        instance = Instantiate(items[0], spawnPos, spawnRot, transform);
+        instance = Instantiate(items[0], sampleItem.transform.position, sampleItem.transform.rotation, transform);
 
     }
 
@@ -98,3 +93,4 @@ public class SecurityCheckInteract : MonoBehaviour
         interactPrompt.SetActive(false);
     }
 }
+

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingItem : MonoBehaviour
 {
-    private SecurityCheckInteract securityCheckInteract;
+    private SecurityCheckMinigame minigame;
     private bool isOnConveyor = false;
     private Rigidbody rb;
 
@@ -13,15 +13,14 @@ public class MovingItem : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        securityCheckInteract = GameObject.Find("Security Check Interact").GetComponent<SecurityCheckInteract>();
+        minigame = GameObject.Find("Security Check (Minigame)").GetComponent<SecurityCheckMinigame>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (isOnConveyor)
-            rb.velocity = new Vector3(-securityCheckInteract.conveyorSpeed, 0, 0);
-        //rb.AddForce(new Vector3(-securityCheckInteract.conveyorSpeed, 0, 0), ForceMode.VelocityChange);
+            rb.velocity = new Vector3(-minigame.conveyorSpeed, 0, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
