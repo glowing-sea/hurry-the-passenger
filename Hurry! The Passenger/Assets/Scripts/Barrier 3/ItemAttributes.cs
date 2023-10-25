@@ -2,25 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteItem : MonoBehaviour
+public class ItemAttributes : MonoBehaviour
 {
+    public ItemType itemType;
+    public bool onTheTray = false;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Item"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
+}
+
+public enum ItemType
+{
+    Normal,
+    Danger,
+    Liquid
 }

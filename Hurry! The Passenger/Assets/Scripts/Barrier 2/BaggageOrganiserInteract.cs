@@ -78,7 +78,8 @@ public class BaggageOrganiserInteract : MonoBehaviour
     public void ExitButton()
     {
         baggageOrganiserMenu.SetActive(false); // close special menu
-        interact.gameObject.SetActive(true); // reopen interact prompt
+        if (!gameManager.GetTaskState(baggageTask).isComplete)
+            interact.gameObject.SetActive(true); // reopen interact prompt
         gameManager.gameState = GameState.Running; // reset game state
         baggageCamera.depth = -1; // bring security camera back
         gameManager.mainUI.minimap.SetActive(true); // reopen minimap
@@ -93,11 +94,10 @@ public class BaggageOrganiserInteract : MonoBehaviour
         // Organisation Complete
         if (isBaggageWellOrganise())
         {
-            ExitButton();
-
             largeText.text = "Organisation Complete!";
             StartCoroutine(gameManager.ShowThingTemporarily(largeText.gameObject, 2));
             gameManager.CompleteTask(baggageTask);
+            ExitButton();
         }
         // Organisation Complete
         else

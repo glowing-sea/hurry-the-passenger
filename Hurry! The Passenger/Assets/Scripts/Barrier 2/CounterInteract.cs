@@ -85,6 +85,8 @@ public class CounterInteract : MonoBehaviour
             name = "Me",
             text = "(I should have asked someone at the airport for help.)"
         };
+        interactable = true;
+        interact.gameObject.SetActive(true);
     }
 
     private IEnumerator<DialogSystem.Dialog> DialogsRightCounterNoBaggage()
@@ -110,6 +112,8 @@ public class CounterInteract : MonoBehaviour
             name = "Counter Staff",
             text = "Baggae Organiser is on the right side of the Airport Entrance."
         };
+        interactable = true;
+        interact.gameObject.SetActive(true);
     }
 
     private IEnumerator<DialogSystem.Dialog> DialogsRightCounter()

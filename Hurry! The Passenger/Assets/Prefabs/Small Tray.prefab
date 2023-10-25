@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2498539453042672911}
   - component: {fileID: 3276804093199113315}
+  - component: {fileID: 717005865775900629}
   m_Layer: 0
   m_Name: Inside Tray
   m_TagString: InsideTray
@@ -53,6 +54,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0622783, y: 1, z: 1.7596583}
   m_Center: {x: 0.0051037073, y: 0, z: -0.32435188}
+--- !u!114 &717005865775900629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501052383186206244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f746539c4a8924668b553502915cbb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1174508407966840513
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,8 +285,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6569335399375283223}
-  - component: {fileID: 6077107003370612125}
   - component: {fileID: 2984243337353247143}
+  - component: {fileID: -1950785638814925883}
   m_Layer: 0
   m_Name: Small Tray
   m_TagString: Tray
@@ -302,19 +315,6 @@ Transform:
   - {fileID: 2498539453042672911}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6077107003370612125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3999539644266449353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5c857277244494d88383da280d6527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
 --- !u!54 &2984243337353247143
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -342,6 +342,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
+--- !u!114 &-1950785638814925883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999539644266449353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe5570b9c22048a69eda25ac9f9e247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trayDeleteLocation: {fileID: 0}
 --- !u!1 &4531355202714848505
 GameObject:
   m_ObjectHideFlags: 0

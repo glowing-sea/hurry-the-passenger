@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5992694313850938501}
   - component: {fileID: 5772147184698181918}
+  - component: {fileID: 8025080564680394982}
   m_Layer: 0
   m_Name: Inside Tray
   m_TagString: InsideTray
@@ -158,6 +159,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0622783, y: 1, z: 4.829421}
   m_Center: {x: 0.0051037073, y: 0, z: -0.27344894}
+--- !u!114 &8025080564680394982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3086455806462395238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f746539c4a8924668b553502915cbb41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3724097449960191799
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,8 +495,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4877624990432397279}
-  - component: {fileID: 1903401263789665382}
   - component: {fileID: 2608672876686328078}
+  - component: {fileID: -7891369454607160733}
   - component: {fileID: 7657276109643434165}
   m_Layer: 0
   m_Name: Large Tray
@@ -513,19 +526,6 @@ Transform:
   - {fileID: 5992694313850938501}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1903401263789665382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5425411265362095363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce5c857277244494d88383da280d6527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
 --- !u!54 &2608672876686328078
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -553,6 +553,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
+--- !u!114 &-7891369454607160733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5425411265362095363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe5570b9c22048a69eda25ac9f9e247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trayDeleteLocation: {fileID: 0}
 --- !u!64 &7657276109643434165
 MeshCollider:
   m_ObjectHideFlags: 0

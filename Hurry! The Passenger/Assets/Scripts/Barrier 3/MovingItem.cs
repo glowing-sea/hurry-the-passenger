@@ -13,7 +13,7 @@ public class MovingItem : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        minigame = GameObject.Find("Security Check (Minigame)").GetComponent<SecurityCheckMinigame>();
+        minigame = SecurityCheckMinigame.instance;
     }
 
     // Update is called once per frame

@@ -22,6 +22,8 @@ public class NPCInteract : MonoBehaviour
         interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
     }
 
+    bool dialogueStartPlaying;
+
     // Update is called once per frame
     void Update()
     {
@@ -32,8 +34,19 @@ public class NPCInteract : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
+                dialogueStartPlaying = true;
+                interact.gameObject.SetActive(false);
+                interactable = false;
                 gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
             }
+        }
+
+        // Dialog playing is finish, make it interactable again
+        if (dialogueStartPlaying & gameManager.gameState == GameState.Running)
+        {
+            interact.gameObject.SetActive(true);
+            interactable = true;
+            dialogueStartPlaying = false;
         }
     }
 
