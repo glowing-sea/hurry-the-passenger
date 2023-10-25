@@ -1191,12 +1191,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 506519930}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &506519930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1606,12 +1606,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 644235065}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &644235065
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2193,6 +2193,11 @@ MonoBehaviour:
   dialogs:
   - name: Me
     text: How much time do I have... [checks watch] 10 minutes? That's bad.
+    sound: 0
+  - name: Me
+    text: What's up with the roads? Why don't they have traffic lights? Maybe I should
+      just run it...... If I cross the road lane by lane, and take a break in the
+      middle, I might not get hit. Gotta hurry anyways
     sound: 0
 --- !u!65 &1037185218
 BoxCollider:
@@ -3157,12 +3162,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1558703961}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1558703961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3769,12 +3774,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1776812356}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1776812356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4138,12 +4143,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -7.5611362, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1833132074}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!23 &1833132074
 MeshRenderer:
   m_ObjectHideFlags: 0
