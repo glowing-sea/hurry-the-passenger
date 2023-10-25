@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SecurityCheckInteract : MonoBehaviour
 {
+    public float conveyorSpeed;
+
     // Special Camera for playing the security check minigame
     public Camera securityCheckCamera;
 

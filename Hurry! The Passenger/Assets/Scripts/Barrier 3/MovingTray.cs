@@ -6,18 +6,19 @@ public class MovingTray : MonoBehaviour
 {
     public float speed = 4f;
     private Rigidbody rb;
+    private SecurityCheckInteract securityCheckInteract;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        securityCheckInteract = GameObject.Find("Security Check Interact").GetComponent<SecurityCheckInteract>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = new Vector3(-speed, 0, 0);
-        // rb.AddForce(new Vector3(-speed, 0, 0), ForceMode.VelocityChange);
+        rb.velocity = new Vector3(-securityCheckInteract.conveyorSpeed, 0, 0);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +26,5 @@ public class MovingTray : MonoBehaviour
         if(other.gameObject.CompareTag("DeleteTrigger")){
             Destroy(this);
         }
-        // Debug.Log("Colllide");
     }
 }

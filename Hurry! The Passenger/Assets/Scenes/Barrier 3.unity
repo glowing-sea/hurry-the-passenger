@@ -641,6 +641,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 479573542}
+  - {fileID: 674335126}
   - {fileID: 2129169759}
   - {fileID: 1973656217}
   - {fileID: 1739935568}
@@ -682,7 +684,7 @@ Transform:
   m_GameObject: {fileID: 224934703}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2199994, y: 0.689, z: -15.870006}
+  m_LocalPosition: {x: 1.24, y: 0.74, z: -15.87}
   m_LocalScale: {x: 0.29999998, y: 0.7, z: 0.29999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1565,6 +1567,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438277778}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &479573540
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 135802656}
+    m_Modifications:
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -61.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 101.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721764436529185441, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_Name
+      value: Sample Tray
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721764436529185441, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+--- !u!1 &479573541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8721764436529185441, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+  m_PrefabInstance: {fileID: 479573540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &479573542 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4375843864851425885, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+  m_PrefabInstance: {fileID: 479573540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &538745146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2181,6 +2254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3054daabc144231bc7ef52e5837976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sampleTray: {fileID: 479573541}
   trays:
   - {fileID: 3999539644266449353, guid: cc18e2ad941014de3ab7ebc1163de092, type: 3}
   - {fileID: 8721764436529185441, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
@@ -2193,12 +2267,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674335124}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 135802656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713849972
 GameObject:
@@ -2352,6 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0479389640c6c4dc6881b5247769de1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conveyorSpeed: 2
   securityCheckCamera: {fileID: 2129169760}
   securiyBarrier: {fileID: 1233057561}
   securityCheckTask: {fileID: 11400000, guid: 4840766f6fbc94d7ea37bd6ec506c889, type: 2}
@@ -3325,6 +3400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1233057562}
   - component: {fileID: 1233057563}
+  - component: {fileID: 1233057564}
   m_Layer: 0
   m_Name: Security Barrier
   m_TagString: Untagged
@@ -3344,7 +3420,8 @@ Transform:
   m_LocalPosition: {x: 11.88, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1963929850}
   m_Father: {fileID: 551196056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1233057563
@@ -3362,12 +3439,29 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 4, z: 52}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 1, y: 5.496064, z: 61.239193}
+  m_Center: {x: 0, y: 2.748032, z: 0.58181953}
+--- !u!114 &1233057564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233057561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46197b94f0405c466a26e3c2b7c7b1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 0
+  dialogs:
+  - name: Me
+    text: I need to get my items scanned firtst.
+    sound: 2
 --- !u!1 &1261784203
 GameObject:
   m_ObjectHideFlags: 0
@@ -5887,7 +5981,7 @@ GameObject:
   - component: {fileID: 1951249380}
   - component: {fileID: 1951249379}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Conveyor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5903,7 +5997,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.623, z: -1.6900027}
-  m_LocalScale: {x: 2.43, y: 0.1, z: 40.499996}
+  m_LocalScale: {x: 2.43, y: 0.1, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1973656217}
@@ -5984,6 +6078,77 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3608307819486079256, guid: 38269cb6599e84c5bbc633a55a533dbb, type: 3}
   m_PrefabInstance: {fileID: 2013342262}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963929849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963929850}
+  - component: {fileID: 1963929852}
+  - component: {fileID: 1963929851}
+  m_Layer: 0
+  m_Name: Blocker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963929850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963929849}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1233057562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963929851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963929849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46197b94f0405c466a26e3c2b7c7b1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyAfterUse: 0
+  dialogs:
+  - name: Me
+    text: I need to get my items scanned firtst.
+    sound: 2
+--- !u!65 &1963929852
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963929849}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5686798, y: 5.496064, z: 61.239193}
+  m_Center: {x: -0.2156601, y: 2.748032, z: 0.58181953}
 --- !u!1 &1972353502
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,4 +6729,3 @@ SceneRoots:
   - {fileID: 816012810}
   - {fileID: 9180104}
   - {fileID: 1722564195}
-  - {fileID: 674335126}
