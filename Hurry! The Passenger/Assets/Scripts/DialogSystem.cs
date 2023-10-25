@@ -47,6 +47,16 @@ public class DialogSystem : MonoBehaviour
             // Display the next dialog
             dialogName.GetComponent<TMPro.TextMeshProUGUI>().text = currentDialog.Current.name;
             dialogText.GetComponent<TMPro.TextMeshProUGUI>().text = currentDialog.Current.text;
+            int sound = currentDialog.Current.sound;
+            switch (sound)
+            {
+                case 1:
+                    gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
+                    break;
+                case 2:
+                    gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
+                    break;
+            }
         }
         else
         {
@@ -62,13 +72,22 @@ public class DialogSystem : MonoBehaviour
     [System.Serializable]
     public struct Dialog
     {
-        public string name;
-        [TextArea] public string text;
+        public string name; // who say it
+        [TextArea] public string text; // what to say
+        public int sound; // the sound will play, default 0 nothing, 1 completeTask, 2 somethingWrong
+
+        public Dialog(string name, string text, int sound)
+        {
+            this.name = name;
+            this.text = text;
+            this.sound = sound;
+        }
 
         public Dialog(string name, string text)
         {
             this.name = name;
             this.text = text;
+            this.sound = 0;
         }
     }
 }

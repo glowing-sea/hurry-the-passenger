@@ -69,11 +69,11 @@ public class CounterInteract : MonoBehaviour
             text = "Hey, I'm checking-in to this flight. [shows the ticket]"
         };
         gameManager.timeRemain -= 30;
-        gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "My apologies, but this is not the counter for your flight. Please find the right counter."
+            text = "My apologies, but this is not the counter for your flight. Please find the right counter.",
+            sound = 2
         };
         yield return new DialogSystem.Dialog
         {
@@ -94,11 +94,11 @@ public class CounterInteract : MonoBehaviour
             name = "Me",
             text = "Hey, I'm checking-in to this flight. [shows the ticket]"
         };
-        gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "Alright. Do you have your checked baggage? [stares at the baggage] Well, my apologies, but you need to organise your baggage first as they are overweighted."
+            text = "Alright. Do you have your checked baggage? [stares at the baggage] Well, my apologies, but you need to organise your baggage first as they are overweighted.",
+            sound = 2
         };
         yield return new DialogSystem.Dialog
         {
