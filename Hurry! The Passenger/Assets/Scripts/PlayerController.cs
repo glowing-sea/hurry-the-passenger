@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public float speed; // speed of the player
     public float maxStamina; // determine how long the player can run
     private float stamina; // current stamina
+
+    public bool energyDrink = false; // if the player has energy drink
     public float jumpForce; // force apply to the player when they jump
     public float gravityModifier; // set to 9.8
 
@@ -88,7 +90,15 @@ public class PlayerController : MonoBehaviour
             // Let player run
             if (isRunning && stamina > 0)
             {
-                newSpeed *= 2;
+                if (energyDrink)
+                {
+                    newSpeed *= 5;
+                    Debug.Log("energy drink fueled ultra run");
+                }
+                else
+                {
+                    newSpeed *= 2;
+                }
                 playerAnim.SetFloat("Speed_f", 0.51f);
                 stamina -= Time.deltaTime * 20;
                 staminaGauge.gameObject.SetActive(true);
@@ -151,6 +161,12 @@ public class PlayerController : MonoBehaviour
             dirtParticle.Stop();
             soundEffect.PlayOneShot(jumpSound, 1.0f); // play jump sound
         }
+    }
+
+    public void DrinkEnergyDrink()
+    {
+        energyDrink = true;
+        Debug.Log("Player has energy drink");
     }
 
 }
