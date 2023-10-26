@@ -2024,6 +2024,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5081875903853266903, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072918893421520114, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f01683b8249423b382cd0b3c27bde3f, type: 2}
     - target: {fileID: 8721764436529185441, guid: cb9aeef0719a34dd9b5983e98f8b0dcb, type: 3}
       propertyPath: m_Name
       value: Tray Spawn Location
@@ -4977,7 +4985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1439751068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8691,7 +8699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2077787876
 MonoBehaviour:
   m_ObjectHideFlags: 0
