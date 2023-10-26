@@ -235,11 +235,11 @@ public class SecurityCheckMinigame : MonoBehaviour
         switch (itemToBeScaned.GetComponent<ItemAttributes>().itemType)
         {
             case ItemType.Normal:
-                ShowWarning("This item should be retained, as it can clear the security screening.");
+                ShowWarning("I shouldn't throw it away. It can clear the security screening.");
 
                 break;
             case ItemType.Liquid:
-                ShowWarning("This item should be retained as it can clear the security check after emptying its liquid.");
+                ShowWarning("I shouldn't throw it away. I should empty it first then clear the security screening.");
                 break;
             case ItemType.Danger:
                 DecrementItemLeft();

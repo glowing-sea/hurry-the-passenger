@@ -34,20 +34,20 @@ public class ItemChecker : MonoBehaviour
                     }
                     else
                     {
-                        minigame.ShowWarning("Please place your items onto the tray.");
+                        minigame.ShowWarning("I should put it on the tray first");
                         minigame.itemsToBeReScanned.Enqueue(attributes.itemType);
                         minigame.TimeDecreasePunish();
                         Destroy(other.gameObject);
                     }
                     break;
                 case ItemType.Liquid:
-                    minigame.ShowWarning("This item must be emptied before getting scanned");
+                    minigame.ShowWarning("I should empty it befor scanning");
                     minigame.itemsToBeReScanned.Enqueue(attributes.itemType);
                     Destroy(other.gameObject);
                     minigame.TimeDecreasePunish();
                     break;
                 case ItemType.Danger:
-                    minigame.ShowWarning("Sorry, this item is prohibited and must be discarded.");
+                    minigame.ShowWarning("This is a prohibited item, I shouldn't try taking it on the plane");
                     minigame.itemsToBeReScanned.Enqueue(attributes.itemType);
                     Destroy(other.gameObject);
                     minigame.TimeDecreasePunish();
