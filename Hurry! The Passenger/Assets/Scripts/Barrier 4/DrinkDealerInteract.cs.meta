@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6fcc9049ad5fdec42a9337d39b7befc7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - baggageTask: {instanceID: 0}
+  - checkInTask: {instanceID: 0}
+  - baggageOrganiser: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

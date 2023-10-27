@@ -1547,7 +1547,7 @@ MonoBehaviour:
       \n(Sprinting speed increased)"
     sound: 0
   - name: Me
-    text: 
+    text: No time to haggle... Time to find my boarding gate
     sound: 0
 --- !u!65 &1335989636
 BoxCollider:
