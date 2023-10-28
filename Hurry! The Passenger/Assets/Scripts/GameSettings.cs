@@ -42,13 +42,13 @@ public class GameSettings : ScriptableObject
 
     #if UNITY_EDITOR
 
-    [MenuItem("Game Settings/View Game Settings", false, 0)]
+    [MenuItem("Game Save/View Game Settings", false, 1)]
     public static void ViewGameSettings()
     {
         Selection.activeObject = instance;
     }
 
-    [MenuItem("Game Settings/Reset Game Settings", false, 100)]
+    [MenuItem("Game Save/Reset Game Settings", false, 101)]
     public static void ResetGameSettings()
     {
         // Confirm dialog

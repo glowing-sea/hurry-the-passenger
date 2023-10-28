@@ -8,8 +8,6 @@ using System.Text;
 using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 using Slider = UnityEngine.UI.Slider;
-using System.Xml;
-using static UnityEngine.EventSystems.EventTrigger;
 
 
 #if UNITY_EDITOR
@@ -133,15 +131,17 @@ public class GameManager : MonoBehaviour
         }
 
         // Load a new state or a continue state
-        if (PlayerPrefs.GetInt("ContinueOrNot") == 0)
+        GameProgress savedProgress = GameProgress.Load();
+        if (savedProgress == null)
         {
             currentSceneName = startingSceneName;
             timeRemain = initialTime;
-        } else
+        }
+        else
         {
-            currentSceneName = PlayerPrefs.GetString("ContinueSceneName", startingSceneName);
-            timeRemain = PlayerPrefs.GetInt("TimeRemain", timeRemain);
-            balance = PlayerPrefs.GetInt("Balance", balance);
+            currentSceneName = savedProgress.sceneName;
+            timeRemain = savedProgress.timeRemain;
+            balance = savedProgress.balance;
         }
 
         // In the editor, if another scene is already load, we set the continue scene to that.
@@ -337,32 +337,31 @@ public class GameManager : MonoBehaviour
         isGameOver = true; 
     }
 
-    //Continue Game State After Paused
+    // Continue Game State After Paused
     public void ContinueGame()
     {
-            if(isGameOver)
-    {
-        Debug.Log("Game Over. Can't continue.");
-        return; // Can't continue if game is over
-    }
+        if(isGameOver)
+        {
+            Debug.Log("Game Over. Can't continue.");
+            return; // Can't continue if game is over
+        }
         gameState = GameState.Running;
         pauseMenu.SetActive(false);
     }
 
-    // Restart Game
-    public void LoadGame(bool continueOrNot)
+    public void ReloadGame()
     {
-        if (continueOrNot)
-        {
-            PlayerPrefs.SetInt("ContinueOrNot", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("ContinueOrNot", 0);
-        }
-        isGameOver = false;
-
         SceneManager.LoadScene(gameObject.scene.name);
+    }
+
+    // Erase save to start a new game
+    public void NewGame()
+    {
+        ConfirmationDialog.Show("Start the game from the beggining?\n(previous progress will be lost)", () => 
+        {
+            GameProgress.Delete();
+            ReloadGame();
+        });
     }
 
     // Back to title screen
@@ -405,8 +404,17 @@ public class GameManager : MonoBehaviour
         if (command.StartsWith("ContinueSceneName = "))
         {
             command = command.Substring(20);
-            PlayerPrefs.SetString("ContinueSceneName", command);
-            PlayerPrefs.SetInt("TimeRemain", 600);
+            if (!SceneManager.GetSceneByName(command).IsValid())
+            {
+                Debug.LogError("Scene " + command + " does not exist");
+                return;
+            }
+
+            var progress = GameProgress.Load() ?? GameProgress.Create();
+            progress.sceneName = command;
+            progress.timeRemain = 600;
+            GameProgress.Save(progress);
+
             sfxPlayer.PlayOneShot(taskComplete, 1.0f);
         }
 
@@ -498,10 +506,12 @@ public class GameManager : MonoBehaviour
     public void ReachNewBarrier(string sceneName)
     {
         currentSceneName = sceneName;
-        PlayerPrefs.SetString("ContinueSceneName", sceneName);
-        PlayerPrefs.SetInt("TimeRemain", timeRemain);
-        PlayerPrefs.SetInt("Balance", balance);
-        PlayerPrefs.Save();
+
+        var newProgress = GameProgress.Create();
+        newProgress.sceneName = sceneName;
+        newProgress.timeRemain = timeRemain;
+        newProgress.balance = balance;
+        GameProgress.Save(newProgress);
 
         ShowThingTemporarily(mainUI.autoSavingIndicator, 2);
         Debug.Log("Checkpoint: " + sceneName);
@@ -540,7 +550,7 @@ public class GameManager : MonoBehaviour
             CompleteTask(task);
     }
 
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
     [CustomEditor(typeof(GameManager))]
     public class GameManagerEditor : Editor
     {

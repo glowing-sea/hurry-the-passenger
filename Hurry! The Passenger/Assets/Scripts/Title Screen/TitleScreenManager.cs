@@ -29,26 +29,33 @@ public class TitleScreenManager : MonoBehaviour
     private void RefreshTitleScreen()
     {
         // Hide Continue Button if no save data
-        continueButton.SetActive(PlayerPrefs.HasKey("ContinueSceneName"));
+        continueButton.SetActive(GameProgress.Exists());
 
         // Update sensitivity text
         enterSensitivity.text = GameSettings.instance.sensitivity.ToString();
     }
 
-    // Game Start
-    public void StartGame(bool continueGame)
+    // Erase save to start a new game
+    public void NewGame()
     {
-        // Clear continue scene if we are not continuing
-        if (continueGame)
+        if (GameProgress.Exists())
         {
-            // PlayerPrefs.DeleteKey("ContinueSceneName");
-            PlayerPrefs.SetInt("ContinueOrNot", 1);
+            ConfirmationDialog.Show("Start the game from the beggining?\n(previous progress will be lost)", () => 
+            {
+                GameProgress.Delete();
+                StartGame();
+            });
         }
         else
         {
-            PlayerPrefs.SetInt("ContinueOrNot", 0);
+            GameProgress.Delete();
+            StartGame();
         }
+    }
 
+    // Start or continue the game
+    public void StartGame()
+    {
         // Load the game sence
         SceneManager.LoadScene("Common");
     }
@@ -67,8 +74,8 @@ public class TitleScreenManager : MonoBehaviour
 
     public void DeleteAllSave()
     {
+        GameProgress.Delete();
         GameSettings.Delete();
-        PlayerPrefs.DeleteAll();
         RefreshTitleScreen();
     }
 }

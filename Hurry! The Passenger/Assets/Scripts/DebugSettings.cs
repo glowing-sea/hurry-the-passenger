@@ -35,13 +35,13 @@ public class DebugSettings : ScriptableObject
 
     #if UNITY_EDITOR
 
-    [MenuItem("Game Settings/View Debug Settings", false, 1)]
+    [MenuItem("Game Save/View Debug Settings", false, 2)]
     public static void ViewDebugSettings()
     {
         Selection.activeObject = instance;
     }
 
-    [MenuItem("Game Settings/Reset Debug Settings", false, 101)]
+    [MenuItem("Game Save/Reset Debug Settings", false, 102)]
     public static void ResetDebugSettings()
     {
         // Confirm dialog
