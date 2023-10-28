@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 # Debug Settings
 /[Aa]ssets/[Dd]ebug[Ss]ettings*
+
+# Mono crash dump
+mono_crash.*
