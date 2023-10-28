@@ -10,44 +10,34 @@ public class TitleScreenManager : MonoBehaviour
     public GameObject continueButton;
     public GameObject settingMenu;
 
-    // Hide Continue Button if no save data
     void Start()
     {
-        // Disable self if there is no continue scene
-        if (!PlayerPrefs.HasKey("ContinueSceneName"))
-        {
-            continueButton.SetActive(false);
-        }
+        enterSensitivity.onEndEdit.AddListener((sensitivity) => SetSensitivity(float.Parse(sensitivity)));
+        RefreshTitleScreen();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (settingMenu.activeSelf)
-            {
-                settingMenu.SetActive(false);
-            } else
-            {
-                settingMenu.SetActive(true);
-            }
+            // Toggle setting menu
+            settingMenu.SetActive(!settingMenu.activeSelf);
         }
+    }
+
+    // Refresh title screen element states to reflect on game settings and save
+    private void RefreshTitleScreen()
+    {
+        // Hide Continue Button if no save data
+        continueButton.SetActive(PlayerPrefs.HasKey("ContinueSceneName"));
+
+        // Update sensitivity text
+        enterSensitivity.text = GameSettings.instance.sensitivity.ToString();
     }
 
     // Game Start
     public void StartGame(bool continueGame)
     {
-        try
-        {
-            // Change player control sensitivity
-            GameSettings.instance.sensitivity = float.Parse(enterSensitivity.text);
-            GameSettings.instance.Save();
-            Debug.Log("Sensitivity set to " + GameSettings.instance.sensitivity);
-        }
-        catch
-        {
-        }
-
         // Clear continue scene if we are not continuing
         if (continueGame)
         {
@@ -69,23 +59,16 @@ public class TitleScreenManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void OpenSettings()
+    void SetSensitivity(float sensitivity)
     {
-        settingMenu.SetActive(true);
-    }
-
-    public void CloseSettings()
-    {
-        settingMenu.SetActive(false);
-        if (!PlayerPrefs.HasKey("ContinueSceneName"))
-        {
-            continueButton.SetActive(false);
-        }
+        GameSettings.instance.sensitivity = sensitivity;
+        GameSettings.instance.Save();
     }
 
     public void DeleteAllSave()
     {
+        GameSettings.Delete();
         PlayerPrefs.DeleteAll();
-        enterSensitivity.text = "0.1";
+        RefreshTitleScreen();
     }
 }

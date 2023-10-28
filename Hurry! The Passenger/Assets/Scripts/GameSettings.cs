@@ -34,6 +34,12 @@ public class GameSettings : ScriptableObject
         PlayerPrefs.SetString("GameSettings", JsonUtility.ToJson(this));
     }
 
+    public static void Delete()
+    {
+        instance_ = null;
+        PlayerPrefs.DeleteKey("GameSettings");
+    }
+
     #if UNITY_EDITOR
 
     [MenuItem("Game Settings/View Game Settings", false, 0)]
@@ -48,8 +54,7 @@ public class GameSettings : ScriptableObject
         // Confirm dialog
         if (!EditorUtility.DisplayDialog("Reset Game Settings", "Are you sure you want to reset game settings?", "Yes", "No")) return;
 
-        instance_ = null;
-        PlayerPrefs.DeleteKey("GameSettings");
+        Delete();
         Selection.activeObject = null;
     }
 
