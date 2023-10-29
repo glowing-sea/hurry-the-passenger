@@ -388,6 +388,63 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1174830333}
   m_SourcePrefab: {fileID: 100100000, guid: 2f8d00bf5057f624e949aef802595da9, type: 3}
+--- !u!1001 &57510749
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -209.28827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.398975
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154703244568498779, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6783042612740966625, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
+      propertyPath: m_Name
+      value: ComPlaneV3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7a4952846ba09894b99aeabfdafb8ec0, type: 3}
 --- !u!1 &59581939
 GameObject:
   m_ObjectHideFlags: 0
@@ -13686,3 +13743,4 @@ SceneRoots:
   - {fileID: 37872812}
   - {fileID: 960801384}
   - {fileID: 2111652105}
+  - {fileID: 57510749}
