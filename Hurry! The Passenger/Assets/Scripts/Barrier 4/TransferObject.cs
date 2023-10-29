@@ -24,7 +24,6 @@ public class TransferObject : MonoBehaviour
         GoingToLoc1,
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         state = ObjectState.GetToLoc1;
@@ -45,8 +44,7 @@ public class TransferObject : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Case 1: Get to loc1, wait for some time
         if (state == ObjectState.GetToLoc1)
