@@ -4101,7 +4101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs: []
   doorSpeed: 15
-  openedDisplacement: {x: 0, y: 0, z: -9}
+  openedDisplacement: {x: 0, y: 0, z: -16}
 --- !u!65 &158069117
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4182,8 +4182,8 @@ Transform:
   m_GameObject: {fileID: 158069115}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.7, y: 2.5, z: -4.5}
-  m_LocalScale: {x: 0.5, y: 5, z: 9}
+  m_LocalPosition: {x: 22.7, y: 2.5, z: 8}
+  m_LocalScale: {x: 0.5, y: 5, z: 16}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104678638}
@@ -6808,7 +6808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs: []
   doorSpeed: 15
-  openedDisplacement: {x: 0, y: 0, z: 9}
+  openedDisplacement: {x: 0, y: 0, z: 16}
 --- !u!65 &235822325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6889,8 +6889,8 @@ Transform:
   m_GameObject: {fileID: 235822323}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.7, y: 2.5, z: 4.5}
-  m_LocalScale: {x: 0.5, y: 5, z: 9}
+  m_LocalPosition: {x: 22.7, y: 2.5, z: -8}
+  m_LocalScale: {x: 0.5, y: 5, z: 16}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104678638}
@@ -13384,99 +13384,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519840588}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &535399838
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 535399839}
-  - component: {fileID: 535399842}
-  - component: {fileID: 535399841}
-  - component: {fileID: 535399840}
-  m_Layer: 0
-  m_Name: Runway Invisible Wall
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &535399839
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535399838}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 377, y: -4.889589, z: 501}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 706389924}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &535399840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535399838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46197b94f0405c466a26e3c2b7c7b1fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyAfterUse: 0
-  dialogs:
-  - name: Me
-    text: It does not sound like a good idea to go any closer to the runway.
-    sound: 0
---- !u!65 &535399841
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535399838}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1, y: 20, z: 1000}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &535399842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535399838}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 20, z: 1000}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &538472243
 GameObject:
   m_ObjectHideFlags: 0
@@ -17725,6 +17632,7 @@ GameObject:
   - component: {fileID: 706389924}
   - component: {fileID: 706389923}
   - component: {fileID: 706389922}
+  - component: {fileID: 706389925}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -17803,10 +17711,22 @@ Transform:
   m_LocalPosition: {x: -1116.8, y: 0, z: -607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 535399839}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &706389925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706389921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c591d6176c9d2862bde5d82ea1306c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 1
 --- !u!1 &710559222
 GameObject:
   m_ObjectHideFlags: 0
@@ -18443,7 +18363,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100046, guid: 7b6675de545141649953fd8adec4561b, type: 3}
       propertyPath: m_Name
-      value: SimpleFarmer_Man_02_White
+      value: Confused Passenger
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 7b6675de545141649953fd8adec4561b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24061,7 +23981,7 @@ Transform:
   m_GameObject: {fileID: 1007629984}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.113495, y: 4.8905888, z: -82.049995}
+  m_LocalPosition: {x: -55.113495, y: 4.9, z: -82.049995}
   m_LocalScale: {x: 7.88, y: 1, z: 3.37}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27843,14 +27763,14 @@ MonoBehaviour:
   destroyAfterUse: 0
   dialogs:
   - name: Confused Passenger
-    text: Do you know how to get to G2 G3
+    text: Do you know how to get to G3?
     sound: 0
   - name: Me
     text: Aren't we supposed to follow the signs on the ground?
     sound: 0
   - name: Confused Passenger
-    text: I don't know, but the road to G2 G3 seems to be under construction, and
-      we can't get through.
+    text: I don't know, but the road to G3 seems to be under construction, and we
+      can't get through.
     sound: 0
 --- !u!65 &1137972668
 BoxCollider:
@@ -41041,7 +40961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -146.43, y: 0.22}
+  m_AnchoredPosition: {x: -146.43, y: 0.2}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1660462033
