@@ -38,7 +38,7 @@ public class AutoDoor : MonoBehaviour
         gameManager = GameManager.instance; // get reference
         interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
         doorState = DoorState.Closed;
-        closedPosition = transform.localPosition; // use the saved position as the closed position
+        closedPosition = transform.position; // use the saved position as the closed position
     }
 
     // Update is called once per frame
@@ -48,9 +48,9 @@ public class AutoDoor : MonoBehaviour
         if (doorState == DoorState.Opening)
         {
             // Door is moving to its opened position
-            if (transform.localPosition != openedPosition)
+            if (transform.position != openedPosition)
             {
-                transform.localPosition = Vector3.MoveTowards(transform.localPosition, openedPosition, Time.deltaTime * doorSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, openedPosition, Time.deltaTime * doorSpeed);
             }
             // Door has got to its opened position
             else
@@ -64,9 +64,9 @@ public class AutoDoor : MonoBehaviour
         else if (doorState == DoorState.Closing)
         {
             // Door is moving to its closed position
-            if (transform.localPosition != closedPosition)
+            if (transform.position != closedPosition)
             {
-                transform.localPosition = Vector3.MoveTowards(transform.localPosition, closedPosition, Time.deltaTime * doorSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, closedPosition, Time.deltaTime * doorSpeed);
             }
             // Door has got to its closed position
             else
