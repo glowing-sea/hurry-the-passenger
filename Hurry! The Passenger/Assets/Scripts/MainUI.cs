@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainUI : MonoBehaviour
 {
@@ -18,4 +19,8 @@ public class MainUI : MonoBehaviour
     public GameObject taskIcon;
     public GameObject pauseIcon;
     public GameObject moneyIcon;
+
+    public GameObject sellerConfirm;
+    public Button buyNow;
+    public Button maybeLater;
 }
