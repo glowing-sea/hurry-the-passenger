@@ -4476,6 +4476,7 @@ MonoBehaviour:
   guideIcon: {fileID: 558630970}
   taskIcon: {fileID: 1090259894}
   pauseIcon: {fileID: 1347055095}
+  moneyIcon: {fileID: 390055784}
 --- !u!1 &728069245
 GameObject:
   m_ObjectHideFlags: 0

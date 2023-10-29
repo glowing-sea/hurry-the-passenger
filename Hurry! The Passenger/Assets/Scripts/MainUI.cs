@@ -17,4 +17,5 @@ public class MainUI : MonoBehaviour
     public GameObject guideIcon;
     public GameObject taskIcon;
     public GameObject pauseIcon;
+    public GameObject moneyIcon;
 }

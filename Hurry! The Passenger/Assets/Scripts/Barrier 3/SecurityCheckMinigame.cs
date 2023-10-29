@@ -134,6 +134,7 @@ public class SecurityCheckMinigame : MonoBehaviour
             gameManager.mainUI.taskIcon.SetActive(false);
             gameManager.mainUI.guideIcon.SetActive(false);
             gameManager.mainUI.pauseIcon.SetActive(false);
+            gameManager.mainUI.moneyIcon.SetActive(false);
             gameManager.mainUI.autoSavingIndicator.SetActive(false);
 
             itemLeft = itemNum;
@@ -307,6 +308,7 @@ public class SecurityCheckMinigame : MonoBehaviour
         gameManager.mainUI.taskIcon.SetActive(true);
         gameManager.mainUI.guideIcon.SetActive(true);
         gameManager.mainUI.pauseIcon.SetActive(true);
+        gameManager.mainUI.moneyIcon.SetActive(true);
 
         // Clean Up
         foreach (Transform child in transform)
