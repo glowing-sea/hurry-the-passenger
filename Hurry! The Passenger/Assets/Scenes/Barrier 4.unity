@@ -38247,7 +38247,7 @@ MonoBehaviour:
     text: Yes, please.
     sound: 0
   - name: Me
-    text: (Wow, this map is more detailed. It may better help me find the boarding
+    text: (Wow, this map is more detailed. It may help me better to find the boarding
       gate.)
     sound: 0
   dialogsNotBuy:
