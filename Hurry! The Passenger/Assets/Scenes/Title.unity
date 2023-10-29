@@ -1128,7 +1128,23 @@ MonoBehaviour:
     Background
     Music: Unity Learn Course Library
 
-    Background Sound Effects: freesound.org'
+    Road Texture: PBR Materials Sampler Pack
+    https://assetstore.unity.com/packages/2d/textures-materials/pbr-materials-sampler-pack-40112
+
+    Jet
+    Planes: Planes & Choppers - PolyPack https://assetstore.unity.com/packages/3d/vehicles/air/planes-choppers-polypack-194946
+
+    Road
+    Noise: by a busy road background.wav  https://freesound.org/people/kyles/sounds/452307/
+
+    Airport
+    checkin sound: Airport check in.wav https://freesound.org/people/soundmary/sounds/117590/
+
+    Airplane
+    takeoff sound: AIRPLANES_TAKEOFF_ZAVENTEM.wav https://freesound.org/people/keng-wai-chane-chick-te/sounds/439536/
+
+    Airport
+    buildings: Made by Haoting Chen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff9dfb9dcfa9b451da0749c3d2b449a9, type: 2}
   m_sharedMaterial: {fileID: 21956123629259200, guid: ff9dfb9dcfa9b451da0749c3d2b449a9, type: 2}
@@ -1155,8 +1171,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1963,7 +1979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1701954621
 MonoBehaviour:
   m_ObjectHideFlags: 0
