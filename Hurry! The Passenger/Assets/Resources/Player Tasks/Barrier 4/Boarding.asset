@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f8f58814518ecfbbeed937837f5c70, type: 3}
   m_Name: Boarding
   m_EditorClassIdentifier: 
-  taskName: Find the right boarding gate to board the plane
+  taskName: Find boarding gate G2
   taskID: 
   isVisible: 1
   sceneName: Barrier 4
