@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgm: {fileID: 8300000, guid: 834bc99524a174a378e982623582c06d, type: 3}
-  ambience: {fileID: 8300000, guid: 146b0cdd04a7448b8b1c50b21889d27f, type: 3}
+  ambience: {fileID: 8300000, guid: 9a7a2a3480f86404a9420685b7f0c8ff, type: 3}
 --- !u!65 &32206064
 BoxCollider:
   m_ObjectHideFlags: 0
