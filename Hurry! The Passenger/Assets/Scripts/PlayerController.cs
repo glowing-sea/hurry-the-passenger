@@ -171,4 +171,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player has energy drink");
     }
 
+    public void LargerMap()
+    {
+        minimapCamera.orthographicSize = 100;
+    }
 }

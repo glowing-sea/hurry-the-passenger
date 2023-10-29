@@ -74,7 +74,14 @@ public class SellerInteract : MonoBehaviour
             {
                 buyState = BuyState.Buy;
                 gameManager.mainUI.sellerConfirm.SetActive(false);
-                playerController.DrinkEnergyDrink();
+                if (sellerType == SellerType.DrinkSeller)
+                {
+                    playerController.DrinkEnergyDrink();
+                }
+                else if (sellerType == SellerType.MapSeller)
+                {
+                    playerController.LargerMap();
+                }
                 gameManager.UpdateBalance(itemPrice, false);
                 soldOut = true;
             } else
