@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce; // force apply to the player when they jump
     public float gravityModifier; // set to 9.8
 
+    public Camera minimapCamera;
+
     // Animation
     private Animator playerAnim;
 

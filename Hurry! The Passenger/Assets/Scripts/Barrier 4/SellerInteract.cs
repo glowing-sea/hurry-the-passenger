@@ -10,8 +10,11 @@ public class SellerInteract : MonoBehaviour
     // The dialogs the NPC is going to have
     public List<DialogSystem.Dialog> dialogs;
     public List<DialogSystem.Dialog> dialogsBuy;
-    public List<DialogSystem.Dialog> dialogsBuyNoMoney;
     public List<DialogSystem.Dialog> dialogsNotBuy;
+    public List<DialogSystem.Dialog> dialogsNotBuyNoMoney;
+    public List<DialogSystem.Dialog> dialogsSoldOut;
+    public SellerType sellerType;
+    public int itemPrice;
 
     // Interactable object variable
     private TextMeshProUGUI interact;
@@ -22,10 +25,36 @@ public class SellerInteract : MonoBehaviour
 
     // Script
     private GameManager gameManager; // reference to the game manager script
+    private PlayerController playerController;
+
+    private bool soldOut = false;
+
+    // int dialogueStartPlaying = 0;
+
+    private BuyState buyState = BuyState.BuyerIntro;
+
+    public enum SellerType
+    {
+        DrinkSeller,
+        MapSeller
+    }
+
+    private enum BuyState
+    {
+        BuyerIntro,
+        DecideBuyOrNot,
+        Buy,
+        NotBuy,
+        NotBuyNoMoney,
+        Leaving,
+        NotTrigger
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
+
         buyState = BuyState.NotTrigger;
         gameManager = GameManager.instance; // get reference
         interact = gameManager.mainUI.interactPrompt.GetComponent<TextMeshProUGUI>();
@@ -41,8 +70,19 @@ public class SellerInteract : MonoBehaviour
     {
         if (buyState == BuyState.DecideBuyOrNot)
         {
-            buyState = BuyState.Buy;
-            gameManager.mainUI.sellerConfirm.SetActive(false);
+            if (gameManager.balance >= itemPrice)
+            {
+                buyState = BuyState.Buy;
+                gameManager.mainUI.sellerConfirm.SetActive(false);
+                playerController.DrinkEnergyDrink();
+                gameManager.UpdateBalance(itemPrice, false);
+                soldOut = true;
+            } else
+            {
+                buyState = BuyState.NotBuyNoMoney;
+                gameManager.mainUI.sellerConfirm.SetActive(false);
+                gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1);
+            }
         }
     }
 
@@ -55,20 +95,6 @@ public class SellerInteract : MonoBehaviour
         }
     }
 
-    // int dialogueStartPlaying = 0;
-
-    private BuyState buyState = BuyState.BuyerIntro;
-
-    private enum BuyState
-    {
-        BuyerIntro,
-        DecideBuyOrNot,
-        Buy,
-        NotBuy,
-        Leaving,
-        NotTrigger
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -78,11 +104,22 @@ public class SellerInteract : MonoBehaviour
             // If the player press F
             if (Input.GetKeyDown(KeyCode.F))
             {
-                gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
-                buyState = BuyState.BuyerIntro;
-                interact.gameObject.SetActive(false);
-                interactable = false;
-                gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
+                if (soldOut)
+                {
+                    gameManager.sfxPlayer.PlayOneShot(gameManager.somethingWrong, 1.0f);
+                    buyState = BuyState.Leaving;
+                    interact.gameObject.SetActive(false);
+                    interactable = false;
+                    gameManager.dialogSystem.StartDialog(dialogsSoldOut.GetEnumerator());
+                }
+                else
+                {
+                    gameManager.sfxPlayer.PlayOneShot(gameManager.taskComplete, 1.0f);
+                    buyState = BuyState.BuyerIntro;
+                    interact.gameObject.SetActive(false);
+                    interactable = false;
+                    gameManager.dialogSystem.StartDialog(dialogs.GetEnumerator());
+                }
             }
         }
 
@@ -95,17 +132,24 @@ public class SellerInteract : MonoBehaviour
         }
 
 
-        // Dialog playing is finish, make it interactable again
+        // Buy
         if (buyState == BuyState.Buy)
         {
             gameManager.dialogSystem.StartDialog(dialogsBuy.GetEnumerator());
             buyState = BuyState.Leaving;
         }
 
-        // Dialog playing is finish, make it interactable again
+        // not buy
         if (buyState == BuyState.NotBuy)
         {
             gameManager.dialogSystem.StartDialog(dialogsNotBuy.GetEnumerator());
+            buyState = BuyState.Leaving;
+        }
+
+        // no money
+        if (buyState == BuyState.NotBuyNoMoney)
+        {
+            gameManager.dialogSystem.StartDialog(dialogsNotBuyNoMoney.GetEnumerator());
             buyState = BuyState.Leaving;
         }
 
