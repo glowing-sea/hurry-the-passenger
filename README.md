@@ -40,11 +40,7 @@ The finish this main goal, there are several tasks the player should complete fi
 ## Reference
 
 **Image:**
-
-
-Arrow on the minimap
-https://www.cleanpng.com/png-arrowhead-computer-icons-clip-art-left-arrow-1030804/download-png.html
-
+Drew by Team
 
 **Texture:**
 
