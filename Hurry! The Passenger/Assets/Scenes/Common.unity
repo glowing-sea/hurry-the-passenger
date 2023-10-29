@@ -6013,7 +6013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf33e656ea7344480a86f06051e2bb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime: 600
+  initialTime: 900
   balance: 100
   gravity: 9.8
   startingSceneName: Barrier 1
