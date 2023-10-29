@@ -1191,12 +1191,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 506519930}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 506519930}
+  m_maskType: 0
 --- !u!23 &506519930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "use WASD keys to move and \ncollect the crate"
+  m_text: "use WASD/Arrow keys \nto move and collect "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -1606,12 +1606,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 644235065}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 644235065}
+  m_maskType: 0
 --- !u!23 &644235065
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2192,15 +2192,15 @@ MonoBehaviour:
   destroyAfterUse: 1
   dialogs:
   - name: Me
-    text: How much time do I have... [checks watch] 10 minutes? That's bad.
+    text: How much time do I have... [checks watch] 15 minutes? That's bad.
     sound: 0
   - name: Me
     text: 'What''s up with the roads? Why don''t they have traffic lights? Maybe
-      I should just run it! '
+      I should just run! '
     sound: 0
   - name: Me
     text: If I cross the road lane by lane, and stop in the middle of the road, I
-      might not get hit. Gotta hurry!
+      won't be hit. Gotta hurry!
     sound: 0
 --- !u!65 &1037185218
 BoxCollider:
@@ -3165,12 +3165,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1558703961}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1558703961}
+  m_maskType: 0
 --- !u!23 &1558703961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3706,12 +3706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press W+Shift +Space before
-
-    hitting the obstacle to sprint
-
-    and
-    jump over obstacle'
+  m_text: "Press Space and moveforward \nto jump over the obstacle"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -3777,12 +3772,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -12.029264, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1776812356}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1776812356}
+  m_maskType: 0
 --- !u!23 &1776812356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4146,12 +4141,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -7.5611362, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1833132074}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1833132074}
+  m_maskType: 0
 --- !u!23 &1833132074
 MeshRenderer:
   m_ObjectHideFlags: 0

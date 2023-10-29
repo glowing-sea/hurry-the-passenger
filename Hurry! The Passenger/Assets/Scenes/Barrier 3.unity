@@ -4965,7 +4965,7 @@ MonoBehaviour:
   destroyAfterUse: 0
   dialogs:
   - name: Me
-    text: I need to hurry up. There is no point in going back.
+    text: I need to hurry up. There is no point going back.
     sound: 0
 --- !u!65 &1476160023
 BoxCollider:

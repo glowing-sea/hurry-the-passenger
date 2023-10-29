@@ -8715,9 +8715,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Notes\n\nYou are almost late for the plane.\nYou need to cross roads to
-    get to the airport first.\nThen, go through \"baggage checkin\", \"customs\",
-    \"border force\", and a \u201Cwaiting lounges\u201D"
+  m_text: 'Notes
+
+
+    You are almost late for the plane.
+
+    You need to cross
+    roads to get to the airport first.
+
+    Then, go through "Check-in", "Security
+    Check", "Bording Gate", and successfully get onto flight.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff9dfb9dcfa9b451da0749c3d2b449a9, type: 2}
   m_sharedMaterial: {fileID: 21956123629259200, guid: ff9dfb9dcfa9b451da0749c3d2b449a9, type: 2}

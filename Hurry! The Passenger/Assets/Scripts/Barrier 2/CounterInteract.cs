@@ -66,7 +66,7 @@ public class CounterInteract : MonoBehaviour
         yield return new DialogSystem.Dialog
         {
             name = "Me",
-            text = "Hey, I'm checking-in to this flight. [shows the ticket]"
+            text = "Hey, I'm checking in this flight. [shows the ticket]"
         };
         gameManager.TimeDecrese(30);
         yield return new DialogSystem.Dialog
@@ -83,7 +83,7 @@ public class CounterInteract : MonoBehaviour
         yield return new DialogSystem.Dialog
         {
             name = "Me",
-            text = "(I should have asked someone at the airport for help.)"
+            text = "(I should ask someone at the airport for help.)"
         };
         interactable = true;
         interact.gameObject.SetActive(true);
@@ -94,12 +94,12 @@ public class CounterInteract : MonoBehaviour
         yield return new DialogSystem.Dialog
         {
             name = "Me",
-            text = "Hey, I'm checking-in to this flight. [shows the ticket]"
+            text = "Hey, I'm checking in this flight. [shows the ticket]"
         };
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "Alright. Do you have your checked baggage? [stares at the baggage] Well, my apologies, but you need to organise your baggage first as they are overweighted.",
+            text = "Alright.[stares at the baggage] Well, my apologies, you need to organise your baggage first as they are overweighted.",
             sound = 2
         };
         yield return new DialogSystem.Dialog
@@ -110,7 +110,7 @@ public class CounterInteract : MonoBehaviour
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "Baggae Organiser is on the right side of the Airport Entrance."
+            text = "Baggage Organiser is on the right side of the Airport Entrance."
         };
         interactable = true;
         interact.gameObject.SetActive(true);
@@ -121,18 +121,18 @@ public class CounterInteract : MonoBehaviour
         yield return new DialogSystem.Dialog
         {
             name = "Me",
-            text = "Hey, I'm checking-in to this flight. [shows the ticket]"
+            text = "Hey, I'm checking in this flight. [shows the ticket]"
         };
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "Alright. Do you have your checked baggage? [stares at the baggage] Nice. Now please wait for a moment."
+            text = "Alright. Have you checked your baggage? [stares at the baggage] Nice. Now please wait for a moment."
         };
         gameManager.CompleteTask(checkInTask);
         yield return new DialogSystem.Dialog
         {
             name = "Counter Staff",
-            text = "[operates the computer] Alright. You are good to go. Please go to the Domestic Departure."
+            text = "[operates the computer] Alright. You are good to go. Please hurry to the Domestic Departure."
         };
         yield return new DialogSystem.Dialog
         {

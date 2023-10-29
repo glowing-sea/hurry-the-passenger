@@ -692,7 +692,7 @@ MonoBehaviour:
   dialogs:
   - name: Me
     text: (My flight number is TX188... [looks around] I don't see any signs indicating
-      where I should check-in.)
+      where I should go to check-in.)
     sound: 0
   - name: Me
     text: (How are they running this airport? Well, no time to think about that,
@@ -10117,8 +10117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - name: Me
-    text: Just the kind of automatic door that shuts at my face...... Maybe I should
-      sprint when it opens
+    text: 'The kind of automatic door just shuts at my face......
+
+      Maybe I
+      should sprint when it opens.'
     sound: 0
   doorSpeed: 40
   openedDisplacement: {x: 0, y: 0, z: 9}
@@ -24545,17 +24547,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - name: Punk Stranger
-    text: The check-in Counter for the airline TX188 is located at Counter 1.
+    text: The Check-in Counter for the airline TX188 is located at Counter 1.
     sound: 0
   - name: Me
-    text: I wonder which lane....
+    text: I wonder which column....
     sound: 0
-  - name: Punk Strainger
-    text: 'Sorry bud, gotta go! '
+  - name: Punk Stranger
+    text: 'Sorry mate, gotta go! '
     sound: 0
   - name: Me
-    text: '(Hmmm.... There are multiple lanes with counter 1. Can''t blame him for
-      not being helpful though... I have to ask around more) '
+    text: '(Hmmm.... There are multiple lanes with counter 1. I can''t blame him
+      for not being helpful though... I have to keep asking around) '
     sound: 0
 --- !u!65 &1741963995
 BoxCollider:
@@ -25386,7 +25388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - name: Uncomfortable Stranger
-    text: Did you know? Check-in Counters in Column D is for handling domestic flights.
+    text: You know what? Check-in Counters in Column D is for handling domestic flights.
     sound: 0
 --- !u!65 &1862405991
 BoxCollider:

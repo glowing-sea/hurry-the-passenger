@@ -41,20 +41,6 @@ The finish this main goal, there are several tasks the player should complete fi
 
 **Image:**
 
-Money icon on UI
-https://www.cleanpng.com/png-money-bag-dollar-sign-currency-symbol-clip-art-mon-168910/
-
-Light start icon on UI
-https://www.cleanpng.com/png-star-cliparts-69039/download-png.html
-
-Black star icon on UI
-https://www.cleanpng.com/png-star-png-image-64196/download-png.html
-
-Note icon on UI
-https://www.clipartkey.com/view/iRoToR_icons-checklist-computer-black-text-white-check-list/
-
-Guide icon on main screen
-https://www.cleanpng.com/png-question-mark-png-41120/
 
 Arrow on the minimap
 https://www.cleanpng.com/png-arrowhead-computer-icons-clip-art-left-arrow-1030804/download-png.html
