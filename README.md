@@ -1,4 +1,4 @@
-The game is now available on Unity Play ([🔗](https://play.unity.com/en/games/504ab53c-0c2f-45b6-8456-bea16de5b9fc/anu2023-hurry-the-passenger)）
+The game is now available on Unity Play ([🔗](https://play.unity.com/mg/other/hurry-the-passenger-1)）
 
 ## How to run
 
