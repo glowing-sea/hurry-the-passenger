@@ -1,0 +1,4 @@
+git remote add upstream https://gitlab.cecs.anu.edu.au/u7435629/comp3540-2023-game-project
+git fetch upstream
+git merge upstream/master
+git push
