@@ -2,3 +2,13 @@ git remote add upstream https://gitlab.cecs.anu.edu.au/u7435629/comp3540-2023-ga
 git fetch upstream
 git merge upstream/master
 git push
+
+
+git checkout -b main upstream/main
+git push -u origin main
+
+git checkout -b make-tutorial upstream/make-tutorial
+git push -u origin make-tutorial
+
+git checkout -b problematic_merge upstream/problematic_merge
+git push -u origin problematic_merge
