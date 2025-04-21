@@ -1,3 +1,5 @@
+![Title](/images/figure1.png)
+
 The game is now available on Unity Play ([🔗](https://play.unity.com/mg/other/hurry-the-passenger-1)）
 
 ## How to run
