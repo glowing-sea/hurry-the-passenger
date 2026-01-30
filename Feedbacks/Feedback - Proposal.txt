@@ -1,0 +1,56 @@
+Prototype 
+
+CwC Lab 1 (1/1) 
+
+CwC Lab 2 (1/1) 
+
+CwC Lab 3 (1/1) 
+
+CwC Lab 4 (1/1) 
+
+CwC Lab 5 (1/1) 
+
+Iteration (2/2) 
+
+Quality (3/3) 
+
+Prototype (10/10) 
+
+
+
+Prototype Comments/Feedback 
+
+Very well-developed prototype.
+
+
+
+Analysis 
+
+Core Gameplay (1/1) 
+
+Formal Elements Description (4/4)
+
+Formal Elements Explanation (3.5/4)
+
+Engagement (0.5/2) 
+
+Mechanics (0.5/2)
+
+Interface (0.5/2) 
+
+Prototyping Process Activities (4/4)
+
+Prototyping Process Reflections (4/4)
+
+Analysis (18/23) 
+
+
+
+Analysis Comments/Feedback Late 
+
+Analysis is also well-written. Use references for engagement, mechanics, and interface discussion from the lectures. In the formal element description, the description of some elements seems too general. Make it more specific for the gameplay. Overall, this is a very good attempt.
+
+
+
+
+Total (28/33)
