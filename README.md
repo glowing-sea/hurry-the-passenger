@@ -19,3 +19,7 @@ Open the source code with Unity and press run to compile and run.
 `I` to open task menu
 
 `ESC` to pause the game
+
+## Note on Third-Party Assets:
+
+The CC BY-NC-ND 4.0 license applies to the original code and assets created by the authors. Any third-party plugins or assets (e.g., from the Unity Asset Store) included in this repository are subject to their respective original licenses.
