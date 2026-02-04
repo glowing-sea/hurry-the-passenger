@@ -14,7 +14,7 @@
 
 **Course Outline**:
 
-- Each student in the course was required to design an original game prototype. Next, students were formed into groups of four. Within each group, one of the members’ prototypes was chosen to develop into a full version game. Assessments were based on both traditional marking and peer-evaluation by different groups.
+- Each student in the course was required to design an *original* game prototype. Next, students were formed into groups of four. Within each group, one of the members’ prototypes was chosen to develop into a full version game. Assessments were based on both traditional marking and peer-evaluation by different groups.
 
 **Course Final Mark**: 88 / 100
 
