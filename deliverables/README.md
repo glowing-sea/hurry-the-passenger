@@ -1,3 +1,6 @@
+> [!IMPORTANT] 
+> If any links or files require a password, please use my **UTAS Application Number**. 
+
 ## Abstract
 
 **Title**: Video Game: Hurry! The Passenger
@@ -14,13 +17,13 @@
 
 **Course Outline**:
 
-- Each student in the course was required to design an *original* game prototype. Next, students were formed into groups of four. Within each group, one of the members’ prototypes was chosen to develop into a full version game. Assessments were based on both traditional marking and peer-evaluation by different groups.
+- Each student in the course was required to design an *original* game prototype. Next, students were formed into groups of four. Within each group, one of the members’ prototypes was chosen to develop into a full version game. Assessments were based on both traditional marking and peer-evaluation by different groups. ([reference](https://1drv.ms/f/c/4f49bb445ba8ff14/IgC-wOsVFEZoSpTf3QKQgPQlATR43PxNM1Op5wL73sWP8w8?e=gFK3oo))
 
 **Course Final Mark**: 88 / 100
 
 **Project Weight**: [90%](https://programsandcourses.anu.edu.au/2023/course/COMP3540/Second%20Semester/7514) of COMP3540
 
-**Project Mark**: 85 / 100 (prototype), 89 / 100 (full game)
+**Project Mark**: [85](https://1drv.ms/f/c/4f49bb445ba8ff14/IgC-wOsVFEZoSpTf3QKQgPQlATR43PxNM1Op5wL73sWP8w8?e=gFK3oo) / 100 (prototype), [89](https://1drv.ms/f/c/4f49bb445ba8ff14/IgC-wOsVFEZoSpTf3QKQgPQlATR43PxNM1Op5wL73sWP8w8?e=gFK3oo) / 100 (full game)
 
 **Deliverables**: [code](https://github.com/glowing-sea/hurry-the-passenger), [build](https://play.unity.com/en/games/504ab53c-0c2f-45b6-8456-bea16de5b9fc/anu2023-hurry-the-passenger)
 
